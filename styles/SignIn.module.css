@@ -1,0 +1,42 @@
+.signInContainer {
+    display: flex;
+    flex-direction: column;
+   }
+   
+   .input {
+    
+     margin-bottom: 10px;
+     padding: 10px;
+     background-color: #151f2b;
+     color: white;
+     border: 0.5px solid grey;
+     width: 50%;
+     align-self: center;
+   }
+   
+   .btnIn {
+     background-color: white;
+     color: black;
+     width: 50%;
+     align-self: center;
+     border: white;
+     border-radius: 20px;
+     padding: 10px;
+     margin-bottom: 10px;
+     font-weight: bold;
+   }
+   
+   .errorMessage {
+     color: rgb(233, 84, 166);
+     margin-bottom: 10px;
+   }
+   .imgLogo{
+     width: 17%;
+     align-self: center;
+   }
+   .connect{
+    color: white;
+    align-self: center;
+    padding: 20px;
+   }
+   
