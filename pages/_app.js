@@ -3,12 +3,14 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import user from '../reducers/user';
+import { useRouter } from 'next/router';
 
 const store = configureStore({
   reducer: { user },
 });
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
   return (
     <>
       <Provider store={store}>

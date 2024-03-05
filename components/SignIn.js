@@ -29,7 +29,7 @@ function SignIn() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ username: data.userName, token: data.token })); // Mise à jour selon ce que votre API retourne
+          dispatch(login({ username: data.username, token: data.token })); // Mise à jour selon ce que votre API retourne
           closeModal();
           //utilisation du userRouter de next pour créer le chemin de redirection si on reçoit les data
           router.push('/');
@@ -49,7 +49,7 @@ function SignIn() {
 
   return (
     <div className={styles.signInContainer}>
-      <img className={styles.imgLogo} src='../images/bousole.png' alt="Logo"/>
+      <img className={styles.imgLogo} src='../images/stickers/boussole.png' alt="Logo"/>
       <p className={styles.connect}>Connectez-vous à GroupTravel</p>
       <input
         className={styles.input}

@@ -2,22 +2,14 @@ import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Login from './login';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUserToStore } from '../reducers/user';
+import { useSelector } from 'react-redux';
 import styles from '../styles/header.module.css';
 
 export default function Header() {
-    const dispatch = useDispatch();
-    const addUser = (newUser) => {
-        dispatch(addUserToStore(newUser));
-    }
-    const user = useSelector((state) => state.user);
-
-    const icon = {
-        name: faHouse,
-        classname: 'header-icon',
-    }
-
+    const user = useSelector(state => state.user.value);
+    
+    
+   
     return (
         <header className={styles.header}>
             <div className={styles.headerfull}>
@@ -27,9 +19,12 @@ export default function Header() {
                 <Link href="/activities"><a className={styles.link}>Activities</a></Link>
                 <Link href="/planning"><a className={styles.link}>Planning</a></Link>
                 <Link href="/chat"><a className={styles.link}>Chat</a></Link>
+                {user.token && <span>Bonjour, {user.userName}</span>}
+            </div>
+            <div className={styles.log}>
                <Login/>
-                {user ? user.userName : ''}
             </div>
         </header>
     );
-}
+
+    }
