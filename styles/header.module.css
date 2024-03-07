@@ -2,14 +2,14 @@
 .header {
     background-color: #F4F4F0;
     width: 100%;
-    min-height: 3rem;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
+    
 }
 .headerfull{
     display: flex;
     justify-content: space-between;
-
 }
 /* MENU */
 
@@ -22,18 +22,23 @@
     color: rgb(42, 38, 38);
     margin: 15px;
 }
-.log{
+.headerlog{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 30%
+    width: 97%;
 }
 .onLine{
 
     display: flex;
     justify-content: center;
     align-items: center;
-    color:coral;
+    color: #F65978;
+    margin-right: 20px;
+}
+.logoutButton{
+    justify-content: flex-end;
+    align-self: center;
 }
 
 

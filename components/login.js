@@ -3,7 +3,7 @@ import Button from './Button';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Modal from './Modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../reducers/user';
 
 import styles from '../styles/Login.module.css';
@@ -12,6 +12,7 @@ function Login() {
   const [isSignInModalVisible, setIsSignInModalVisible] = useState(false);
   const [isSignUpModalVisible, setIsSignUpModalVisible] = useState(false);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   // Fonction pour gérer l'authentification réussie
   const handleAuthSuccess = (userData) => {
@@ -24,6 +25,9 @@ function Login() {
     setIsSignInModalVisible(false);
     setIsSignUpModalVisible(false);
   };
+
+ // Si l'utilisateur est connecté, ne rien afficher
+if (isLoggedIn) return null;
 
   return (
     <>

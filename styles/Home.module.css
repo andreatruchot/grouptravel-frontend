@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
   margin:0;
   padding:0;
-  /*background-color: #F4F4F0;*/
+  background-color: #F4F4F0;
 }
 .banner{
   height: 70vh;
@@ -15,18 +14,21 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
-
 .title {
   line-height: 1.15;
   font-size: 4rem;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.newtrip{
+  width: 100%;
+  height: 30vh;
+}
+.howitWorks{
+  background-color: #BDDCD7;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
-}

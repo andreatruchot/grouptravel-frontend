@@ -1,0 +1,9 @@
+.carrouselContainer {
+  width: 0%;
+  height: auto;
+}
+/* Style pour surcharger le bouton */
+.carousel-control-prev,
+.carousel-control-next {
+  color: rgb(59, 57, 56); 
+}
