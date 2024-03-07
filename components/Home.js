@@ -4,11 +4,15 @@ import Header from './header';
 import Footer from './footer';
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
+import { useRouter } from 'next/router';
+
 
 
 function Home() {
+  const router = useRouter(); // Ajoutez cette ligne
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  
 
   const handleNewTripClick = () => {
     if (!isLoggedIn) {
@@ -31,7 +35,9 @@ function Home() {
         <div className={styles.newtrip}>
            <img className={styles.plane}></img>
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
-           <Modal />
+           <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
+            Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
+         
         </div>
         <div className={styles.howitWorks}>
           <div className={styles.carroussel}>

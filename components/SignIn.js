@@ -2,49 +2,43 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../reducers/user';
 import { useRouter } from 'next/router';
-import styles from '../styles/SignIn.module.css'; 
+import styles from '../styles/SignIn.module.css';
 
-function SignIn() {
-  const [email, setEmail] = useState(''); // Utilisation de l'email pour l'authentification
+function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé en prop
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const router = useRouter();
 
   const handleSignIn = () => {
-    console.log("Tentative de connexion");
-    // Validation simple pour s'assurer que les champs ne sont pas vides
-    if (!email || !password) {
-      alert('Les champs ne doivent pas être vides'); // Utilisation d'alert pour simplifier
-      return;
-    } else {
-      console.log("Envoi de la requête:", email, password);
-      fetch('http://localhost:3000/users/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email, // Mise à jour pour utiliser email
-          password,
-        }),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.result) {
-          dispatch(login({ username: data.username, token: data.token })); // Mise à jour selon ce que votre API retourne
-          closeModal();
-          //utilisation du userRouter de next pour créer le chemin de redirection si on reçoit les data
-          router.push('/');
-        } else {
-
-          alert('mot de passe ou email invalide');
-          closeModal();
-        }
-      });
+    console.log("Tentative de connexion avec", email, password);
     
-    };
-    }
-  const closeModal = () => {
-    setEmail('');
-    setPassword('');
+    fetch('http://localhost:3000/users/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data); 
+      if (data.result) {
+        console.log("Connexion réussie");
+        dispatch(login({ username: data.username, token: data.token }));
+        if(onCloseModal) onCloseModal(); // Utilisez onCloseModal pour fermer la modal
+        router.push('/'); // Redirection vers la page d'accueil
+      } else {
+        alert('Email ou mot de passe invalide');
+        if(onCloseModal) onCloseModal(); // Ferme la modal en cas d'erreur aussi
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la connexion:", error);
+      alert("Une erreur s'est produite lors de la tentative de connexion.");
+      if(onCloseModal) onCloseModal();
+    });
   };
 
   return (
@@ -54,16 +48,19 @@ function SignIn() {
       <input
         className={styles.input}
         placeholder="Adresse email"
+        type="email" // Spécifier le type pour activer la validation d'email native du navigateur
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
         className={styles.input}
         type="password"
         placeholder="Mot de passe"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <button className={styles.btnIn} onClick={handleSignIn}>
-        connection
+        Connexion
       </button>
     </div>
   );
