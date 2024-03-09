@@ -1,6 +1,10 @@
 .carrouselContainer {
-  width: 0%;
+  width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 /* Style pour surcharger le bouton */
 .carousel-control-prev,

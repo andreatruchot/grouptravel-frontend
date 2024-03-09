@@ -8,14 +8,11 @@ import { useRouter } from 'next/router';
 import Carrousel from './carrousel';
 
 
+
 function Home() {
   const router = useRouter(); // Ajoutez cette ligne
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const [isModalVisible, setIsModalVisible] = useState(false);
- 
-
-  
-  
 
   const handleNewTripClick = () => {
     if (!isLoggedIn) {
@@ -24,7 +21,6 @@ function Home() {
       router.push('/addTrip'); 
     }
   };
-  
   return (
     <div>
     <div className={styles.header}>
@@ -32,22 +28,28 @@ function Home() {
     </div>
       <main className={styles.main}>
         <div className={styles.banner}>
-           <h1 className={styles.title}>
-              GroupTravel
-           </h1>
-           <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
+          <div className={styles.explain}>
+             <h1 className={styles.title}>GroupTravel</h1>
+             <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
+          </div>
+        </div>
+        <div className={styles.plane}>
+           <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.stickers}></img>
         </div>
         <div className={styles.newtrip}>
-           <img className={styles.plane}></img>
+          
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
-           <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
-            Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
+           <Modal className={styles.modal}isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
+                  Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
+            <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img>
         </div>
         <div className={styles.howitWorks}>
           <div className={styles.carrousel}>
           <Carrousel />
           </div>
-          <img className={styles.stickercase}></img>
+         </div>
+         <div className={styles.space}>
+          <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
         </div>
       </main>
       <Footer/>

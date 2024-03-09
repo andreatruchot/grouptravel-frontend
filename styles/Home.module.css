@@ -1,3 +1,9 @@
+
+.header{
+  width: 100%;
+  background-color: #F4F4F0;
+  height: 12vh;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -7,28 +13,90 @@
   background-color: #F4F4F0;
 }
 .banner{
-  height: 70vh;
+  height: 80vh;
   width: 100%; 
   background-image: url('/images/home/banner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
+}
+.explain{
+
+  display: flex;
+  align-items: center;
+  padding-top: 4%;
 }
 .title {
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3.4rem;
+  padding-right: 4%;
+  font-weight: 800;
+}
+.secondtitle{
+  align-self: center;
 }
 
 .newtrip{
   width: 100%;
-  height: 30vh;
-}
-.howitWorks{
-  background-color: #BDDCD7;
-  width: 100%;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.trip{
+  border-radius: 30px;
+  height: 24%;
+  width: 30%;
+  border: none;
+  background-color: #EED271;
+  align-self: flex-end;
+  margin-bottom: 5%;
+  grid-row: 2 / 3;
+  justify-self: self-end;
+  font-weight: 800;
+  margin-left: 8%;
+}
+.howitWorks{
+  background-color: #BDDCD7;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carrousel{
+
+  width: 100%;
+}
+.plane{
+  position: absolute;
+  align-self: flex-start;
+  margin-top: 30%;
+  margin-bottom:10%;
+  width: 30%;
+  font-weight: 800;
+}
+.pass{
+  grid-row: 3 / 4;
+  align-self: flex-end;
+  width: 23%;
+  height: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px;
+  justify-items: center;
+}
+.stickercase{
+  align-self: flex-start;
+  width: 25%;
+  position: absolute;
+}
+
+
+
 

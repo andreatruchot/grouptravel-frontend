@@ -27,12 +27,13 @@ const items = [
 
 const Carrousel = () => (
   <div className={styles.carrouselContainer}>
-  <Row>
-    <Col md="7" className="mx-auto">
+   <Row>
+    <Col md="8" className="mx-auto">
       <UncontrolledCarousel items={items} />
     </Col>
-  </Row>
+    </Row>
   </div>
+
 );
 
 export default Carrousel;
