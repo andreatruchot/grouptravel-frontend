@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router'; // Assurez-vous que cela est correctement importé pour utiliser `useRouter`
-import styles from '../../styles/ActivityForm.module.css';
+import { useRouter } from 'next/router'; 
+import styles from '../../styles/activityForm.module.css';
 
-const TripForm = () => {
+
+
+const ActivityForm = ({ tripId }) => {
 
     const [activityName, setActivityName] = useState('');
     const [description, setDescription] = useState('');
-    const [returnDate, setReturnDate] = useState(new Date());
+    const [date, setDate] = useState(new Date());
     const [location, setLocation] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -39,18 +40,17 @@ const handleSubmit = async (e) => {
     formData.append('location', location);
     formData.append('Url', Url); 
     formData.append('description', description);
-    formData.append('returnDate', returnDate.toISOString());
+    formData.append('date', date.toISOString());
     photos.forEach((photo, index) => {
         if (index < 2) { // Limite à deux photos
-            formData.append(`photos`, photo); // `photos` comme clé pour chaque fichier
+            formData.append(`photo`, photo); // `photos` comme clé pour chaque fichier
         }
     });
 
     try {
-        const response = await fetch('/api/addTrip', {
+        const response = await fetch('http://localhost:3000/activities/addActivity/${tripId}', { 
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}`, // Inclusion du  token d'authentification pour le user member
             },
             body: formData,
@@ -78,8 +78,8 @@ const handleSubmit = async (e) => {
 
   <label>Date</label>
       <DatePicker
-        selected={departureDate}
-        onChange={(date) => setDepartureDate(date)}
+        selected={date}
+        onChange={(date) => setDate(date)}
       />
 
      <label>lieu</label>
@@ -95,6 +95,7 @@ const handleSubmit = async (e) => {
          type="file"
          accept=".jpg,.jpeg,.png"
           onChange={handleFileChange}
+          multiple
          />
       <label>Le nom de l'activité</label>
       <input
@@ -112,8 +113,8 @@ const handleSubmit = async (e) => {
        placeholder="Description de l'hébergement"
       />
       <input
-        type="url"
-        value={url}
+        type="Url"
+        value={Url}
         onChange={(e) => setUrl(e.target.value)}
         placeholder="URL de l'activité"
         pattern="https?://.+"
@@ -127,7 +128,7 @@ const handleSubmit = async (e) => {
   );
 };
 
-export default TripForm;
+export default ActivityForm;
 
 
 
@@ -140,12 +141,3 @@ export default TripForm;
 
 
 
-
-<input
-className={styles.input} id="photo"
- type="file"
- accept=".jpg,.jpeg,.png"
-  onChange={handleFileChange}
- multiple
- />
- 

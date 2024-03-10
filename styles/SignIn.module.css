@@ -1,42 +1,47 @@
 .signInContainer {
-    display: flex;
-    flex-direction: column;
-   }
-   
-   .input {
-    
-     margin-bottom: 10px;
-     padding: 10px;
-     background-color: #151f2b;
-     color: white;
-     border: 0.5px solid grey;
-     width: 50%;
-     align-self: center;
-   }
-   
-   .btnIn {
-     background-color: white;
-     color: black;
-     width: 50%;
-     align-self: center;
-     border: white;
-     border-radius: 20px;
-     padding: 10px;
-     margin-bottom: 10px;
-     font-weight: bold;
-   }
-   
-   .errorMessage {
-     color: rgb(233, 84, 166);
-     margin-bottom: 10px;
-   }
-   .imgLogo{
-     width: 17%;
-     align-self: center;
-   }
-   .connect{
-    color: white;
-    align-self: center;
-    padding: 20px;
-   }
-   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .input {
+   margin-bottom: 5%;
+   padding: 10px;
+   background-color: white;
+   color: white;
+   border-radius: 8px;
+   border: 1px solid rgb(188, 182, 182);
+   width: 70%;
+   align-self: center;
+
+  
+ }
+ 
+ .btnUp {
+  background-color: #BDDCD7;
+   color: black;
+   width: 50%;
+   align-self: center;
+   border-radius: 10px;
+   padding: 10px;
+   margin-bottom: 10%;
+   margin-top: 10%;
+   font-weight: 500;
+   border-radius: 20px;
+ }
+ 
+ .errorMessage {
+   color: rgb(243, 81, 154);
+   margin-bottom: 10px;
+ } 
+ .imgLogo{
+   width: 50%;
+   align-self: center;
+   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+ }
+ .create{
+  color: #0000;
+  text-align: center;
+ 
+ }

@@ -20,14 +20,11 @@ export default function Header() {
            
             <div className={styles.headerfull}>
             {isLoggedIn && <>
-                <Link href="/"><a className={styles.link}>accueil</a></Link>
-                <Link href="/dashboard"><a className={styles.link}>Tableau de bord</a></Link>
-                <Link href="/accomodation"><a className={styles.link}>Hébergement</a></Link>
-                <Link href="/activities"><a className={styles.link}>Activités</a></Link>
-                <Link href="/profil"><a className={styles.link}>Mon profile</a></Link>
-                <Link href="/chat"><a className={styles.link}>Chat</a></Link>
-                <button onClick={handleLogout} className={styles.logoutButton}>Déconnexion</button>
-            {user.token && <span className={styles.onLine}> {user.username}</span>} 
+                <Link href="/"><a className={styles.link}>accueil</a></Link>  
+                <Link href="/profil"><a className={styles.link}>Mon profil</a></Link>
+                <Link href="/addActivity"><a className={styles.link}>Activités</a></Link>  
+            {user.token && <span className={styles.onLine}>Bonjour, {user.username}</span>} 
+            <button onClick={handleLogout} className={styles.logoutButton}>Déconnexion</button>
              </>}
             </div>
            

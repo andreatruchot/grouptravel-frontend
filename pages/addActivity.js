@@ -1,7 +1,8 @@
 import React from 'react';
+import ActivityForm from '../components/forms/ActivityForm';
 
 
-import ActivityForm from '../components/forms/AccommodationForm';
+
 
 
 const addActivityPage = () => {

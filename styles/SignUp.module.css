@@ -1,43 +1,48 @@
 .signUpContainer {
-    display: flex;
-    flex-direction: column;
-   }
-   
-   .input {
-    
-     margin-bottom: 10px;
-     padding: 10px;
-     background-color: #151f2b;
-     color: white;
-     border: 0.5px solid grey;
-     width: 50%;
-     align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
  
-    
-   }
-   
-   .btnUp {
-     background-color: white;
-     color: black;
-     width: 50%;
-     align-self: center;
-     border: white;
-     border-radius: 20px;
-     padding: 10px;
-     margin-bottom: 10px;
-     font-weight: bold;
-   }
-   
-   .errorMessage {
-     color: rgb(243, 81, 154);
-     margin-bottom: 10px;
-   }
-   .imgLogo{
-     width: 17%;
-     align-self: center;
-   }
-   .create{
-    color: white;
-    align-self: center;
-    padding: 20px;
-   }
+ .input {
+   margin-bottom: 5%;
+   padding: 10px;
+   background-color: white;
+   color: black;
+   border-radius: 8px;
+   border: 1px solid rgb(188, 182, 182);
+   width: 70%;
+   align-self: center;
+
+  
+ }
+ 
+ .btnUp {
+  background-color: #BDDCD7;
+   color: black;
+   width: 50%;
+   align-self: center;
+   padding: 20px;
+   margin-bottom: 10%;
+   margin-top: 10%;
+   font-weight: 500;
+   border-radius: 30px;
+   border: none;
+   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+ }
+ 
+ .errorMessage {
+   color: rgb(243, 81, 154);
+   margin-bottom: 10px;
+ } 
+ .imgLogo{
+   width: 50%;
+   align-self: center;
+   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+ }
+ .create{
+  color: #0000;
+  text-align: center;
+ 
+ }

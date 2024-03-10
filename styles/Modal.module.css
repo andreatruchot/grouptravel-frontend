@@ -12,16 +12,17 @@
   }
   
   .modal {
-    background-color: white;
+    background-color: #F4F4F0;
     padding: 20px;
-    max-width: 400px;
-    width: 100%;
+    width: 30%;
+    height: auto;
+    border-radius: 20px;
   }
   
   .closeButton {
     float: right;
     cursor: pointer;
-    background-color: white;
+    background-color: #F4F4F0;
     color: rgb(59, 54, 54);
     
     border: none;

@@ -2,7 +2,6 @@
 .header{
   width: 100%;
   background-color: #F4F4F0;
-  height: 12vh;
 }
 .main {
   display: flex;
@@ -19,7 +18,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
 }
 .explain{
 
@@ -56,6 +55,7 @@
   justify-self: self-end;
   font-weight: 800;
   margin-left: 8%;
+  box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
 .howitWorks{
   background-color: #BDDCD7;
@@ -76,12 +76,14 @@
   margin-bottom:10%;
   width: 30%;
   font-weight: 800;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }
 .pass{
   grid-row: 3 / 4;
   align-self: flex-end;
   width: 23%;
   height: auto;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }
 
 .container {
@@ -95,6 +97,7 @@
   align-self: flex-start;
   width: 25%;
   position: absolute;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }
 
 

@@ -47,7 +47,7 @@ function SignUp({ onCloseModal }) {
   };
   return (
     <div className={styles.signUpContainer}>
-      <img className={styles.imgLogo} src='../images/stickers/boussole.png' alt="Logo" />
+      <img className={styles.imgLogo} src='../images/stickers/vanvw.png' alt="Logo" />
       <p className={styles.create}>Créez votre compte sur GroupTravel</p>
       <input
           className={styles.input}

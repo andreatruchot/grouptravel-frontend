@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+
+import DatePicker, { registerLocale } from 'react-datepicker';
+import fr from 'date-fns/locale/fr'; // importe le locale français
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router'; // Assurez-vous que cela est correctement importé pour utiliser `useRouter`
+import { useRouter } from 'next/router'; // utilise `useRouter`
 import styles from '../../styles/tripForm.module.css';
+import React, { useState } from 'react'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
+registerLocale('fr', fr); // enregistre le locale
 
 const TripForm = () => {
 
@@ -33,8 +39,6 @@ const handleSubmit = async (e) => {
       departureDate: departureDate.toISOString(),
       returnDate: returnDate.toISOString(),
     };
-
-
     try {
       const response = await fetch('http://localhost:3000/trips/addTrip', {
           method: 'POST',
@@ -58,48 +62,72 @@ const handleSubmit = async (e) => {
       setLoading(false);
   }
 };
-      
+
   return (
 
 <form className={styles.form} onSubmit={handleSubmit}>
 
-  <h2>là on met les dates du séjour</h2>
-
-  <label>Date de départ</label>
-      <DatePicker
-        selected={departureDate}
-        onChange={(date) => setDepartureDate(date)}
-      />
-
-      <label>Date de retour</label>
-      <DatePicker
-        selected={returnDate}
-        onChange={(date) => setReturnDate(date)}
-      />
-
-     <label>ici le lieu</label>
+  <div className={styles.dates}>
+     <p className={styles.datesTitle}>On définit les dates du voyage</p>
+     <div className={styles.datep}>
+       <div className={styles.departure}>
+          <DatePicker
+            locale="fr"
+            dateFormat="dd/MM/yyyy"
+            selected={departureDate}
+            onChange={(date) => setDepartureDate(date)}
+            customInput={
+            <button type="button" className={styles.datePickerButton}>
+              <FontAwesomeIcon icon={faCalendarAlt} />  depart 
+            </button>
+           }
+          />
+       </div>
+       <div className={styles.return}>
+         <DatePicker
+            locale="fr"
+            dateFormat="dd/MM/yyyy"
+            selected={returnDate}
+            onChange={(date) => setReturnDate(date)}
+            customInput={
+            <button type="button" className={styles.datePickerButton}>
+              <FontAwesomeIcon icon={faCalendarAlt} /> retour 
+            </button>
+            }
+          />
+       </div>
+     </div>
+   </div>
+   <div className={styles.location}>
+     <label className={styles.here}>Où partez-vous ?</label>
       <input
          className={styles.input} id="place"
         type="text"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         placeholder="Lieu du voyage"
-      />    
-
-      <label>Ici on choisit un nom</label>
-      <input
-         className={styles.input} id="name"
-        type="text"
-        value={tripName}
-        onChange={(e) => setTripName(e.target.value)}
-        placeholder="un nom de voyage"
       />
-     
-      <button type="submit" disabled={loading}>
-        {loading ? 'Chargement...' : 'Créer'}
-      </button>
-      {error && <div>{error}</div>}
-    </form>
+  </div>   
+  <div className={styles.name}>
+     <div className={styles.combi}>
+        <img src="../images/form/van-aquarelle.jpg" alt='aquarelle combi volkswagen dans la nature' className={styles.pass}></img>
+     </div>
+     <div className={styles.formName}>
+         <label className={styles.choice}>Et là on choisit un nom pour le Voyage</label>
+         <input
+               className={styles.inputName} id="name"
+               type="text"
+                value={tripName}
+                onChange={(e) => setTripName(e.target.value)}
+                placeholder="un nom de voyage"
+          />
+         <button  className={styles.create}type="submit" disabled={loading}>
+           {loading ? 'Chargement...' : 'Créer'}
+         </button>
+           {error && <div>{error}</div>}
+       </div>
+     </div>
+</form>
   );
 };
 
