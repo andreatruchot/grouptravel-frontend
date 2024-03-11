@@ -1,9 +1,9 @@
 // pages/addAccommodation.js
 import React from 'react';
-import Header from '../components/header';
+import Header from '../components/Header';
 import UserProfile from '../components/userProfile';
-import styles from '../styles/profile.module.css'
-import Footer from '../components/footer';
+import styles from '../styles/Profil.module.css'
+import Footer from '../components/Footer';
 
 
 const profilPage = ({ token, username }) => {

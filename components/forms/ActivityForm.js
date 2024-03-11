@@ -47,8 +47,8 @@ const handleSubmit = async (e) => {
         }
     });
 
-    try {
-        const response = await fetch('http://localhost:3000/activities/addActivity/${tripId}', { 
+    try {          
+        const response = await fetch(`http://localhost:3000/activities/addActivity/${tripId}`, { 
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${token}`, // Inclusion du  token d'authentification pour le user member
@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
 
           if (response.ok) {
             // Gestion de la réussite, par exemple, rediriger vers le tableau de bord
-            router.push('/dashboard');
+            router.push('/Dashboard');
           } else {
             throw new Error(responseData.error || 'Erreur lors de la création du voyage.');
           }
@@ -110,7 +110,7 @@ const handleSubmit = async (e) => {
         id="describe" 
         value={description}
        onChange={(e) => setDescription(e.target.value)}
-       placeholder="Description de l'hébergement"
+       placeholder="Description de l'Activité"
       />
       <input
         type="Url"

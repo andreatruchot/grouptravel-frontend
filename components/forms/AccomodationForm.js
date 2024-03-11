@@ -56,7 +56,7 @@ try {
 
       if (response.ok) {
         // Gestion de la réussite, par exemple, rediriger vers le tableau de bord
-        router.push('/dashboard');
+        router.push('/Dashboard');
       } else {
         throw new Error(responseData.error || 'Erreur lors de la création du voyage.');
       }

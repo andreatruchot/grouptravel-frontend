@@ -1,116 +1,160 @@
 import React, { useState, useEffect } from 'react';
-import Modal from './Modal'; 
-import styles from'../styles/userProfile.module.css'; 
-import { useSelector, useDispatch, } from 'react-redux';
+import Modal from './Modal';
+import styles from '../styles/UserProfile.module.css';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { setTripId  } from '../reducers/user';
-import { setTripName } from '../reducers/user'
+// Renommage nécessaire pour éviter un conflit de nom avec le hook useState
+import { setSelectedTripId, setTrips, setTripDetails } from '../reducers/user';
 
 
 const UserProfile = ({ username }) => {
+   // Il initialise plusieurs états locaux pour gérer l'affichage de la photo de profil, la liste des voyages, et la visibilité d'un modal
+  const [profilePicture, setProfilePicture] = useState('');
+  //const [trips, setTrips] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+   // Il utilise useSelector pour accéder à des parties de l'état Redux, telles que le statut de connexion et le token utilisateur
+  const isLoggedIn = useSelector((state) => state.user.value.isLoggedIn);
+  const token = useSelector((state) => state.user.value.token);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const trips = useSelector((state) => state.user.value.trips);
+  const selectedTripId = useSelector((state) => state.user.value.selectedTripId)
+  
+ // Il utilise useEffect pour charger les voyages de l'utilisateur dès que le composant est monté ou que le token change
+  useEffect(() => {
+    const fetchTrips = async () => {
+      if (token) {
+        try {
+          const response = await fetch('http://localhost:3000/trips/myTrips', {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          if (!response.ok) {
+            throw new Error('Failed to fetch trips');
+          }
+          const data = await response.json();
+          console.log("Données récupérées :", data); 
 
+          // Pour afficher spécifiquement l'ID et le contenu de chaque voyage
+          if (data.trips && data.trips.length > 0) {
+            data.trips.forEach(trip => {
+              console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
+            });
+          }
 
-const [profilePicture, setProfilePicture] = useState('');
-const [trips, setTrips] = useState([]);
-const [showModal, setShowModal] = useState(false);
-const isLoggedIn = useSelector(state => state.user.isLoggedIn);
-const router = useRouter();
-const dispatch = useDispatch();
-
-// Récupére le token du state Redux
-const token = useSelector(state => state.user.value.token);
-
-useEffect(() => {
-  const fetchTrips = async () => {
-    if (token) {
-      try {
-        const response = await fetch('http://localhost:3000/trips/myTrips', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error('Failed to fetch trips');
+            // Il dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
+            dispatch(setTrips(data.trips)); 
+            setProfilePicture(data.userPicture);
+        } catch (error) {
+          console.error(error);
         }
-        const data = await response.json();
-         // Mise à jour l'état global avec les voyages récupérés
-         dispatch(setTrips(data.trips));
-         setProfilePicture(data.userPicture);
-      } catch (error) {
-        console.error(error);
       }
+    };
+  
+    fetchTrips();
+  }, [token, dispatch]);
+
+  const fetchTripDetails = async (tripId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/trips/${tripId}`,{   
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+      if (!response.ok) {
+        throw new Error('Failed to fetch trip details');
+      }
+      const data = await response.json();
+      dispatch(setTripDetails(data)); // Met à jour l'état global avec les détails du voyage
+      router.push('/Dashboard'); // Navigue vers le dashboard du voyage
+    } catch (error) {
+      console.error("Erreur lors de la récupération des détails du voyage:", error);
     }
   };
+  // Navigue vers le dashboard du voyage sélectionné
+  const handleGoToDashboard = (tripId) => {
+    dispatch(setSelectedTripId(tripId));
+    fetchTripDetails(tripId);
+  };
 
-  fetchTrips();
-}, [dispatch]);
-
-const handleGoToDashboard = (tripName) => {
-  // Stockage du nom du voyage sélectionné dans le store Redux
-  dispatch(setTripName(tripName));// cette action met à jour l'état Redux correctement.
-  // Navigation simple vers la page de tableau de bord
-  router.push('/dashboard');
-};
-
-  const handleProfilePictureChange = async (event) => {
+  // Il gère le changement du fichier sélectionné pour la photo de profil
+  const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
+      console.log("Tentative de soumission du formulaire");
+
+      setSelectedFile(file);
+    }
+  };
+   // Il gère la soumission du formulaire pour mettre à jour la photo de profil
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Empêche le comportement par défaut du formulaire
+    if (selectedFile) {
       const formData = new FormData();
-      // Utilisez la clé 'userPicture' pour ajouter le fichier à formData
-      formData.append('userPicture', file);
-      
+      formData.append('userPicture', selectedFile);
+      console.log("Préparation de l'envoi du fichier", formData);
+
       try {
         const response = await fetch('http://localhost:3000/users/profilePicture', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${token}`,
-            // Note: Vous n'avez pas besoin d'ajouter 'Content-Type': 'multipart/form-data' ici,
-            // fetch le fait automatiquement quand vous passez un objet FormData.
+            Authorization: `Bearer ${token}`,
           },
           body: formData,
         });
         if (!response.ok) throw new Error('Failed to update profile picture');
         const data = await response.json();
-        setProfilePicture(data.updatedPicture); // Assurez-vous que c'est le bon champ retourné par votre API
+        console.log("Réponse du serveur :", data);
+        setProfilePicture(data.userPicture);
         setShowModal(false);
       } catch (error) {
+        console.error("Erreur lors de la soumission :", error);
         console.error(error);
       }
     }
   };
-  
+   // Il gère le clic sur le bouton pour ajouter un nouveau voyage
   const handleNewTripClick = () => {
-    if (!isLoggedIn) {
-      setIsModalVisible(true);
-    } else {
-      router.push('/addTrip'); 
-    }
+    router.push('/addTrip');
   };
+
 
   return (
     <div>
       <div className={styles.container}>
-        <img src={profilePicture} alt={`${username} Profile`} className={styles.picture} />
-        <button className={styles.change} onClick={() => setShowModal(true)}>Changer la photo</button>
-        <Modal className={styles.modal} isOpen={showModal} onClose={() => setShowModal(false)}>
-          <input type="file" onChange={handleProfilePictureChange} />
-        </Modal>
+        {isLoggedIn && (
+          <>
+            <img src={profilePicture || "../images/defaultProfile.png"} alt={`${username}'s profile`} className={styles.picture} />
+            <button className={styles.change} onClick={() => setShowModal(true)}>Changer la photo</button>
+            {showModal && (
+              <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+                <form onSubmit={handleSubmit}>
+                  <input type="file" onChange={handleFileChange} />
+                  <button type="submit">Soumettre</button>
+                </form>
+              </Modal>
+            )}
+          </>
+        )}
         <h2 className={styles.mytravel}>Mes voyages</h2>
       </div>
       <div className={styles.tripsContainer}>
-        {trips.map((trip, index) => (
+      {trips.map((trip, index) => (
           <div key={index} className={styles.tripInfo}>
             <span>{trip.name}</span>
-            {/* Utilisez trip.name pour la navigation et les actions */}
-            <button className={styles.go} onClick={() => handleGoToDashboard(trip.name)}>Go</button>
-            <button className={styles.delete} onClick={() => handleDeleteTrip(trip.name)}>Supprimer</button>
+            <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
           </div>
         ))}
-        <button onClick={handleNewTripClick} className={styles.trip}>Nouveau voyage</button>
+          
+           <button onClick={handleNewTripClick} className={styles.trip}>Nouveau voyage</button>
       </div>
     </div>
   );
- }
-  
+};
+
+
 export default UserProfile;

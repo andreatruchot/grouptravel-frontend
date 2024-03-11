@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import Header from './header';
-import Footer from './footer';
+import Header from './Header';
+import Footer from './Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from './Modal';
 import { useRouter } from 'next/router';
@@ -11,7 +11,7 @@ import Carrousel from './carrousel';
 
 function Home() {
   const router = useRouter(); // Ajoutez cette ligne
-  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.user.value.isLoggedIn);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleNewTripClick = () => {
@@ -21,6 +21,7 @@ function Home() {
       router.push('/addTrip'); 
     }
   };
+  // Il retourne le JSX pour le rendu du composant, incluant la photo de profil, la liste des voyages, et le modal pour changer la photo
   return (
     <div>
     <div className={styles.header}>

@@ -6,42 +6,57 @@ const initialState = {
     token: null,
     username: null,
     email: null,
-    tripId: null,
-    tripName: null, // Ajout du tripName à l'état initial
+    selectedTripId: null,
     trips: [],
+    tripDetails: {},
+    isLoggedIn: false,
   },
-  isLoggedIn: false,
+ 
 };
 
 export const userSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {
-    // Action pour gérer la connexion de l'utilisateur
+
+    name: 'user',
+    initialState,
+    reducers: {
+      // Action pour gérer la connexion de l'utilisateur
     login: (state, action) => {
-      const { token, username, email } = action.payload;
-      state.value = { ...state.value, token, username, email }; // Utilisation de la déstructuration pour une mise à jour propre
-      state.isLoggedIn = true;
+       const { token, username, email } = action.payload;
+       state.value = { ...state.value, token, username, email }; // Utilisation de la déstructuration pour une mise à jour propre
+       state.value.isLoggedIn = true;
+      },
+
+    setToken: (state, action) => {
+      state.token = action.payload;
     },
     // Action pour gérer la déconnexion de l'utilisateur
     logout: (state) => {
-      state.value = { ...state.value, token: null, username: null, email: null, tripId: null, tripName: null }; // Réinitialisation complète lors de la déconnexion
-      state.isLoggedIn = false;
+      state.value = { ...state.value, token: null, username: null, email: null, setSelectedTripId: null,}; // Réinitialisation complète lors de la déconnexion
+      state.value.isLoggedIn = false;
     },
-    // Reducer pour définir trip
+  
+    setSelectedTripId: (state, action) => {
+      state.value.selectedTripId = action.payload;
+    },
+    
     setTrips: (state, action) => {
+      console.log("action.payload", action.payload)
+      state.value.trips = action.payload; // Mettre à jour les voyages dans l'état
+    },
+    updateTrips: (state, action) => {
+      // Cette action est utilisée pour mettre à jour la liste des voyages avec de nouvelles données
       state.value.trips = action.payload;
-  },
-    // Reducer pour définir tripName
-    setTripName: (state, action) => {
-      state.value.tripName = action.payload;
+    },
+    setTripDetails: (state, action) => {
+      // Mettre à jour l'état avec les détails d'un voyage spécifique
+      state.value.tripDetails = action.payload;
     },
     
   },
 });
 
 // Exportation des actions du slice
-export const { login, logout, setTripId, setTripName, setTrips } = userSlice.actions;
+export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails } = userSlice.actions;
 
 // Exportation du reducer
 export default userSlice.reducer;

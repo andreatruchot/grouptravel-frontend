@@ -1,9 +1,9 @@
 // pages/addTrip.js
 import React from 'react';
 import TripForm from '../components/forms/TripForm';
-import styles from '../styles/addTrip.module.css';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import styles from '../styles/AddTrip.module.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 const AddTripPage = () => {

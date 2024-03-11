@@ -12,7 +12,7 @@ function Login() {
   const [isSignInModalVisible, setIsSignInModalVisible] = useState(false);
   const [isSignUpModalVisible, setIsSignUpModalVisible] = useState(false);
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.user.value.isLoggedIn);
 
   // Fonction pour gérer l'authentification réussie
   const handleAuthSuccess = (userData) => {

@@ -3,11 +3,11 @@ import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../reducers/user';
 import { useRouter } from 'next/router';
-import styles from '../styles/header.module.css';
+import styles from '../styles/Header.module.css';
 
 export default function Header() {
     const user = useSelector(state => state.user.value);
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+    const isLoggedIn = useSelector(state => state.user.value.isLoggedIn);
     const dispatch = useDispatch();
     const router = useRouter(); 
     
@@ -21,8 +21,8 @@ export default function Header() {
             <div className={styles.headerfull}>
             {isLoggedIn && <>
                 <Link href="/"><a className={styles.link}>accueil</a></Link>  
-                <Link href="/profil"><a className={styles.link}>Mon profil</a></Link>
-                <Link href="/addActivity"><a className={styles.link}>Activités</a></Link>  
+                <Link href="/Profil"><a className={styles.link}>Mon profil</a></Link>
+                <Link href="/AddActivity"><a className={styles.link}>Activités</a></Link>  
             {user.token && <span className={styles.onLine}>Bonjour, {user.username}</span>} 
             <button onClick={handleLogout} className={styles.logoutButton}>Déconnexion</button>
              </>}

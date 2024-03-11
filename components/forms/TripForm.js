@@ -4,7 +4,7 @@ import fr from 'date-fns/locale/fr'; // importe le locale français
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router'; // utilise `useRouter`
-import styles from '../../styles/tripForm.module.css';
+import styles from '../../styles/TripForm.module.css';
 import React, { useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
 
       if (response.ok) {
           // Gestion de la réussiteet  redirection vers le tableau de bord
-          router.push('/dashboard');
+          router.push('/Dashboard');
       } else {
           throw new Error(responseData.error || 'Erreur lors de la création du voyage.');
       }

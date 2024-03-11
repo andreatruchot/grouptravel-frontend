@@ -1,21 +1,23 @@
-// pages/dashboardPage.js
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
 import styles from '../styles/Dashboard.module.css';
+import { useRouter } from 'next/router';
+
+
+
 
 const DashboardPage = () => {
-  // Récupération du nom du voyage actuellement sélectionné depuis l'état global
-  const tripName = useSelector(state => state.user.value.tripName);
-  // Récupération de tous les voyages de l'utilisateur depuis l'état global
-// Correction de l'accès à l'état trips
-const trips = useSelector(state => state.user.value.trips);
+  const router = useRouter(); 
+  // Destructuration pour un accès direct aux propriétés nécessaires
+  const { selectedTripId, trips } = useSelector((state) => state.user.value);
+  console.log("Selected Trip ID from state:", selectedTripId);
 
-  
-  // Trouve les détails du voyage sélectionné parmi tous les voyages
-  const tripDetails = trips.find(trip => trip.name === tripName);
+  // Tentative de trouver les détails du voyage
+  const tripDetails = trips.find(trip => trip.id === selectedTripId);
+  console.log('Found Trip Details:', tripDetails);
 
-  // Gestion si aucun voyage n'est trouvé
+  // Gestion de l'absence de détails pour le voyage sélectionné
   if (!tripDetails) {
     return (
       <div className={styles.dashboard}>
@@ -23,16 +25,36 @@ const trips = useSelector(state => state.user.value.trips);
         <p>Aucun détail disponible pour le voyage sélectionné.</p>
       </div>
     );
+    
+    }
+    const handleAddActiviyClick = () => {
+      router.push('/AddActivity');
   }
 
+  // Rendu des détails du voyage sélectionné
   return (
     <div className={styles.dashboard}>
       <Header />
       <h1>Dashboard du Voyage: {tripDetails.name}</h1>
+      {/* Informations de base du voyage */}
       <div>Location: {tripDetails.location}</div>
       <div>Date de départ: {new Date(tripDetails.departureDate).toLocaleDateString()}</div>
       <div>Date de retour: {new Date(tripDetails.returnDate).toLocaleDateString()}</div>
-      {/* Affichez plus de détails ici selon vos besoins */}
+      <div>Budget total du voyage: {tripDetails.budget} €</div>
+
+      <div>
+        <h2>Activités</h2>
+        {tripDetails.activities.map((activity, index) => (
+          <div key={index}>
+            <p>Nom: {activity.name}</p>
+            <p>Lieu: {activity.place}</p>
+            <p>Date: {new Date(activity.date).toLocaleDateString()}</p>
+            <p>Budget: {activity.budget} €</p>
+            {/* Plus de détails selon vos besoins */}
+            <button onClick={handleAddActiviyClick} className={styles.trip}>Nouveau voyage</button>
+          </div>
+        ))}
+    </div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
       console.log(data); 
       if (data.result) {
         console.log("Connexion réussie");
-        dispatch(login({ username: data.username, token: data.token }));
+        dispatch(login({ username: data.username, token: data.token, email: data.email }));
         if(onCloseModal) onCloseModal(); // Utilisez onCloseModal pour fermer la modal
         router.push('/'); // Redirection vers la page d'accueil
       } else {
