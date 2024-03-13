@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+.dashboard{
+    width: 100%;
+  background-color: #F4F4F0;
+}
+.name{
+    display: flex;
+    background-color: #DE917D;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+}
+.date{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin: 5%;
+    font-weight: 600;
+    
+}
+.tripContainer{
+    display: flex;
+    justify-content: space-between;
+  
+}
+.firstContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 30%;
+    margin-left: 2%;
+}
+.planning{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    background-color: #DADBC2;
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+}
+.buttonP{
+    background-color: #DADBC2; 
+    padding: 5px 10px; 
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.titlePlanning{
+    text-align: center;
+    padding: 2%;
+    font-family: "Lemonada", sans-serif;
+   
+    
+}
+.tickets{
+    width: 10%;
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 2%;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+}
+.budget{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    background-color: #EED271;
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+}
+.titleBudget{
+    font-family: "Lemonada", sans-serif;
+    padding-bottom: 3%;
+}
+.accommodations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: #DE917D;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+}
+.accommodationsTitle{
+    font-family: "Lemonada", sans-serif;
+    margin-top: 3%;
+    padding-bottom: 3%;
+
+}
+.buttonA{
+    background-color: #DE917D; 
+    padding: 5px 10px; 
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 3%;
+    margin-top: 3%;
+
+}
+.secondContainer{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.activities{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    background-color: #BDDCD7;
+    padding: 3%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-left: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+}
+.activitiesTitle{
+    font-family: "Lemonada", sans-serif;
+    margin-top: 3%;
+}
+.buttonAc{
+    background-color: #BDDCD7; 
+    padding: 5px 10px; 
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 3%;
+}
+.thirdContainer{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-right: 5%;
+}
+.groupMembers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    background-color: #EBD5C8;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-left: 5%;
+}
+.groupTitle{
+    font-family: "Lemonada", sans-serif;
+    margin-top: 3%;
+    font-size: 1.7rem;
+}
+.chat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    background-color: #7D8F88;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-left: 5%;
+    margin-top: 5%;
+    padding-bottom: 7%;
+}
+.chatTitle{
+    font-family: "Lemonada", sans-serif;
+    font-size: 1.7rem;
+    margin-top: 2.5%;
+    margin-bottom: 4%;
+    
+}
+.chatMessage{
+    width: 90%;
+    height: 60vh;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+

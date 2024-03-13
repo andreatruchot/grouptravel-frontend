@@ -30,7 +30,7 @@ function Home() {
       <main className={styles.main}>
         <div className={styles.banner}>
           <div className={styles.explain}>
-             <h1 className={styles.title}>GroupTravel</h1>
+             <h1 className={styles.title}>FriendsTrip</h1>
              <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
           </div>
         </div>

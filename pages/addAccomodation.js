@@ -1,15 +1,17 @@
 // pages/addAccommodation.js
 import React from 'react';
-
-
-import AccommodationForm from '../components/forms/AccommodationForm';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import AccomodationForm from '../components/forms/AccomodationForm';
+import styles from '../styles/AddAccomodation.module.css';
 
 
 const AddAccommodationPage = () => {
   return (
     <div>
-      <h1>Ajouter un nouveau logement</h1>
-      <AccommodationForm />
+       <Header />
+      <AccomodationForm />
+      <Footer/>
     </div>
   );
 };

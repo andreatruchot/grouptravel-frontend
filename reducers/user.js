@@ -10,6 +10,7 @@ const initialState = {
     trips: [],
     tripDetails: {},
     isLoggedIn: false,
+    imagePreviewUrl: '',
   },
  
 };
@@ -51,12 +52,25 @@ export const userSlice = createSlice({
       // Mettre à jour l'état avec les détails d'un voyage spécifique
       state.value.tripDetails = action.payload;
     },
+    addActivity: (state, action) => {
+      // Cette action sera utilisée pour mettre à jour l'état avec les détails rafraîchis du voyage
+     
+      state.value.tripDetails.activities.push(action.payload);
+    },
+    addAccomodation: (state, action) => {
+      // Cette action sera utilisée pour mettre à jour l'état avec les détails rafraîchis du voyage
+     
+      state.value.tripDetails.accomodations.push(action.payload);
+    },
+    setImagePreviewUrl: (state, action) => {
+      state.imagePreviewUrl = action.payload;
+    },
     
   },
 });
 
 // Exportation des actions du slice
-export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails } = userSlice.actions;
+export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails, addActivity, addAccomodation, setImagePreviewUrl } = userSlice.actions;
 
 // Exportation du reducer
 export default userSlice.reducer;

@@ -29,11 +29,12 @@
 .title {
   line-height: 1.15;
   font-size: 3.4rem;
-  padding-right: 4%;
+  padding-left: 3%;
   font-weight: 800;
 }
 .secondtitle{
   align-self: center;
+  padding-left: 6%;
 }
 
 .newtrip{

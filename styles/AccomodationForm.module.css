@@ -3,7 +3,7 @@
 .form{
     width: 100%;
     height: auto;
-    background-color: #BDDCD7;
+    background-color: #EBD5C8;
     display: flex;
     justify-content: space-between;
 }
@@ -32,7 +32,7 @@
     justify-content: space-between;
     padding-top: 10%;
 }
-.inputPlace, .inputUrl, .inputName{
+.inputPlace, .inputUrl{
     width: 100%;
     margin-bottom: 5%;
     padding: 2%;
