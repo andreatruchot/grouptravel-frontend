@@ -140,6 +140,7 @@ const UserProfile = ({ username }) => {
             )}
           </>
         )}
+       
         <h2 className={styles.mytravel}>Mes voyages</h2>
       </div>
       <div className={styles.tripsContainer}>
@@ -149,10 +150,10 @@ const UserProfile = ({ username }) => {
             <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
           </div>
         ))}
-          
            <button onClick={handleNewTripClick} className={styles.trip}>Nouveau voyage</button>
       </div>
     </div>
+   
   );
 };
 

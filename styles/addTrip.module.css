@@ -1,3 +1,4 @@
+
 .main{
     background-color: #F4F4F0;
 }
@@ -13,9 +14,20 @@
     text-align: center;
     font-weight: 700;  
 }
+.photo{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: auto;
+}
 .camera{
     position: absolute;
-    width: 20%;
+    width: 24%;
+    position: absolute;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+    align-self:flex-end;
+    margin-top: 70%;
+    margin-right: 5%;
 }
 
 

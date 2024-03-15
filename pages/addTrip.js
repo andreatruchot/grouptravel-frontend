@@ -15,7 +15,7 @@ const AddTripPage = () => {
     <div className={styles.banner}>
       <h2 className={styles.title}>C’est le moment de créer un voyage</h2>
     </div>
-    <div className={styles.plane}>
+    <div className={styles.photo}>
            <img src="../images/stickers/appphot.png" alt='stickers appareil photo' className={styles.camera}></img>
     </div>
       <TripForm />

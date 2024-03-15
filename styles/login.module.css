@@ -8,10 +8,11 @@
     font-weight: 500;
     color: rgb(42, 38, 38);
     border: none;
-    margin-top: 2%;
+    margin-top: 1%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     margin-bottom: 2%;
-    margin-right: 1%;
+    margin-left: 1.5%;
+   
 }
 .btnUp{
 
@@ -21,10 +22,11 @@
     border-radius: 20px;
     font-weight: 500;
     color: rgb(42, 38, 38);
-    margin-top: 2%;
+    margin-top: 1%;
     border: none;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     margin-bottom: 2%;
+    margin-right: 1.5%;
 }
 
 

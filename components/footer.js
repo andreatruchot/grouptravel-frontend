@@ -7,10 +7,10 @@ export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.footerfull}>
-                <Link href="/"><a className={styles.link}>item</a></Link>
-                <Link href="/Dashboard"><a className={styles.link}>item</a></Link>
-                <Link href="/Accomodation"><a className={styles.link}>cgv</a></Link>
-                <Link href="/Activities"><a className={styles.link}>legal</a></Link>
+                <Link href=""><a className={styles.link}>Mentions Légales</a></Link>
+                <Link href=""><a className={styles.link}>Politique Des Données Personnelles</a></Link>
+                <Link href=""><a className={styles.link}>cgv</a></Link>
+                <Link href=""><a className={styles.link}>Crédits</a></Link>
             </div>
         </footer>
     );

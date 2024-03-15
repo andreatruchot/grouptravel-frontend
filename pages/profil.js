@@ -12,7 +12,7 @@ const profilPage = ({ token, username }) => {
           <Header />
           <div className={styles.profile}>
           <h1 className={styles.title}>Mon profil</h1>
-          <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img>
+          <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img> 
         </div>
           <UserProfile token={token} username={username} />
           <Footer/>

@@ -79,14 +79,22 @@ const DashboardPage = () => {
     router.push('/AddAccomodation');
   };
 
+  const handleInviteFriendClick = () => {
+    // Redirige l'utilisateur vers la page d'invitation en passant l'ID du voyage sélectionné
+    router.push('/Invitation');
+  };
+
   // Rendu des détails du voyage sélectionné
   return (
+   
 <div className={styles.dashboard}>
-   <Header />
+<div className={styles.header}>
+       <Header />
+    </div>
     <h1 className={styles.name}>{tripDetails.name}</h1>
     <div className={styles.date}>
-       <div>Date de départ: {new Date(tripDetails.departureDate).toLocaleDateString()}</div>
-       <div>Date de retour: {new Date(tripDetails.returnDate).toLocaleDateString()}</div>
+       <div> {new Date(tripDetails.departureDate).toLocaleDateString()}</div>
+       <div> {new Date(tripDetails.returnDate).toLocaleDateString()}</div>
     </div>
   <div className={styles.tripContainer}>
     <div className={styles.firstContainer}>
@@ -123,16 +131,21 @@ const DashboardPage = () => {
      <div className={styles.thirdContainer}>
        <div className={styles.groupMembers}>
           <h2 className={styles.groupTitle}>Membres du groupe</h2>
+          <div className={styles.membersList}>
+          </div>
+          <button onClick={handleInviteFriendClick} className={styles.buttonM}>Inviter un ami</button>
        </div>
        <div className={styles.chat}>
          <h2 className={styles.chatTitle}>Chat</h2>
          <div className={styles.chatMessage}>
          </div>
+
        </div>
      </div>
   </div>
   <Footer/>
 </div>
+
 );
 };
 

@@ -11,3 +11,9 @@
 .carousel-control-next {
   color: rgb(59, 57, 56); 
 }
+.container {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px;
+  justify-items: center;
+}

@@ -9,6 +9,10 @@
     height: 30vh;
     justify-content: center;
     align-items: center;
+    font-weight: 800;
+    font-size: 3rem;
+    padding-top: 40vh;
+    padding-bottom: 20vh;
 }
 .date{
     display: flex;
@@ -37,9 +41,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     background-color: #DADBC2;
-    padding: 3%;
+    padding: 5%;
     border-radius: 10px;
     margin-bottom: 5%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
@@ -49,6 +53,7 @@
     padding: 5px 10px; 
     border-radius: 10px;
     border: 1px solid black;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
 .titlePlanning{
     text-align: center;
@@ -104,6 +109,7 @@
     border: 1px solid black;
     margin-bottom: 3%;
     margin-top: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 
 }
 .secondContainer{
@@ -135,6 +141,7 @@
     border-radius: 10px;
     border: 1px solid black;
     margin-bottom: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
 .thirdContainer{
     display: flex;
@@ -153,6 +160,14 @@
     border-radius: 10px;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     margin-left: 5%;
+}
+.buttonM{
+    background-color: #EBD5C8;
+    padding: 5px 10px; 
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);  
 }
 .groupTitle{
     font-family: "Lemonada", sans-serif;

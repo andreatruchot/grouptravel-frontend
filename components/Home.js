@@ -23,22 +23,17 @@ function Home() {
   };
   // Il retourne le JSX pour le rendu du composant, incluant la photo de profil, la liste des voyages, et le modal pour changer la photo
   return (
-    <div>
+  <div className={styles.container}>
     <div className={styles.header}>
        <Header />
     </div>
       <main className={styles.main}>
         <div className={styles.banner}>
-          <div className={styles.explain}>
-             <h1 className={styles.title}>FriendsTrip</h1>
+          <h1 className={styles.firstTitle}>FriendsTrip</h1>
              <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
-          </div>
         </div>
-        <div className={styles.plane}>
-           <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.stickers}></img>
-        </div>
+        <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
         <div className={styles.newtrip}>
-          
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
            <Modal className={styles.modal}isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
                   Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
@@ -48,13 +43,11 @@ function Home() {
           <div className={styles.carrousel}>
           <Carrousel />
           </div>
-         </div>
-         <div className={styles.space}>
           <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
-        </div>
+         </div>
       </main>
       <Footer/>
-    </div>
+   </div>
   );
 }
 
