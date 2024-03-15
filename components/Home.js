@@ -31,8 +31,8 @@ function Home() {
         <div className={styles.banner}>
           <h1 className={styles.firstTitle}>FriendsTrip</h1>
              <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
+             <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
         </div>
-        <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
         <div className={styles.newtrip}>
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
            <Modal className={styles.modal}isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
@@ -43,8 +43,8 @@ function Home() {
           <div className={styles.carrousel}>
           <Carrousel />
           </div>
-          <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
          </div>
+         <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
       </main>
       <Footer/>
    </div>

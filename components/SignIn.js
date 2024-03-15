@@ -13,7 +13,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
   const handleSignIn = () => {
     console.log("Tentative de connexion avec", email, password);
     
-    fetch('http://localhost:3000/users/signin', {
+    fetch('https://grouptravel-backend.vercel.app/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -16,7 +16,7 @@ function SignUp({ onCloseModal }) {
 
 
   const handleSignUp = () => {
-    fetch('http://localhost:3000/users/signup', {
+    fetch('https://grouptravel-backend.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

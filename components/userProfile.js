@@ -99,7 +99,7 @@ const UserProfile = ({ username }) => {
       console.log("Préparation de l'envoi du fichier", formData);
 
       try {
-        const response = await fetch('http://localhost:3000/users/profilePicture', {
+        const response = await fetch('https://grouptravel-backend.vercel.app/users/profilePicture', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,

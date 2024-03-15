@@ -19,7 +19,7 @@ const AcceptInvitationPage = () => {
   
   const handleAcceptInvitation = async () => {
     try {
-      const response = await fetch('http://localhost:3000/accept-invitation', {
+      const response = await fetch('https://grouptravel-backend.vercel.app/accept-invitation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

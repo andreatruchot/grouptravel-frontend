@@ -55,7 +55,7 @@ const ActivityForm = () => {
   }
 });
     try {
-      const response = await fetch(`http://localhost:3000/activities/addActivity/${selectedTripId}`, {
+      const response = await fetch(`https://grouptravel-backend.vercel.app/activities/addActivity/${selectedTripId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

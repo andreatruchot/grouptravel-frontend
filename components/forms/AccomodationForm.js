@@ -58,7 +58,7 @@ formData.append('departureDate', departureDate.toISOString());
 });
 
 try {
-  const response = await fetch(`http://localhost:3000/accomodations/addAccomodation/${selectedTripId}`, {
+  const response = await fetch(`https://grouptravel-backend.vercel.app/accomodations/addAccomodation/${selectedTripId}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
