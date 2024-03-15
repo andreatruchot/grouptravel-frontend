@@ -3,14 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 import {updateInvitationStatus}  from '../reducers/invitation';
 
-const email = useSelector((state) => state.user.value.email);
-const token = useSelector((state) => state.user.value.token); // Cette variable doit être utilisée dans la requête fetch
-const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
 
 
 const AcceptInvitationPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+
+  
 
   const email = useSelector((state) => state.user.value.email);
   const token = useSelector((state) => state.user.value.token);
@@ -33,7 +32,7 @@ const AcceptInvitationPage = () => {
         throw new Error(`Failed to accept invitation. Server responded with ${response.status}: ${errorText}`);
       }
   
-      const data = await response.json(); // Suppose this contains the updated invitation data
+      const data = await response.json(); 
   
       // Dispatcherl'action pour mettre à jour le statut de l'invitation
       dispatch(updateInvitationStatus({

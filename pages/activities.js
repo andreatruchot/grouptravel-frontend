@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Activities.module.css'; // Vos styles CSS pour Activites ici
+import styles from '../styles/Activities.module.css'; 
 import Header from '../components/Header';
 
 function Activites() {

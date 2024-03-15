@@ -8,7 +8,7 @@ import styles from '../styles/AddAccomodation.module.css';
 
 const AddAccommodationPage = () => {
   return (
-    <div>
+    <div className={styles.container}>
        <Header />
       <AccomodationForm />
       <Footer/>
