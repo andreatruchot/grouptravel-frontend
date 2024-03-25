@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+.acceptContainer{
+    width: 100%;
+    background-color: #F4F4F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.titletContainer{
+    width: 100%;
+    background-color: #EBD5C8;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+}
+.globe{
+    margin-top: 21%;
+    align-self: flex-start;
+    position: absolute;
+    top: 8%;
+    left: 13%;   /* pour aligner l'image à gauche */
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+    width: 20%;
+}
+.acceptTitle{
+    font-weight: 700; 
+    font-size: 3rem;
+}
+.acceptText{
+    padding: 5%;
+}
+.accept{
+    border-radius: 30px;
+    height: 18%;
+    width: 20%;
+    border: none;
+    background-color: #EED271;
+    align-self: flex-end;
+    padding: 20px 20px;
+    font-weight: 800;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    align-self: auto;
+    margin-bottom: 5%;
+}

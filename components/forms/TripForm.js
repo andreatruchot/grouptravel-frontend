@@ -2,35 +2,39 @@
 import DatePicker, { registerLocale } from 'react-datepicker';
 import fr from 'date-fns/locale/fr'; // importe le locale français
 import 'react-datepicker/dist/react-datepicker.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'; // utilise `useRouter`
 import styles from '../../styles/TripForm.module.css';
 import React, { useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-
+import { setTripDetails} from '../../reducers/user';
 registerLocale('fr', fr); // enregistre le locale
+import { format } from 'date-fns';
+
 
 const TripForm = () => {
+  
 
     const [tripName, setTripName] = useState('');
     const [departureDate, setDepartureDate] = useState(new Date());
     const [returnDate, setReturnDate] = useState(new Date());
     const [location, setLocation] = useState('');
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
     const router = useRouter();
+   
     
 
    
   
     // Utilise useSelector pour accéder à l'état du store Redux
 const token = useSelector(state => state.user.value.token);
+const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
+const dispatch = useDispatch();
 
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
 
     const tripData = {
@@ -40,7 +44,7 @@ const handleSubmit = async (e) => {
       returnDate: returnDate.toISOString(),
     };
     try {
-      const response = await fetch('https://grouptravel-backend.vercel.app/trips/addTrip', {
+      const response = await fetch('http://localhost:3000/trips/addTrip', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json', //envoi de données JSON
@@ -49,20 +53,25 @@ const handleSubmit = async (e) => {
           body: JSON.stringify(tripData), // Convertit l'objet JavaScript en chaîne JSON
       });
       const responseData = await response.json();
+      console.log(responseData);
 
       if (response.ok) {
-          // Gestion de la réussiteet  redirection vers le tableau de bord
-          router.push('/Dashboard');
-      } else {
-          throw new Error(responseData.error || 'Erreur lors de la création du voyage.');
-      }
-  } catch (err) {
-      setError(err.message || 'Erreur lors de l’envoi des données.');
-  } finally {
-      setLoading(false);
-  }
-};
 
+       dispatch(setTripDetails(responseData));
+        
+       // Redirection vers le profil ou le tableau de bord général
+       router.push('/Profil');
+     } else {
+       // Gestion des erreurs de l'API
+       throw new Error(responseData.error || 'Erreur lors de la création du voyage.');
+     }
+   } catch (err) {
+     setError(err.message || 'Erreur lors de l’envoi des données.');
+   }
+};
+       
+           
+   
   return (
 
 <form className={styles.form} onSubmit={handleSubmit}>
@@ -78,7 +87,8 @@ const handleSubmit = async (e) => {
             onChange={(date) => setDepartureDate(date)}
             customInput={
             <button type="button" className={styles.datePickerButton}>
-              <FontAwesomeIcon icon={faCalendarAlt} />  depart 
+              <FontAwesomeIcon icon={faCalendarAlt} />Départ /   
+                {departureDate ? format(departureDate,  'dd/MM/yyyy')  : 'Départ'}
             </button>
            }
           />
@@ -91,7 +101,8 @@ const handleSubmit = async (e) => {
             onChange={(date) => setReturnDate(date)}
             customInput={
             <button type="button" className={styles.datePickerButton}>
-              <FontAwesomeIcon icon={faCalendarAlt} /> retour 
+              <FontAwesomeIcon icon={faCalendarAlt} /> Retour /
+              {departureDate ? format(departureDate,  'dd/MM/yyyy')  : 'Départ'} 
             </button>
             }
           />
@@ -119,16 +130,14 @@ const handleSubmit = async (e) => {
                type="text"
                 value={tripName}
                 onChange={(e) => setTripName(e.target.value)}
-                placeholder="un nom de voyage"
+                placeholder="Un nom de voyage"
           />
-         <button  className={styles.create}type="submit" disabled={loading}>
-           {loading ? 'Chargement...' : 'Créer'}
-         </button>
-           {error && <div>{error}</div>}
-       </div>
-     </div>
+          <button className={styles.btnsubmit} type="submit">Soumettre</button>
+            {error && <div>{error}</div>}
+      </div>
+  </div>
 </form>
   );
-};
+}
 
 export default TripForm;

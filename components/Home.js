@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import styles from '../styles/Home.module.css';
 import Header from './Header';
 import Footer from './Footer';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import Modal from './Modal';
 import { useRouter } from 'next/router';
 import Carrousel from './carrousel';
@@ -29,7 +29,7 @@ function Home() {
     </div>
       <main className={styles.main}>
         <div className={styles.banner}>
-          <h1 className={styles.firstTitle}>FriendsTrip</h1>
+          <h1 className={styles.firstTitle}>FellowVoyagers</h1>
              <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
              <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
         </div>

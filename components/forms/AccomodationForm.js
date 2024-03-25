@@ -22,7 +22,7 @@ const AccommodationForm = () => {
   const [location, setLocation] = useState('');
   const [arrivalDate, setArrivalDate] = useState(new Date());
   const [departureDate, setDepartureDate] = useState(new Date());
-  const [photos, setPhotos] = useState([]); 
+  const [photo, setPhoto] = useState(null); 
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [budget, setBudget] = useState('');
@@ -30,13 +30,10 @@ const AccommodationForm = () => {
 
   
 
- // Met à jour l'état photos avec le nouveau fichier à l'index spécifié
- const onFileSelect = (file, index) => {
-  let newPhotos = [...photos];
-  newPhotos[index] = file;
-  setPhotos(newPhotos);
-};
-
+  const onFileSelect = (file) => {
+    console.log(file);
+    setPhoto(file);
+  };
 
 const handleSubmit = async (e) => {
 e.preventDefault();
@@ -50,15 +47,12 @@ formData.append('description', description);
 formData.append('budget', budget);
 formData.append('arrivalDate', arrivalDate.toISOString());
 formData.append('departureDate', departureDate.toISOString());
- // Ajoute les fichiers d'images au formData
- photos.forEach((photo) => {
-  if (photo) { // Vérifie si la photo est non nulle avant de l'ajouter
-    formData.append('photos', photo);
-  }
-});
+if (photo) {
+  formData.append('photo', photo); 
+}
 
 try {
-  const response = await fetch(`https://grouptravel-backend.vercel.app/accomodations/addAccomodation/${selectedTripId}`, {
+  const response = await fetch(`http://localhost:3000/accomodations/addAccomodation/${selectedTripId}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -86,9 +80,10 @@ try {
      <div className={styles.containerLeft} >
           
      <div className={styles.images}>
-      {/* Les autres champs du formulaire */}
-      <ImageUpload className={styles.imageFirst} onFileSelect={(file) => onFileSelect(file, 0)} />
-      <ImageUpload className={styles.imageSecond} onFileSelect={(file) => onFileSelect(file, 1)} />
+     <ImageUpload className={styles.imageFirst} 
+                   onFileSelect={(file) => onFileSelect(file, 0)}
+                   buttonClassName={styles.customButtonStyle}
+     />
     </div>
     <div className={styles.House}>
            <img src="../images/stickers/Maison.png" alt='stickers maison style new-yorkaise' className={styles.stickers}></img>

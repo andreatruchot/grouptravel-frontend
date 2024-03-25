@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/Activities.module.css'; 
+import styles from '../styles/Accomodations.module.css'; 
 import { useSelector} from 'react-redux';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MyCard from '../components/MyCard';
 
 
-function Activities() {
+function Accomodations() {
  
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
   const token = useSelector(state => state.user.value.token);
-  const [activities, setActivities] = useState([]);
+  const [accomodations, setAccomodations] = useState([]);
 
   useEffect(() => {
    
-    fetch(`http://localhost:3000/activities/${selectedTripId}`, {
+    fetch(`http://localhost:3000/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -25,17 +25,17 @@ function Activities() {
     .then(response => response.json())
     .then(data => {
       if (data.result) {
-        setActivities(data.activities);
+        setAccomodations(data.accomodations);
       } else {
         alert(data.message); 
       }
     })
     .catch(error => console.error("Erreur lors de la récupération des activités:", error));
   }, [selectedTripId]); 
-  
-  const handleVote = async (activityId, status) => {
+
+  const handleVote = async (accomodationId, status) => {
     try {
-      const response = await fetch(`http://localhost:3000/activities/vote/${activityId}`, {
+      const response = await fetch(`http://localhost:3000/accomodations/vote/${accomodationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function Activities() {
       if (response.ok) {
         const data = await response.json();
         if (data.status !== undefined) {
-          updateActivityStatus(activityId, data.status); // Implémentez cette fonction pour mettre à jour l'état
+          updateAccomodationStatus(accomodationId, data.status); // Implémentez cette fonction pour mettre à jour l'état
           console.log("Vote enregistré avec succès.");
         } else {
           console.error("Réponse du serveur incomplète.");
@@ -60,44 +60,45 @@ function Activities() {
       alert("Erreur lors de la soumission du vote. Veuillez réessayer.");
     }
   };
-  const updateActivityStatus = (activityId, newStatus) => {
-    setActivities(currentActivities => currentActivities.map(activity => {
-      if (activity._id === activityId) {
-        return { ...activity, voted: newStatus };
+  const updateAccomodationStatus = (accomodationId, newStatus) => {
+    setAccomodations(currentAccomodations => currentAccomodations.map(accomodation => {
+      if (accomodation._id === accomodationId) {
+        return { ...accomodation, voted: newStatus };
       }
-      return activity;
+      return accomodation;
     }));
   };
-  
+
   return (
 
 <div>
   <Header />
-  <div className={styles.activitiesContainer}>
-    <div className={styles.activitiesTitle}>
-      <h1 className={styles.title}>Activités</h1>
-      <img src="../images/stickers/geisha.png" alt='stickers geisha' className={styles.stickers}></img>
+  <div className={styles.accomodationsContainer}>
+    <div className={styles.accomodationsTitle}>
+      <h1 className={styles.title}>Hébergements</h1>
+      <img src="../images/stickers/eiffel.png" alt='stickers tour Eiffel' className={styles.stickers}></img>
     </div>
     <div>
-    <h2 className={styles.Subtitle}>Il est temps de décider de participer aux activités</h2>
+    <h2 className={styles.Subtitle}>Quel Hébergement choisir ?</h2>
      </div>
-    <div className={styles.activitiesGrid}>
-          {activities.map((activity, index) => (
+    <div className={styles.accomodationsGrid}>
+          {accomodations.map((accomodation, index) => (
             <MyCard
-              key={activity._id}
-              imageUrl={activity.photo}
-              title={activity.name}
-              subtitle={`Lieu: ${activity.place}`}
-              content={activity.description}
-              budget={activity.budget}
-              onVote={(status) => handleVote(activity._id, status)}
+              key={accomodation._id}
+              imageUrl={accomodation.photo}
+              title={accomodation.location}
+              content={accomodation.description}
+              arrival={accomodation.arrivalDate}
+              departure={accomodation.returnDate}
+              budget={accomodation.budget}
+              onVote={(status) => handleVote(accomodation._id, status)}
             />
           ))}
         </div>
-        <img src="../images/stickers/ramen.png" alt='stickers ramen' className={styles.stickers2}></img>
+        <img src="../images/stickers/croissant.png" alt='stickers croissant' className={styles.stickers2}></img>
   </div>
   <Footer/>
 </div>
   );
 }
-export default Activities;
+export default Accomodations;

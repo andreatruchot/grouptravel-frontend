@@ -86,16 +86,22 @@
     margin-bottom: 15%;
     margin-top: 10%;
     color: white;
-}
-.house{
-    width: 30%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
    
-    
 }
-.stickers{
-    width: 100%;
-    align-self: flex-end;
+
+.colisee{
+    width: 60%;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }
+.customButtonStyle{        
+    padding: 10px 20px; 
+    background-color: #EBD5C8; 
+    color: #333; 
+    border-radius: 5px; 
+    cursor: pointer;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-bottom: 5%;
+    }
 
 

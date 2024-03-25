@@ -1,54 +1,31 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
-import {updateInvitationStatus}  from '../reducers/invitation';
 
+import { useSelector} from 'react-redux';
+import { useRouter } from 'next/router';
+import styles from '../styles/Accept-invitation.module.css';
+import InvitationButton from '../components/invitations/InvitationButton';
 
 
 const AcceptInvitationPage = () => {
-  const dispatch = useDispatch();
-  const router = useRouter();
+const router = useRouter();
 
+ // Extraire le token, tripId, et potentiellement email de l'URL
+  // Si email n'est pas passé par l'URL, fallback sur celui du state Redux
+  const { token, tripId, email: queryEmail } = router.query;
+  const email = queryEmail || useSelector((state) => state.user.value.email);
   
-
-  const email = useSelector((state) => state.user.value.email);
-  const token = useSelector((state) => state.user.value.token);
-  const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
-
-  
-  const handleAcceptInvitation = async () => {
-    try {
-      const response = await fetch('https://grouptravel-backend.vercel.app/accept-invitation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ email, tripId: selectedTripId }),
-      });
-  
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to accept invitation. Server responded with ${response.status}: ${errorText}`);
-      }
-  
-      const data = await response.json(); 
-  
-      // Dispatcherl'action pour mettre à jour le statut de l'invitation
-      dispatch(updateInvitationStatus({
-        _id: data._id, 
-        status: data.status 
-      }));
-  
-      // Redirection ou autre logique de gestion après l'acceptation
-      router.push('/dashboard');
-    } catch (error) {
-      console.error('Error accepting invitation:', error);
-    }
-  };
   return (
-  <div>
-    <button onClick={handleAcceptInvitation}>Accepter l'Invitation</button>
+   <div className={styles.acceptContainer}>
+      <div className={styles.titletContainer}>
+         <h1 className={styles.acceptTitle} >WeTravel</h1>
+      </div>
+      <div className={styles.photo}>
+           <img src="../images/stickers/globe.png" alt='stickers globe terrestre' className={styles.globe}></img>
+      </div>
+      <p className={styles.acceptText}>Pour accepter l'invitaion veuillez vous inscrire ou vous connecter</p>
+      <div className={styles.invitationBtn}>
+        <InvitationButton/>
+      </div>
+     
   </div>
 );
   } 

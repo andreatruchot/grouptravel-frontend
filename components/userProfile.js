@@ -8,7 +8,7 @@ import { setSelectedTripId, setTrips, setTripDetails } from '../reducers/user';
 
 
 const UserProfile = ({ username }) => {
-   // Il initialise plusieurs états locaux pour gérer l'affichage de la photo de profil, la liste des voyages, et la visibilité d'un modal
+   // Il initialise plusieurs états locaux pour gérer l'affichage de la photo de profil, la liste des voyages, et la visibilité d'une modal
   const [profilePicture, setProfilePicture] = useState('');
   //const [trips, setTrips] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -20,8 +20,35 @@ const UserProfile = ({ username }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const trips = useSelector((state) => state.user.value.trips);
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId)
+
+  const handleDeleteTrip = async (tripId) => {
+    if (!window.confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:3000/trips/deleteTrip/${tripId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Échec de la suppression du voyage');
+      }
+
+      const updatedTrips = trips.filter(trip => trip.id !== tripId);
+      dispatch(setTrips(updatedTrips));
+      alert('Voyage supprimé avec succès.');
+    } catch (error) {
+      console.error('Erreur lors de la suppression du voyage:', error);
+      alert(error.message);
+    }
+  };
+
   
- // Il utilise useEffect pour charger les voyages de l'utilisateur dès que le composant est monté ou que le token change
+ // On utilise useEffect pour charger les voyages de l'utilisateur dès que le composant est monté ou que le token change
   useEffect(() => {
     const fetchTrips = async () => {
       if (token) {
@@ -99,7 +126,7 @@ const UserProfile = ({ username }) => {
       console.log("Préparation de l'envoi du fichier", formData);
 
       try {
-        const response = await fetch('https://grouptravel-backend.vercel.app/users/profilePicture', {
+        const response = await fetch('http://localhost:3000/users/profilePicture', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -121,8 +148,6 @@ const UserProfile = ({ username }) => {
   const handleNewTripClick = () => {
     router.push('/addTrip');
   };
-
-
   return (
     <div>
       <div className={styles.container}>
@@ -139,20 +164,32 @@ const UserProfile = ({ username }) => {
               </Modal>
             )}
           </>
-        )}
-       
+          )}
         <h2 className={styles.mytravel}>Mes voyages</h2>
-      </div>
-      <div className={styles.tripsContainer}>
-      {trips.map((trip, index) => (
-          <div key={index} className={styles.tripInfo}>
-            <span>{trip.name}</span>
-            <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
-          </div>
-        ))}
+        
+        <div className={styles.tripsContainer}>
+        {trips ? (
+          trips.map((trip, index) => (
+            <div key={index} className={styles.tripInfo}>
+              <span>{trip.name}</span>
+              <div className={styles.button}>
+                <button
+                   className={styles.delete} 
+                   onClick={() => handleDeleteTrip(trip.id)}
+                >
+                  Supprimer
+                </button>
+                <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>Aucun voyage trouvé.</p>
+        )}
            <button onClick={handleNewTripClick} className={styles.trip}>Nouveau voyage</button>
+        </div>   
       </div>
-    </div>
+   </div>
    
   );
 };

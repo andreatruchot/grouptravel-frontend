@@ -29,11 +29,11 @@ export const userSlice = createSlice({
       },
 
     setToken: (state, action) => {
-      state.token = action.payload;
+      state.value.token = action.payload;
     },
     // Action pour gérer la déconnexion de l'utilisateur
     logout: (state) => {
-      state.value = { ...state.value, token: null, username: null, email: null, setSelectedTripId: null,}; // Réinitialisation complète lors de la déconnexion
+      state.value = { ...state.value, token: null, username: null, email: null, selectedTripId: null,}; // Réinitialisation complète lors de la déconnexion
       state.value.isLoggedIn = false;
     },
   

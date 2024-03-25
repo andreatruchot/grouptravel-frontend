@@ -1,0 +1,15 @@
+/* AlertComponent.css */
+.alert {
+    padding: 15px;
+    color: white;
+    border-radius: 5px;
+    margin: 10px 0;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .success { background-color: #7D8F88;}
+  .error {  background-color: #DE917D;}
+  

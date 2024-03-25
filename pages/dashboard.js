@@ -48,7 +48,7 @@ const DashboardPage = () => {
 
             // Il dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
             dispatch(setTrips(data.trips)); 
-            setProfilePicture(data.userPicture);
+           
         } catch (error) {
           console.error(error);
         }
@@ -70,32 +70,41 @@ const DashboardPage = () => {
     
     }
 
+  const handleActivityClick = () => {
+    router.push('/Activities');
+  };
+
    // Fonction pour naviguer vers AddActivity
   const handleAddActivityClick = () => {
     router.push('/AddActivity');
   };
-  // Fonction pour naviguer vers AddActivity
+  // Fonction pour naviguer vers AddAccomodation
   const handleAddAccomodationClick = () => {
     router.push('/AddAccomodation');
+  };
+  // Fonction pour naviguer vers AddActivity
+  const handleAccomodationClick = () => {
+    router.push('/Accomodations');
   };
 
   const handleInviteFriendClick = () => {
     // Redirige l'utilisateur vers la page d'invitation en passant l'ID du voyage sélectionné
     router.push('/Invitation');
   };
-
+    // Rendu des détails du voyage sélectionné
+    console.log("Membres du voyage avec username:", tripDetails.members);
+  
   // Rendu des détails du voyage sélectionné
   return (
    
 <div className={styles.dashboard}>
-<div className={styles.header}>
+  <div className={styles.header}>
        <Header />
-    </div>
-    <h1 className={styles.name}>{tripDetails.name}</h1>
-    <div className={styles.date}>
-       <div> {new Date(tripDetails.departureDate).toLocaleDateString()}</div>
-       <div> {new Date(tripDetails.returnDate).toLocaleDateString()}</div>
-    </div>
+  </div>
+  <div className={styles.title}>
+      <h1 className={styles.name}>{tripDetails.name}</h1>
+      <img src="../images/stickers/crisier.png" alt='stickers de cerisier japonnais' className={styles.stickers2}></img>
+   </div>
   <div className={styles.tripContainer}>
     <div className={styles.firstContainer}>
        <div className={styles.planning}>
@@ -104,35 +113,52 @@ const DashboardPage = () => {
           <button className={styles.buttonP}>Planning</button>
        </div>
        <div className={styles.budget}>
-          <h2  className={styles.titleBudget}>Budget</h2>
+          <h2  className={styles.titleBudget}>Infos Pratiques</h2>
           <span className={styles.totalBudget} >Budget total du voyage: {tripDetails.budget} €</span>
+          <h3 className={styles.during}>Dates du séjour</h3>
+          <div className={styles.date}>
+          <div className={styles.date1}> {new Date(tripDetails.departureDate).toLocaleDateString()}</div>
+          <div> {new Date(tripDetails.returnDate).toLocaleDateString()}</div>
+       </div>
        </div>
        <div className={styles.accommodations}>
           <h2 className={styles.accommodationsTitle}>Hébergements</h2>
                  {tripDetails.accomodations.map((accomodation, index) => (
               <div key={index}>
-               <p>{accomodation.description}</p>   
+               <p>{accomodation.location}</p>   
               </div>
               ))} 
-             <button onClick={handleAddAccomodationClick}className={styles.buttonA}>Ajouter un un Hébergement</button>               
+             <button onClick={handleAddAccomodationClick}className={styles.buttonA}>Ajouter un un Hébergement</button> 
+             <button onClick={handleAccomodationClick}className={styles.buttonA}>Détails et votes</button>              
        </div>
      </div>
      <div className={styles.secondContainer}>
        <div className={styles.activities}>
           <h2 className={styles.activitiesTitle}>Activités</h2>
-          {tripDetails.activities.map((activity, index) => (
-          <div key={index}>
-            <p>{activity.name}</p>
+          {tripDetails.activities.map((activity) => (
+          <div key={activity._id}>
+            <p className={styles.names}>{activity.name}</p>
+            <p className={styles.votes}>participants:  {
+           activity.participation.filter(participant => participant.status).length
+        }</p>
           </div>
           ))}
            <button onClick={handleAddActivityClick} className={styles.buttonAc}>Ajouter une activité</button>
+           <button onClick={ handleActivityClick } className={styles.buttonAc}>Détails et votes</button>
         </div>
      </div>
      <div className={styles.thirdContainer}>
        <div className={styles.groupMembers}>
           <h2 className={styles.groupTitle}>Membres du groupe</h2>
-          <div className={styles.membersList}>
-          </div>
+          {tripDetails.members && tripDetails.members.length > 0 ? (
+      tripDetails.members.map((member, index) => (
+        <div key={index}>
+          <p>{member.username}</p>
+        </div>
+      ))
+    ) : (
+      <p>Pas de membres à afficher</p>
+    )}
           <button onClick={handleInviteFriendClick} className={styles.buttonM}>Inviter un ami</button>
        </div>
        <div className={styles.chat}>

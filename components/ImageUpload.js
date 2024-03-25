@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import styles from '../styles/ImageUpload.module.css';
 
-const ImageUpload = ({ onFileSelect }) => {
+const ImageUpload = ({ onFileSelect, buttonClassName }) => {
   const [previewUrl, setPreviewUrl] = useState('');
+
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -31,7 +32,7 @@ const ImageUpload = ({ onFileSelect }) => {
           onChange={handleImageChange}
           className={styles.fileInput}
         />
-        <label htmlFor="file" className={styles.fileLabel}>
+        <label htmlFor="file" className={`${styles.fileLabel} ${buttonClassName}`}>
           Ajouter une photo
         </label>
       </div>

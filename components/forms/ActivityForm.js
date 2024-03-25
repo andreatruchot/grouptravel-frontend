@@ -16,7 +16,7 @@ const ActivityForm = () => {
   const token = useSelector(state => state.user.value.token);
   const dispatch = useDispatch();
 
-  const [activityName, setActivityName] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState(new Date());
   const [place, setPlace] = useState('');
@@ -25,37 +25,29 @@ const ActivityForm = () => {
   const [budget, setBudget] = useState('');
   const [error, setError] = useState('');
 
-  const ImageUpload = () => {
-    const buttonStyle = {
-      backgroundColor: '#EBD5C8' // lacouleur désirée
-    }};
-
-  // Met à jour l'état photos avec le nouveau fichier à l'index spécifié
- const onFileSelect = (file, index) => {
-  let newPhotos = [...photos];
-  newPhotos[index] = file;
-  setPhotos(newPhotos);
-};
-
-
+  const onFileSelect = (file) => {
+    console.log(file);
+    setPhoto(file);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
 
     const formData = new FormData();
-    formData.append('name', activityName);
+  
+    formData.append('name', name);
     formData.append('place', place);
     formData.append('url', url);
     formData.append('description', description);
     formData.append('date', date.toISOString());
     formData.append('budget', budget);
-    // Ajoute les fichiers d'images au formData
- photos.forEach((photo) => {
-  if (photo) { // Vérifie si la photo est non nulle avant de l'ajouter
-    formData.append('photos', photo);
+    if (photo) {
+      formData.append('photo', photo); 
   }
-});
+   
+
     try {
-      const response = await fetch(`https://grouptravel-backend.vercel.app/activities/addActivity/${selectedTripId}`, {
+      const response = await fetch(`http://localhost:3000/activities/addActivity/${selectedTripId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -84,13 +76,13 @@ const ActivityForm = () => {
     <div className={styles.containerLeft} >
          
     <div className={styles.images}>
-     {/* Les autres champs du formulaire */}
-     <ImageUpload className={styles.imageFirst} onFileSelect={(file) => onFileSelect(file, 0)} />
-     <ImageUpload className={styles.imageSecond} onFileSelect={(file) => onFileSelect(file, 1)} />
+     <ImageUpload className={styles.imageFirst} 
+                   onFileSelect={(file) => onFileSelect(file, 0)}
+                   buttonClassName={styles.customButtonStyle}
+     />
    </div>
-   <div className={styles.stickers}>
-          <img src="../images/stickers/pyramides.png" alt='stickers des pyramides' className={styles.pyramides}></img>
-  </div>
+      <img src="../images/stickers/coliseee.png" alt='stickers du colisée' 
+               className={styles.colisee}></img>
      </div>
      <div className={styles.containerRight} >
 
@@ -98,8 +90,8 @@ const ActivityForm = () => {
         <input
           className={styles.inputName}
           type="text"
-          value={activityName}
-          onChange={(e) => setLocation(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           placeholder="Le nom de l'activité"
        />
        
@@ -107,7 +99,7 @@ const ActivityForm = () => {
           className={styles.inputPlace}
           type="text"
           value={place}
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => setPlace(e.target.value)}
           placeholder="Lieu de l'activité"
        />
         <input
@@ -122,7 +114,7 @@ const ActivityForm = () => {
         <div  className={styles.inpuDate}>
         <DatePicker
           selected={date}
-          onChange={(date) => setdate(date)}
+          onChange={(date) => setDate(date)}
           customInput={
            <button type="button" className={styles.ArrivalPickerButton}>
              <FontAwesomeIcon icon={faCalendarAlt} /> Date
@@ -156,10 +148,6 @@ const ActivityForm = () => {
    </form>
  );
 }
-
-
-
-
 export default ActivityForm;
 
 

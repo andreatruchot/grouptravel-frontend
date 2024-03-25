@@ -1,0 +1,70 @@
+  .cardContainer{
+    
+    background-color: #BDDCD7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  .card{
+    width: 16rem;
+    border: none;
+    background-color: #BDDCD7;
+   
+  }
+  
+  .cardImage {
+    width: 100%; /* La carte image prend toute la largeur */
+    height: auto; /* Hauteur auto pour maintenir l'aspect ratio */
+  }
+  
+  .cardBody {
+    padding: 2px 16px; /* Padding à l'intérieur de la carte */
+    border: none;
+  }
+  
+  .cardTitle, .cardSubtitle, .cardText {
+    margin-bottom: 12px; /* Espacement entre les éléments */
+  }
+  
+  /* Stylise  le titre, le sous-titre et le contenu selon vos préférences */
+  .cardTitle {
+    font-size: 1.25rem; /* Taille du titre */
+    font-weight: bold; /* Graisse du titre */
+  }
+  
+  .cardSubtitle {
+    color: #555; /* Couleur du sous-titre */
+  }
+  
+  .cardText {
+    color: #333; /* Couleur du contenu */
+  }
+  .voteButtonActiveY{
+    background-color: #DE917D;
+    margin-left: 5%; 
+    margin-right: 5%;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 80%;
+    color: white;
+  }
+  .voteButtonY{
+    background-color: #EBD5C8;
+    margin-left: 5%; 
+    margin-right: 5%;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 80%;
+    color: white;
+  }
+  .voteButtonN{
+    background-color: #DADBC2;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  
+  

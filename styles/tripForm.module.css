@@ -9,6 +9,7 @@ background-color: #F4F4F0;
     font-family: 'Lemonada', sans-serif;
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 600;
     
 }
 .datep{
@@ -28,8 +29,6 @@ background-color: #F4F4F0;
   padding-top: 5%;
   padding-bottom: 5%;
 }
-
-
 .datePickerButton { 
   padding: 20px 100px;
   border-radius: 15px;
@@ -40,6 +39,10 @@ background-color: #F4F4F0;
   margin-right: 20%;
   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
   background-color: #DE917D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
  
 
@@ -90,13 +93,15 @@ background-color: #F4F4F0;
    
 }
 .inputName{
-    border-radius: 5px;
-  height: 15%;
+  border-radius: 5px;
+  height: 13%;
   width: 80%;
   border: 1px solid #BDDCD7;
+  padding: 20px;
+  font-family: 'Lemonada', sans-serif;
   
 }
-.create{
+.btnsubmit{
   border-radius: 20px;
   height: 15%;
   width: 40%;
@@ -108,5 +113,6 @@ background-color: #F4F4F0;
   margin-left: 8%;
   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
+
 
 
