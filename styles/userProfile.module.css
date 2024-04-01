@@ -5,8 +5,8 @@
   
   .picture {
     border-radius: 50%; /* Rend l'image circulaire */
-    width: 150px; 
-    height: 150px;
+    width: 200px; 
+    height: 200px;
     object-fit: cover;
     margin: 5%;
     align-self: flex-start;
@@ -14,14 +14,14 @@
   .mytravel{
     text-align: center;
     font-family: 'Lemonada', sans-serif;
-    margin-bottom: 7%; 
+    margin-bottom: 5%;
+    margin-top: 1%; 
     
   }
-  
   .tripsContainer{
     background-color: #BDDCD7;
     border-radius: 20px;
-    width: 60%;
+    width: 70%;
     height: auto;
     display: flex;
     padding-top: 5%;
@@ -35,7 +35,7 @@
     background-color: #f0f0f0; 
     border-radius: 20px;
     margin: 10px 0;
-    padding: 15px;
+    padding: 15px 20px;
     width: 80%; 
     display: flex;
     align-items: center;
@@ -43,16 +43,25 @@
     margin-bottom: 10%;
   }
   .change{
-    border-radius: 20px;
+    border-radius: 42px;
     border: none;
     background-color: #7D8F88;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     padding: 20px;
     color: #F4F4F0;
     cursor: pointer;
+    transition: 1133ms;
+    transform: translateY(0);
+    
+  }
+  .change:hover{
+    transition: 1133ms;
+    padding: 30px 50px;
+    transform: translateY(-0px);
+   
   }
   .button{
-    width: 30%;
+    width: 400px;
     display: flex;
   }
   .go{
@@ -62,7 +71,7 @@
     font-size: 14px;
     padding: 10px;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    margin-right: 2%;
+    margin-right: 40px;
   }
   .delete{
     border-radius: 20px;
@@ -70,7 +79,7 @@
     border: none;
     font-size: 14px;
     padding: 10px;
-    margin-right: 20%;
+    margin-right: 20px;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
   }
   .trip{

@@ -2,8 +2,7 @@
 
 .btnIn {
     background-color: #DE917D;
-    width: 12%;
-    padding: 7px 10px;
+    padding: 10px 15px;
     border-radius: 20px;
     font-weight: 500;
     color: rgb(42, 38, 38);
@@ -11,14 +10,11 @@
     margin-top: 1%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     margin-bottom: 2%;
-    margin-left: 1.5%;
-   
+    margin-left: 1.5%; 
 }
 .btnUp{
-
     background-color: #EED271;
-    width: 12%;
-    padding: 7px 10px;
+    padding: 10px 15px;
     border-radius: 20px;
     font-weight: 500;
     color: rgb(42, 38, 38);

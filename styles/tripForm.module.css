@@ -44,8 +44,6 @@ background-color: #F4F4F0;
   justify-content: space-evenly;
   align-items: center;
 }
- 
-
 .departure:last-child,
 .return:last-child {
   margin-right: 0;

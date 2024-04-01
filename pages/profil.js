@@ -8,13 +8,17 @@ import Footer from '../components/Footer';
 
 const profilPage = ({ token, username }) => {
   return (
-        <div>
+        <div className={styles.pageContainer}>
           <Header />
-          <div className={styles.profile}>
-          <h1 className={styles.title}>Mon profil</h1>
-          <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img> 
-        </div>
+          <div className={styles.containerFull}>
+             <div className={styles.profile}>
+              <div className={styles.titleContainer}>
+                <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img> 
+                <h1 className={styles.title}>Mon profil</h1>
+                </div>
+            </div>
           <UserProfile token={token} username={username} />
+          </div>
           <Footer/>
         </div>
       );

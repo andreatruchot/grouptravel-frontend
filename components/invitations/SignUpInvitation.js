@@ -32,11 +32,13 @@ function SignUp({ onCloseModal }) {
     .then(data => {
         if (data.success) {
             setShowSuccessMessage(true);
-            dispatch(login({ username, email, token: data.token }));
+            dispatch(login({ 
+              username, email, token: data.token 
+            }));
             setTimeout(() => {
                 if (onCloseModal) onCloseModal(); // Ferme la modal si nécessaire
                 router.push('/'); // Redirige vers la page d'accueil
-            }, 3000);
+            }, 2000);
         } else {
             // Gére le cas où le serveur a traité la requête mais indique un problème avec les données.
             throw new Error('Inscription échouée');
@@ -52,7 +54,7 @@ function SignUp({ onCloseModal }) {
   return (
     <div className={styles.signUpContainer}>
       <img className={styles.imgLogo} src='../images/stickers/jeep.png' alt="stickers de jeep" />
-      <p className={styles.create}>Créez votre compte sur WeTravel</p>
+      <p className={styles.create}>Créez votre compte sur FellowVoyagers</p>
       <input
           className={styles.input}
           placeholder="Adresse email"

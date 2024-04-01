@@ -36,13 +36,11 @@ if (isLoggedIn) return null;
         text="Inscription"
         onClick={() => setIsSignUpModalVisible(true)}
       />
-
       <Button
         className={styles.btnIn}
         text="Connexion"
         onClick={() => setIsSignInModalVisible(true)}
       />
-
       <Modal isOpen={isSignInModalVisible} onClose={closeModal}>
         <SignIn onAuthSuccess={handleAuthSuccess} onCloseModal={closeModal} />
       </Modal>

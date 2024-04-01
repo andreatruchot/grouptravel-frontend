@@ -15,11 +15,11 @@ function Activities() {
   useEffect(() => {
    
     fetch(`http://localhost:3000/activities/${selectedTripId}`, {
+
       method: 'GET',
       headers: {
        
         'Authorization': `Bearer ${token}`,
-        
       },
     })
     .then(response => response.json())
@@ -41,12 +41,12 @@ function Activities() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ status: status.toString() }), // Assurez-vous que le statut est une chaîne si nécessaire
+        body: JSON.stringify({ status: status.toString() }), 
       });
       if (response.ok) {
         const data = await response.json();
         if (data.status !== undefined) {
-          updateActivityStatus(activityId, data.status); // Implémentez cette fonction pour mettre à jour l'état
+          updateActivityStatus(activityId, data.status); 
           console.log("Vote enregistré avec succès.");
         } else {
           console.error("Réponse du serveur incomplète.");
@@ -88,8 +88,10 @@ function Activities() {
               imageUrl={activity.photo}
               title={activity.name}
               subtitle={`Lieu: ${activity.place}`}
+              date={`Date: ${new Date(activity.date).toLocaleDateString()}`}
               content={activity.description}
               budget={activity.budget}
+              voteCount={activity.participation.filter(participant => participant.status).length} // Ajout du nombre de votes "oui"
               onVote={(status) => handleVote(activity._id, status)}
             />
           ))}

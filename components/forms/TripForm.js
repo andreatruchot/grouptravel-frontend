@@ -102,7 +102,7 @@ const handleSubmit = async (e) => {
             customInput={
             <button type="button" className={styles.datePickerButton}>
               <FontAwesomeIcon icon={faCalendarAlt} /> Retour /
-              {departureDate ? format(departureDate,  'dd/MM/yyyy')  : 'Départ'} 
+              {returnDate ? format(returnDate,  'dd/MM/yyyy')  : 'Départ'} 
             </button>
             }
           />

@@ -98,7 +98,8 @@
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }
 .customButtonStyle{        
-padding: 10px 20px; 
+padding: 15px 30px;
+border-radius: 20px; 
 background-color: #BDDCD7; 
 color: #333; 
 border-radius: 5px; 

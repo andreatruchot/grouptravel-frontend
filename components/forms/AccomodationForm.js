@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'; // Assurez-vous que cela est correctement importé pour utiliser `useRouter`
 import styles from '../../styles/AccomodationForm.module.css';
-import { addAccomodation } from '../../reducers/user';
+import { addAccomodation, setTripDetails } from '../../reducers/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import ImageUpload from '../../components/ImageUpload';
@@ -17,17 +17,61 @@ const AccommodationForm = () => {
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
   const token = useSelector(state => state.user.value.token);
   const dispatch = useDispatch();
+  const tripDetails = useSelector((state) => state.user.value.tripDetails || {});
+  const { departureDate, returnDate: tripReturnDate  } = tripDetails;
+
+ 
 
  
   const [location, setLocation] = useState('');
   const [arrivalDate, setArrivalDate] = useState(new Date());
-  const [departureDate, setDepartureDate] = useState(new Date());
+  const [returnDate, setReturnDate] = useState(new Date());
   const [photo, setPhoto] = useState(null); 
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [budget, setBudget] = useState('');
   const [error, setError] = useState(''); 
 
+  useEffect(() => {
+    // Ici, on charge les détails du voyage en fonction de selectedTripId
+    // et on met à jour l'état Redux via dispatch(setTripDetails(data)).
+    
+    if (selectedTripId) {
+      const fetchTripDetails = async () => {
+        try {
+          const response = await fetch(`http://localhost:3000/trips/details/${selectedTripId}`, {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+          });
+          if (!response.ok) throw new Error('Failed to fetch trip details');
+          const data = await response.json();
+          dispatch(setTripDetails(data));
+        } catch (error) {
+          console.error("Erreur lors du chargement des détails du voyage", error.message);
+        }
+      };
+
+      fetchTripDetails();
+    }
+  }, [selectedTripId, token, dispatch]);
+
+  useEffect(() => {
+    // Initialise arrivalDate à departureDate du voyage ou à la date actuelle si non disponible
+    if (departureDate) {
+      setArrivalDate(new Date(departureDate));
+    } else {
+      setArrivalDate(new Date());
+    }
+  
+    // Initialise returnDate pour l'hébergement à tripReturnDate du voyage ou à la date actuelle si non disponible
+    if (tripReturnDate) {
+      setReturnDate(new Date(tripReturnDate));
+    } else {
+      setReturnDate(new Date());
+    }
+  }, [departureDate, tripReturnDate]);
+  
   
 
   const onFileSelect = (file) => {
@@ -46,7 +90,7 @@ formData.append('url', url);
 formData.append('description', description);
 formData.append('budget', budget);
 formData.append('arrivalDate', arrivalDate.toISOString());
-formData.append('departureDate', departureDate.toISOString());
+formData.append('returnDate', returnDate.toISOString());
 if (photo) {
   formData.append('photo', photo); 
 }
@@ -75,6 +119,7 @@ try {
   setError(err.message || 'Erreur lors de l’envoi des données.');
 }
 };
+
   return (
   <form className={styles.form} onSubmit={handleSubmit}>
      <div className={styles.containerLeft} >
@@ -113,6 +158,8 @@ try {
          <DatePicker
            selected={arrivalDate}
            onChange={(arrivalDate) => setArrivalDate(arrivalDate)}
+           minDate={new Date(departureDate)}
+           maxDate={new Date(tripReturnDate)}
            customInput={
             <button type="button" className={styles.ArrivalPickerButton}>
               <FontAwesomeIcon icon={faCalendarAlt} /> Arrivée
@@ -121,8 +168,10 @@ try {
          />
        
          <DatePicker
-           selected={departureDate}
-           onChange={(departureDate) => setDepartureDate(departureDate)}
+           selected={returnDate}
+           onChange={(returnDate) => setReturnDate(returnDate)}
+           minDate={new Date(departureDate)}
+           maxDate={new Date(tripReturnDate)}
            customInput={
             <button type="button" className={styles.DeparturePickerButton}>
               <FontAwesomeIcon icon={faCalendarAlt} />  Départ

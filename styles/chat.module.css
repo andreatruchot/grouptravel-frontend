@@ -1,0 +1,89 @@
+/* styles/chat.module.css */
+
+/* Conteneur principal pour le chat, ajoutez des styles généraux si nécessaire */
+.container {
+    background: #7D8F88; 
+    border-radius: 20px; 
+    padding: 20px;
+    max-width: 400px; 
+    margin: auto;
+  }
+.message{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+  /* Styles pour la liste des messages */
+  .ulstyle {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 300px; 
+  }
+  /* Styles pour le message des autres utilisateurs */
+
+  
+  /* Styles pour chaque message individuel */
+  .listStyle {
+   
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Styles pour le formulaire et l'entrée */
+  .formStyle {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .inputStyle {
+ 
+    padding: 20px;
+    border: 1px solid #f2abab; 
+    border-radius: 15px; 
+    margin-right: 10px;
+    font-size: 0.7rem; 
+  }
+  
+  /* Styles pour le bouton d'envoi */
+  .btnMessage {
+    border: none;
+    padding: 5px 5px;
+    border-radius: 15px;
+    display: flex;
+    background-color: white;
+  }
+  .form{
+    background-color: #EBD5C8;
+     border: none;
+     border-radius: 15px;
+     margin-top: 3%;
+     padding: 13px 13px;
+  }
+  .messageText{
+    border-radius: 10px;
+    border: white;
+  }
+  
+ .btn{
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-left: 15px;
+  background-color: #EED271;
+  color:  #444546;   
+ }
+  /* Ajoutez ceci dans votre fichier CSS */
+
+  
+  
+ 
+  

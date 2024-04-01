@@ -1,19 +1,25 @@
-import React, {useEffect } from 'react';
+
 import { useSelector, useDispatch} from 'react-redux';
 import Header from '../components/Header';
 import styles from '../styles/Dashboard.module.css';
 import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
-import { setSelectedTripId, setTrips, setTripDetails } from '../reducers/user';
+import Chat from '../components/Chat';
+import { setTrips } from '../reducers/user';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 
-
+const Map = dynamic(() => import('../components/Map'), { ssr: false });
 
 
 const DashboardPage = () => {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const [location, setLocation] = useState('');
   const router = useRouter();
- 
+  
+ //  logique pour récupérer l'utilisateur actuel 
+ const userId = useSelector((state) => state.user.value.userId); 
 
   // Destructuration pour un accès direct aux propriétés nécessaires
   const { selectedTripId, trips, token } = useSelector((state) => state.user.value);
@@ -22,6 +28,7 @@ const DashboardPage = () => {
   // Tentative de trouver les détails du voyage
   const tripDetails = trips.find(trip => trip.id === selectedTripId);
   console.log('Found Trip Details:', tripDetails);
+  const isAdmin = tripDetails && tripDetails.admin === userId;
 
   useEffect(() => {
     const fetchTrips = async () => {
@@ -57,7 +64,43 @@ const DashboardPage = () => {
   
     fetchTrips();
   }, []);
- 
+
+  useEffect(() => {
+    // Défini une fonction asynchrone interne pour faire la requête
+    const fetchTripDetails = async () => {
+      // Vérifie si selectedTripId est défini et n'est pas null avant de faire la requête
+      if (selectedTripId) {
+        try {
+          const response = await fetch(`http://localhost:3000/trips/location/${selectedTripId}`);
+          
+          // Vérifie le statut de la réponse
+          if (!response.ok) {
+            throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+          }
+          
+          // Vérifie que le contenu de la réponse est du JSON
+          const contentType = response.headers.get('content-type');
+          if (!contentType || !contentType.includes('application/json')) {
+            throw new Error("La réponse n'est pas du JSON");
+          }
+          
+          // Parse la réponse JSON
+          const data = await response.json();
+          // Met à jour l'état avec la localisation obtenue
+          setLocation(data.location);
+        } catch (error) {
+          console.error("Erreur lors de la récupération des détails du voyage :", error);
+         
+        }
+      } else {
+        console.log('selectedTripId est indéfini ou null, aucune requête envoyée.');
+      }
+    };
+  
+    // Appelle la fonction asynchrone interne
+    fetchTripDetails();
+  }, [selectedTripId]); // L'effet dépend de selectedTripId pour se réexécuter lorsque l'ID change
+  
 
   // Gestion de l'absence de détails pour le voyage sélectionné
   if (!tripDetails) {
@@ -69,6 +112,15 @@ const DashboardPage = () => {
     );
     
     }
+    // Fonction pour naviguer vers Planning
+    const handlePlanningSelectClick = () => {
+      router.push('/Planning');
+    };
+
+   // Fonction pour naviguer vers AddActivity
+   const handleAdminSelectClick = () => {
+    router.push('/AdminSelection');
+  };
 
   const handleActivityClick = () => {
     router.push('/Activities');
@@ -91,26 +143,34 @@ const DashboardPage = () => {
     // Redirige l'utilisateur vers la page d'invitation en passant l'ID du voyage sélectionné
     router.push('/Invitation');
   };
+  const handleChatClick = () => {
+    // Redirige l'utilisateur vers la page d'invitation en passant l'ID du voyage sélectionné
+    router.push('/ChatPage');
+  };
     // Rendu des détails du voyage sélectionné
     console.log("Membres du voyage avec username:", tripDetails.members);
   
   // Rendu des détails du voyage sélectionné
   return (
-   
-<div className={styles.dashboard}>
-  <div className={styles.header}>
-       <Header />
-  </div>
-  <div className={styles.title}>
+<>
+<Header />
+ <div className={styles.containerFull}>
+
+   <div className={styles.title}>
+   <img src="../images/stickers/crisier.png" alt='stickers de cerisier japonnais' className={styles.stickers2}></img>
       <h1 className={styles.name}>{tripDetails.name}</h1>
-      <img src="../images/stickers/crisier.png" alt='stickers de cerisier japonnais' className={styles.stickers2}></img>
    </div>
   <div className={styles.tripContainer}>
     <div className={styles.firstContainer}>
        <div className={styles.planning}>
           <h2  className={styles.titlePlanning}>Planning</h2>
-          <img src="../images/stickers/billets.png" alt='stickers tickets de transports' className={styles.tickets}></img>
-          <button className={styles.buttonP}>Planning</button>
+
+          <button onClick={handlePlanningSelectClick}className={styles.buttonP}>Planning</button>
+          {       
+          tripDetails.isAdmin &&(
+           <button onClick={handleAdminSelectClick} className={styles.buttonS}>Sélection</button>
+            )
+          }
        </div>
        <div className={styles.budget}>
           <h2  className={styles.titleBudget}>Infos Pratiques</h2>
@@ -125,11 +185,14 @@ const DashboardPage = () => {
           <h2 className={styles.accommodationsTitle}>Hébergements</h2>
                  {tripDetails.accomodations.map((accomodation, index) => (
               <div key={index}>
-               <p>{accomodation.location}</p>   
+               <p>{accomodation.location}</p>
+               <p className={styles.votes}>votes :  {
+                accomodation.vote.filter(vote => vote.status).length
+        }</p>   
               </div>
               ))} 
-             <button onClick={handleAddAccomodationClick}className={styles.buttonA}>Ajouter un un Hébergement</button> 
-             <button onClick={handleAccomodationClick}className={styles.buttonA}>Détails et votes</button>              
+             <button onClick={handleAddAccomodationClick}className={styles.buttonH}>+</button> 
+             <button onClick={handleAccomodationClick}className={styles.buttonA}>voter</button>              
        </div>
      </div>
      <div className={styles.secondContainer}>
@@ -139,13 +202,20 @@ const DashboardPage = () => {
           <div key={activity._id}>
             <p className={styles.names}>{activity.name}</p>
             <p className={styles.votes}>participants:  {
-           activity.participation.filter(participant => participant.status).length
+              activity.participation.filter(participant => participant.status).length
         }</p>
           </div>
           ))}
-           <button onClick={handleAddActivityClick} className={styles.buttonAc}>Ajouter une activité</button>
-           <button onClick={ handleActivityClick } className={styles.buttonAc}>Détails et votes</button>
+           <button onClick={handleAddActivityClick} className={styles.buttonAc}>+</button>
+           <button onClick={ handleActivityClick } className={styles.buttonL}>voter</button>
         </div>
+        <div className={styles.map}>
+         {tripDetails && tripDetails.location && (
+          <div className={styles.mapContainer}>
+            <Map location={tripDetails.location} />
+          </div>
+        )}
+      </div>
      </div>
      <div className={styles.thirdContainer}>
        <div className={styles.groupMembers}>
@@ -159,19 +229,20 @@ const DashboardPage = () => {
     ) : (
       <p>Pas de membres à afficher</p>
     )}
-          <button onClick={handleInviteFriendClick} className={styles.buttonM}>Inviter un ami</button>
+          <button onClick={handleInviteFriendClick} className={styles.buttonM}>Inviter</button>
        </div>
        <div className={styles.chat}>
          <h2 className={styles.chatTitle}>Chat</h2>
          <div className={styles.chatMessage}>
+         <Chat />
          </div>
-
+       <button onClick={handleChatClick } className={styles.buttonM}>Chat</button>
        </div>
      </div>
   </div>
   <Footer/>
 </div>
-
+</>
 );
 };
 

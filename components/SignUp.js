@@ -48,7 +48,7 @@ function SignUp({ onCloseModal }) {
   return (
     <div className={styles.signUpContainer}>
       <img className={styles.imgLogo} src='../images/stickers/vanvw.png' alt="Logo" />
-      <p className={styles.create}>Créez votre compte sur FriensTrip</p>
+      <p className={styles.create}>Créez votre compte sur FellowVoyagers</p>
       <input
           className={styles.input}
           placeholder="Adresse email"

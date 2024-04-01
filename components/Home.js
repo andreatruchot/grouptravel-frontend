@@ -10,7 +10,7 @@ import Carrousel from './carrousel';
 
 
 function Home() {
-  const router = useRouter(); // Ajoutez cette ligne
+  const router = useRouter(); 
   const isLoggedIn = useSelector(state => state.user.value.isLoggedIn);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -23,15 +23,13 @@ function Home() {
   };
   // Il retourne le JSX pour le rendu du composant, incluant la photo de profil, la liste des voyages, et le modal pour changer la photo
   return (
-  <div className={styles.container}>
-    <div className={styles.header}>
-       <Header />
-    </div>
+<>
+    <Header />
+  <div className={styles.containerFull}>
       <main className={styles.main}>
         <div className={styles.banner}>
-          <h1 className={styles.firstTitle}>FellowVoyagers</h1>
+        <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
              <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
-             <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
         </div>
         <div className={styles.newtrip}>
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
@@ -39,15 +37,14 @@ function Home() {
                   Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
             <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img>
         </div>
-        <div className={styles.howitWorks}>
           <div className={styles.carrousel}>
           <Carrousel />
           </div>
-         </div>
          <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
       </main>
       <Footer/>
-   </div>
+  </div>
+</>
   );
 }
 

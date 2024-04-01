@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+.pageContainer{
+    margin: 0;
+}
+.containerFull{
+    max-width: 1300px;
+    margin: auto;
+  }
 .header{
     height: 13vh;
     z-index: 999;
@@ -9,23 +16,29 @@
 .myTrips{
 
     background-color: #F4F4F0;
-} 
-.profile{
-
+}
+.titleContainer{
     width: 100%;
-    height: 40vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #EBD5C8;
-    padding-top: 40vh;
-    padding-bottom: 20vh;
-    
+    padding-top: 15vh;
+    padding-bottom: 5vh;  
+
+} 
+.profile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .title{
-    align-self: center;
     font-weight: 700;
     align-self: center;
-    font-size: 3rem;
+    color: #444546;
+    font-size: 3.5rem;
 }
 .tripInfo{
 
@@ -40,8 +53,8 @@
 }
 .pass{
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-     width: 20%;
-     position: absolute;
-     margin-left: 30%;
+     width: 280px;
+     position: relative;
+    
     
 }

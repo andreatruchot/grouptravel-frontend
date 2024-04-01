@@ -44,7 +44,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
   return (
     <div className={styles.signInContainer}>
       <img className={styles.imgLogo} src='../images/stickers/boussole.png' alt="Logo"/>
-      <p className={styles.connect}>Connectez-vous à FriendsTrip</p>
+      <p className={styles.connect}>Connectez-vous à FellowVoyagers</p>
       <input
         className={styles.input}
         placeholder="Adresse email"

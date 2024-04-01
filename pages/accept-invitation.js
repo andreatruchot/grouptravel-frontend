@@ -16,12 +16,11 @@ const router = useRouter();
   return (
    <div className={styles.acceptContainer}>
       <div className={styles.titletContainer}>
-         <h1 className={styles.acceptTitle} >WeTravel</h1>
+         <h1 className={styles.acceptTitle} >FellowVoyagers</h1>
+         <img src="../images/stickers/globe.png" alt='stickers globe terrestre' className={styles.globe}></img>
       </div>
-      <div className={styles.photo}>
-           <img src="../images/stickers/globe.png" alt='stickers globe terrestre' className={styles.globe}></img>
-      </div>
-      <p className={styles.acceptText}>Pour accepter l'invitaion veuillez vous inscrire ou vous connecter</p>
+      
+      <p className={styles.acceptText}>Pour accepter l'invitation veuillez vous inscrire ou vous connecter</p>
       <div className={styles.invitationBtn}>
         <InvitationButton/>
       </div>

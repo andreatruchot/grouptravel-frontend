@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+
+.containerFull{
+  max-width: 1300px;
+  margin: auto;
+}
+
+.planningTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7D8F88;
+  font-weight: 800;
+  padding-top: 20vh;
+  padding-bottom: 5vh;
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 5%;
+}
+.title{
+  text-align: center;
+  font-size: 3.5rem;
+}
+  
+.secondTitle{
+  text-align: center;
+  font-family: 'Lemonada', sans-serif;
+  font-size: 1.7rem;
+}
+  .cardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    background-color: #F4F4F0;
+   
+  }
+  .planningContainer {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+    background-color: #F4F4F0;
+    padding: 5% 5%;
+
+  }
+  .dayColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; 
+    width: auto; 
+    background: white; 
+    border-radius: 10px; 
+    margin-top: 20px;
+  }
+  .stickers{
+  
+    width: 250px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+  }
+  
+  .activitiesBlock {
+    width: 80%;
+    padding-bottom: 5%;
+  }
+  
+  .activitiesGrid {
+    margin-bottom: 10px; 
+  }
+  .dateTitle{
+    text-align: center;
+    font-family: 'Lemonada', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    align-self: center;
+    padding-top: 6%;
+    color: #DE917D;
+
+  }
+  
+ 
+  
+  

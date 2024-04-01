@@ -25,6 +25,19 @@
     border: none;
     margin-top: 5%;
 }
+.btnMore{
+    background-color: #EED271;
+    padding: 5px 10px; 
+    border-radius: 42px;
+    margin-bottom: 5%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    border: none;
+    font-weight: 700;
+    color: #444546; 
+}
+.btnPlus{
+    margin-bottom: 10%;
+}
 .btn{
     padding-top: 20px;
     padding-bottom: 20px;

@@ -13,14 +13,11 @@
     width: 16rem;
     border: none;
     background-color: #BDDCD7;
-   
   }
-  
   .cardImage {
     width: 100%; /* La carte image prend toute la largeur */
     height: auto; /* Hauteur auto pour maintenir l'aspect ratio */
   }
-  
   .cardBody {
     padding: 2px 16px; /* Padding à l'intérieur de la carte */
     border: none;
@@ -51,6 +48,7 @@
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     border-radius: 80%;
     color: white;
+    border-radius: 42px;
   }
   .voteButtonY{
     background-color: #EBD5C8;
@@ -58,13 +56,34 @@
     margin-right: 5%;
     border: none;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    border-radius: 80%;
+    border-radius: 42px;
     color: white;
   }
   .voteButtonN{
     background-color: #DADBC2;
     border: none;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  .fixedButtons{
+    background-color: #DE917D;
+    margin-left: 5%; 
+    margin-right: 5%;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    color: white;
+  }
+  .deleteButtons{
+    background-color: #EED271;
+    border: none;
+    border-radius: 42px;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  .deleteContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
   }
   
   

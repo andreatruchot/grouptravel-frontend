@@ -21,10 +21,14 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
+
+    setUserTrips: (state, action) => {
+        state.value.trips = action.payload.trips;
+      },
       // Action pour gérer la connexion de l'utilisateur
     login: (state, action) => {
-       const { token, username, email } = action.payload;
-       state.value = { ...state.value, token, username, email }; // Utilisation de la déstructuration pour une mise à jour propre
+       const { token, username, email, userId } = action.payload;
+       state.value = { ...state.value, token, username, email, userId }; // Utilisation de la déstructuration pour une mise à jour propre
        state.value.isLoggedIn = true;
       },
 
@@ -66,12 +70,22 @@ export const userSlice = createSlice({
     setImagePreviewUrl: (state, action) => {
       state.imagePreviewUrl = action.payload;
     },
+    setChat: (state, action) => {
+      state.value.tripDetails.chat = action.payload;
+    },
+    addMessageToChat: (state, action) => {
+      if (!state.value.tripDetails.chat) {
+        state.value.tripDetails.chat = [];
+      }
+      state.value.tripDetails.chat.push(action.payload);
+    },
     
   },
 });
 
 // Exportation des actions du slice
-export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails, addActivity, addAccomodation, setImagePreviewUrl } = userSlice.actions;
+export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails, addActivity, addAccomodation, 
+  setImagePreviewUrl, setChat, addMessageToChat, setUserTrips } = userSlice.actions;
 
 // Exportation du reducer
 export default userSlice.reducer;

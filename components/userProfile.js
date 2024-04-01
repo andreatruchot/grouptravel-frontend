@@ -153,7 +153,7 @@ const UserProfile = ({ username }) => {
       <div className={styles.container}>
         {isLoggedIn && (
           <>
-            <img src={profilePicture || "../images/defaultProfile.png"} alt={`${username}'s profile`} className={styles.picture} />
+            <img src={profilePicture} alt={`${username}'s profile`} className={styles.picture} />
             <button className={styles.change} onClick={() => setShowModal(true)}>Changer la photo</button>
             {showModal && (
               <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
@@ -166,7 +166,6 @@ const UserProfile = ({ username }) => {
           </>
           )}
         <h2 className={styles.mytravel}>Mes voyages</h2>
-        
         <div className={styles.tripsContainer}>
         {trips ? (
           trips.map((trip, index) => (

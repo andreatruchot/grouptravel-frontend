@@ -11,6 +11,7 @@ function Accomodations() {
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
   const token = useSelector(state => state.user.value.token);
   const [accomodations, setAccomodations] = useState([]);
+  
 
   useEffect(() => {
    
@@ -25,6 +26,7 @@ function Accomodations() {
     .then(response => response.json())
     .then(data => {
       if (data.result) {
+        console.log(data.accomodations);
         setAccomodations(data.accomodations);
       } else {
         alert(data.message); 
@@ -41,12 +43,12 @@ function Accomodations() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ status: status.toString() }), // Assurez-vous que le statut est une chaîne si nécessaire
+        body: JSON.stringify({ status: status.toString() }),
       });
       if (response.ok) {
         const data = await response.json();
         if (data.status !== undefined) {
-          updateAccomodationStatus(accomodationId, data.status); // Implémentez cette fonction pour mettre à jour l'état
+          updateAccomodationStatus(accomodationId, data.status); // fonction pour mettre à jour l'état
           console.log("Vote enregistré avec succès.");
         } else {
           console.error("Réponse du serveur incomplète.");
@@ -68,6 +70,33 @@ function Accomodations() {
       return accomodation;
     }));
   };
+  const handleDeleteAccomodation = async (accomodationId) => {
+    if(window.confirm("Êtes-vous sûr de vouloir supprimer cet hébergement ?")) {
+        try {
+          const response = await fetch(`http://localhost:3000/accomodations/${accomodationId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+             
+              Authorization: `Bearer ${token}`
+            },
+          });
+    
+          if (response.ok) {
+            alert("Hébergement supprimé avec succès.");
+             // Met à jour la liste des hébergements pour enlever l'hébergement supprimé
+             const updatedAccomodations = accomodations.filter(accomodation => accomodation._id !== accomodationId);
+             setAccomodations(updatedAccomodations);
+            // Rafraîchit les hébergements affichés ici, par exemple en rechargent les données du voyage
+          } else {
+            const data = await response.json();
+            throw new Error(data.message || "Erreur lors de la suppression de l'hébergement.");
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      }
+    };
 
   return (
 
@@ -75,8 +104,8 @@ function Accomodations() {
   <Header />
   <div className={styles.accomodationsContainer}>
     <div className={styles.accomodationsTitle}>
+    <img src="../images/stickers/eiffel.png" alt='stickers tour Eiffel' className={styles.tour}></img>
       <h1 className={styles.title}>Hébergements</h1>
-      <img src="../images/stickers/eiffel.png" alt='stickers tour Eiffel' className={styles.stickers}></img>
     </div>
     <div>
     <h2 className={styles.Subtitle}>Quel Hébergement choisir ?</h2>
@@ -87,11 +116,17 @@ function Accomodations() {
               key={accomodation._id}
               imageUrl={accomodation.photo}
               title={accomodation.location}
+               // Formatage des dates d'arrivée et de départ
+               arrivalDate={new Date(accomodation.arrivalDate).toLocaleDateString()}
+               returnDate={new Date(accomodation.returnDate).toLocaleDateString()} 
+               showDates={true}
               content={accomodation.description}
               arrival={accomodation.arrivalDate}
-              departure={accomodation.returnDate}
+              return={accomodation.returnDate}
               budget={accomodation.budget}
               onVote={(status) => handleVote(accomodation._id, status)}
+              onDelete={() => handleDeleteAccomodation(accomodation._id)}
+              showDeleteButton={true}
             />
           ))}
         </div>

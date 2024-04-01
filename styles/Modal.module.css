@@ -14,7 +14,7 @@
   .modal {
     background-color: #F4F4F0;
     padding: 20px;
-    width: 30%;
+    width: 50vh;
     height: auto;
     border-radius: 20px;
   }
@@ -24,7 +24,6 @@
     cursor: pointer;
     background-color: #F4F4F0;
     color: rgb(59, 54, 54);
-    
     border: none;
    
   }

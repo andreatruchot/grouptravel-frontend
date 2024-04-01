@@ -19,7 +19,8 @@
     align-self: center;
     font-weight: 800;
     align-self: center;
-    font-size: 3rem;
+    color: #444546;
+    font-size: 5rem;
 }
 .activitiesGrid {
     display: flex;

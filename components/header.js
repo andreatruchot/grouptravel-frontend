@@ -19,10 +19,11 @@ export default function Header() {
     return (
      <header className={styles.container}>
         <div className={styles.headerfull}>
+        <h2>FellowVoyagers</h2>
             {isLoggedIn && <>
-                <h2>FellowVoyagers</h2>
                 <Link href="/"><a className={styles.link}>Accueil</a></Link>  
                 <Link href="/Profil"><a className={styles.link}>Mon profil</a></Link>
+                <Link href="/Dashboard"><a className={styles.link}>Tableau de bord</a></Link>
                 
             {user.token && <span className={styles.onLine}>Bonjour, {user.username}</span>} 
             <button onClick={handleLogout} className={styles.logoutButton}>Déconnexion</button>
