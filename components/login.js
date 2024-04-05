@@ -31,16 +31,17 @@ if (isLoggedIn) return null;
 
   return (
     <>
-      <Button
+    <ul className={styles.log}>
+      <li><Button
         className={styles.btnUp}
         text="Inscription"
         onClick={() => setIsSignUpModalVisible(true)}
-      />
-      <Button
+       /></li>
+       <li><Button
         className={styles.btnIn}
         text="Connexion"
         onClick={() => setIsSignInModalVisible(true)}
-      />
+      /></li>
       <Modal isOpen={isSignInModalVisible} onClose={closeModal}>
         <SignIn onAuthSuccess={handleAuthSuccess} onCloseModal={closeModal} />
       </Modal>
@@ -48,6 +49,7 @@ if (isLoggedIn) return null;
       <Modal isOpen={isSignUpModalVisible} onClose={closeModal}>
         <SignUp onAuthSuccess={handleAuthSuccess} onCloseModal={closeModal} />
       </Modal>
+      </ul>
     </>
   );
 }

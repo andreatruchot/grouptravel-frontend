@@ -3,6 +3,7 @@
    max-width: 1300px;
    margin: auto;
   background-color: #F4F4F0;
+  flex-wrap: wrap;
 }
 .name{
     align-self: center;
@@ -15,7 +16,6 @@
     display: flex;
     background-color: #DE917D;
     justify-content: center;
-    font-weight: 800;
     padding-top: 20vh;
     padding-bottom: 10vh;
     margin-bottom: 5%;
@@ -37,6 +37,7 @@
 .tripContainer{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     margin-bottom: 5%;
   
@@ -45,7 +46,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    margin-left: 2%;
+    align-self: flex-start;
 }
 .planning{
     display: flex;
@@ -53,9 +54,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 40vh;
+    height: auto;
     background-color: #DADBC2;
-    padding: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     border-radius: 10px;
     margin-bottom: 5%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
@@ -67,11 +69,12 @@
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     border: none;
     font-weight: 700;
-    color: white;  
+    color: white; 
+    margin-bottom: 8%; 
 }
 .buttonS{
     background-color: #DE917D; 
-    padding: 5px 30px; 
+    padding: 8px 30px; 
     border-radius: 42px;
     margin-bottom: 3%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
@@ -80,27 +83,26 @@
     color: white; 
 
 }
-.titlePlanning{
-    text-align: center;
-    padding: 2%;
-    font-family: "Lemonada", sans-serif;   
-}
 
 .budget{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 30vh;
+    height: auto;
     background-color: #EED271;
-    padding: 3%;
+    padding-top: 10%;
+    padding-bottom: 20%;
     border-radius: 10px;
     margin-bottom: 5%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
-.titleBudget{
+.subtitle{
     font-family: "Lemonada", sans-serif;
+    font-size: 1.5rem;
     padding-bottom: 3%;
+    font-weight: 600;
 }
 .accommodations{
     display: flex;
@@ -109,12 +111,14 @@
     width: 100%;
     height: auto;
     background-color: #DE917D;
-    padding: 3%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     border-radius: 10px;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-bottom: 5%;
 }
 .accommodationsTitle{
-    font-family: "Lemonada", sans-serif;
+    font-family: "Handlee", sans-serif;
     margin-top: 3%;
     padding-bottom: 3%;
 }
@@ -131,10 +135,23 @@
     color: white;  
 
 }
+.imagedeco{
+    width: 100%;
+    height: auto;
+   
+  
+}
+.stickersM{
+    width: 100%;
+    border-radius: 10px;
+   
+
+}
 .secondContainer{
     display: flex;
     flex-direction: column;
     width: 30%;
+    align-self: flex-start;
 }
 .activities{
     display: flex;
@@ -144,34 +161,43 @@
     width: 100%;
     height: auto;
     background-color: #BDDCD7;
-    padding: 3%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     border-radius: 10px;
     margin-bottom: 5%;
-    margin-left: 3%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
 }
-.activitiesTitle{
-    font-family: "Lemonada", sans-serif;
-    margin-top: 3%;
+.album{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: #DE917D;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-radius: 10px;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-bottom: 5%;
 }
-.names{
-    font-weight: 600;
+.stickersVan{
+    width: 300px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+
+}
+.van{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .votes{
     font-size: 0.8rem;
     text-align: center;
     color: white;
 }
-.buttonAc{
-    background-color: #EED271;
-    padding: 5px 10px; 
-    border-radius: 42px;
-    margin-bottom: 5%;
-    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    border: none;
-    font-weight: 700;
-    color: #444546; 
-}
+
 .buttonH{
     background-color: #EED271;
     padding: 10px 20px; 
@@ -196,8 +222,9 @@
 .thirdContainer{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 30%;
-    margin-right: 5%;
+    align-self: flex-start;
 }
 .groupMembers{
     display: flex;
@@ -206,10 +233,10 @@
     width: 100%;
     height: auto;
     background-color: #EBD5C8;
-    padding: 3%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     border-radius: 10px;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    margin-left: 5%;
 }
 .buttonM{
     background-color: #DE917D;
@@ -224,29 +251,61 @@
     color: white;
     border: none;
 }
-.groupTitle{
-    font-family: "Lemonada", sans-serif;
-    margin-top: 3%;
-    font-size: 1.7rem;
-}
-.chat{
+
+.chatContainer{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
-    padding: 3%;
     border-radius: 10px;
-    margin-left: 5%;
     margin-top: 5%;
+    margin-bottom: 5%;
     background-color: #DADBC2;
+    overflow: hidden;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
-.chatTitle{
-    font-family: "Lemonada", sans-serif;
-    font-size: 1.7rem;
-    margin-top: 2.5%;
-    margin-bottom: 4%;   
+.buttonChat{
+    background-color: #EED271;
+    border-radius: 42px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    border:none;
+    font-weight: 700;
+    border-radius: 42px;
+    border: none;
+    align-self: flex-end;
+    padding: 10px 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    align-self: auto;
+    transition: 1133ms;
+    transform: translateY(0);
+    color: #444546; 
 }
+.buttonChat:hover{
+    transition: 1133ms;
+    padding: 20px 60px;
+    transform: translateY(-0px);
+  }
+.buttonAlbum{
+    background-color: #7D8F88;
+    align-self: center;
+    padding: 12px 25px; 
+    border-radius: 42px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    color: white;
+    border: none;
+
+}
+
 .date1{
     margin-right: 6%;
 }
@@ -259,8 +318,41 @@
 .mapContainer{
     margin-top: 3%;
     border-radius: 20px;
-    margin-left: 3%;
+    margin-bottom: 5%;
     width: 100%;
     height: auto;
+}
+    @media (max-width: 760px){
+        .tripContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+        }
+        .firstContainer, .secondContainer, .thirdContainer{
+            width: 80%; 
+            margin-left: 0;
+            margin-right: 0;
+            margin: auto;
+        }
+        .title{
+            font-size: 1rem;
+        }
+        .name{
+            font-size: 2rem;
+        } 
+        .activities{
+            margin-top: 5%;
+        }    
+}
+@media (max-width: 460px){
+
+    .firstContainer, .secondContainer, .thirdContainer{
+        width: 95%; 
+        margin-left: 0;
+        margin-right: 0;
+        margin: auto;
+    }
+
 }
 

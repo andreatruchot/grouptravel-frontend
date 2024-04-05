@@ -2,7 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
 /* userProfile.module.css */
 
-  
+  .container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
   .picture {
     border-radius: 50%; /* Rend l'image circulaire */
     width: 200px; 
@@ -15,28 +22,34 @@
     text-align: center;
     font-family: 'Lemonada', sans-serif;
     margin-bottom: 5%;
-    margin-top: 1%; 
-    
+    margin-top: 1%;  
+  }
+  .profileTitle{
+    width: 60%;
+    display: flex;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
   }
   .tripsContainer{
     background-color: #BDDCD7;
     border-radius: 20px;
-    width: 70%;
+    width: 90%;
+    margin: auto;
     height: auto;
     display: flex;
     padding-top: 5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
     margin-bottom: 5%;
   }
   .tripInfo {
     background-color: #f0f0f0; 
     border-radius: 20px;
-    margin: 10px 0;
     padding: 15px 20px;
-    width: 80%; 
+    width: 90%; 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,17 +65,14 @@
     cursor: pointer;
     transition: 1133ms;
     transform: translateY(0);
-    
   }
   .change:hover{
     transition: 1133ms;
     padding: 30px 50px;
     transform: translateY(-0px);
-   
   }
   .button{
-    width: 400px;
-    display: flex;
+    width: 100%;
   }
   .go{
     border-radius: 20px;
@@ -78,19 +88,121 @@
     background-color: #EBD5C8;
     border: none;
     font-size: 14px;
+    margin-left: 20%;
     padding: 10px;
-    margin-right: 20px;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
   }
   .trip{
-    border-radius: 5px;
-    padding: 10px 60px 10px 60px;
+  border-radius: 42px;
+  border: none;
+  background-color: #DE917D;
+  padding: 20px 20px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+  transition: 1133ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  align-self: center;
+  margin-bottom: 5%;
+  }
+  .submitBtn{
+    background-color: #DE917D; 
+    padding: 15px 25px;
+    border-radius: 42px;
+    margin-bottom: 3%;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     border: none;
-    background-color: #DE917D;
-    color: #F4F4F0;
-    margin-bottom: 8%;
     font-weight: 700;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    color: white; 
+  }
+  .submitBtn:hover{
+  background-color: #EBD5C8;
+  color: #444546;
+  }
+  .fileInput {
+    opacity: 0; /* Rend l'input file transparent */
+    position: absolute; /* Le positionne de façon absolue */
+    z-index: -1; /* Le rend derrière le bouton stylisé */
+  }
+  
+  .fileInputLabel {
+    display: inline-block; /* Affiche le label comme un bloc inline */
+    padding: 10px 20px; 
+    background-color: #EED271;
+    color: #444546; 
+    font-weight: 700;
+    border-radius: 20px; 
+    cursor: pointer;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    margin-right: 5%;
+  }
+  
+  .fileInputLabel:hover {
+    background-color: #7D8F88;
+    color: white; 
+  }
+  
+
+  @media (max-width: 768px){
+    .picture{
+      width: 180px;
+      height: 180px;
+    }
+    .change{
+      margin-bottom: 5%;
+    }
   }
 
+  @media (max-width: 500px){
+    .pass{
+        width: 130px;
+    }
+    .title{
+        font-size: 2rem;
+    }
+    .picture{
+      width: 150px;
+      height: 150px;
+      margin-top: 8%;
+      align-self: center;
+    }
+    .change{
+      margin: 5%;
+    }
+    .tripInfo{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      height: auto;
+      padding: 5%;
+    }
+    .delete{
+      margin: auto;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+    .button{
+      margin-top: 5%;
+      align-items: center;
+    }
+    .tripsContainer{
+      width: 100%;
+    }
+    .go{
+      margin: auto;
+    }
+    .trip{
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+}
+  
+  
   

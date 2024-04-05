@@ -1,19 +1,22 @@
 
-.main{
+.containerFull{
+    max-width: 1300px;
+    margin: auto;
     background-color: #F4F4F0;
-}
-.banner{
+ }
+.title{
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: #EBD5C8;
-    padding-top: 40vh;
-    padding-bottom: 20vh;
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+    margin-bottom: 5%;
 }
-.title{
-    text-align: center;
+.name{
+    align-self: center;
     font-weight: 800;
-    font-size: 2.5rem;  
+    font-size: 3.5rem;
+    color: #444546;  
 }
 .photo{
     width: 100%;
@@ -21,15 +24,14 @@
     justify-content: flex-end;
     height: auto;
 }
-.camera{
-    position: absolute;
-    width: 21%;
-    position: absolute;
-    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-    align-self:flex-end;
-    margin-top: 50%;
-    margin-right: 2%;
-}
+.stickers2{
+    
+    width: 250px;
+    position: relative;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+    align-self: flex-end; 
+    } 
+
 
 
 

@@ -3,10 +3,11 @@
 /* Conteneur principal pour le chat, ajoutez des styles généraux si nécessaire */
 .container {
     background: #7D8F88; 
-    border-radius: 20px; 
+    border-radius: 20px;
     padding: 20px;
-    max-width: 400px; 
+    width: 90%;
     margin: auto;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
   }
 .message{
     background-color: white;
@@ -18,15 +19,10 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow-y: auto;
-    max-height: 300px; 
   }
-  /* Styles pour le message des autres utilisateurs */
-
-  
+ 
   /* Styles pour chaque message individuel */
   .listStyle {
-   
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 15px; 
@@ -39,49 +35,56 @@
   /* Styles pour le formulaire et l'entrée */
   .formStyle {
     display: flex;
-    margin-top: 20px;
+    margin-top: 5%;
   }
   
   .inputStyle {
- 
-    padding: 20px;
+    padding: 1px 20px;
+    width: 80%;
     border: 1px solid #f2abab; 
     border-radius: 15px; 
     margin-right: 10px;
-    font-size: 0.7rem; 
+    font-size: 0.7rem;
   }
   
   /* Styles pour le bouton d'envoi */
   .btnMessage {
     border: none;
-    padding: 5px 5px;
+    padding: 3px 3px;
     border-radius: 15px;
     display: flex;
     background-color: white;
+    width: 95%;
+    margin: auto;
   }
   .form{
-    background-color: #EBD5C8;
+    background-color: #DE917D;
+    width: 90%;
      border: none;
-     border-radius: 15px;
+     border-radius: 20px;
+     padding: 15px 5px; 
+     margin: auto;
      margin-top: 3%;
-     padding: 13px 13px;
+     margin-bottom: 3%;
+     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
   }
   .messageText{
     border-radius: 10px;
     border: white;
+    width: 80%;
   }
   
  .btn{
-  padding: 5px 15px;
+  padding:  8px;
   border-radius: 15px;
   border: none;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-left: 15px;
+  margin-left: 5%;
   background-color: #EED271;
   color:  #444546;   
  }
-  /* Ajoutez ceci dans votre fichier CSS */
+ 
 
   
   

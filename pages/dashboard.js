@@ -1,4 +1,4 @@
-
+// Importations nécessaires pour utiliser React, Redux, Next.js et les composants/style personnalisés
 import { useSelector, useDispatch} from 'react-redux';
 import Header from '../components/Header';
 import styles from '../styles/Dashboard.module.css';
@@ -9,12 +9,15 @@ import { setTrips } from '../reducers/user';
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
+// Importation dynamique du composant Map pour éviter le rendu côté serveur (SSR)
 const Map = dynamic(() => import('../components/Map'), { ssr: false });
 
 
 const DashboardPage = () => {
 
+  // Hooks pour interagir avec Redux et le routeur Next.js
   const dispatch = useDispatch();
+  // State local pour stocker la localisation actuelle
   const [location, setLocation] = useState('');
   const router = useRouter();
   
@@ -30,6 +33,7 @@ const DashboardPage = () => {
   console.log('Found Trip Details:', tripDetails);
   const isAdmin = tripDetails && tripDetails.admin === userId;
 
+  // Effet pour charger les voyages de l'utilisateur après le rendu initial
   useEffect(() => {
     const fetchTrips = async () => {
       if (token) {
@@ -52,7 +56,6 @@ const DashboardPage = () => {
               console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
             });
           }
-
             // Il dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
             dispatch(setTrips(data.trips)); 
            
@@ -65,6 +68,7 @@ const DashboardPage = () => {
     fetchTrips();
   }, []);
 
+  // Effet pour charger les détails du voyage sélectionné
   useEffect(() => {
     // Défini une fonction asynchrone interne pour faire la requête
     const fetchTripDetails = async () => {
@@ -112,6 +116,8 @@ const DashboardPage = () => {
     );
     
     }
+      // Handlers pour la navigation entre différentes pages
+      
     // Fonction pour naviguer vers Planning
     const handlePlanningSelectClick = () => {
       router.push('/Planning');
@@ -147,6 +153,14 @@ const DashboardPage = () => {
     // Redirige l'utilisateur vers la page d'invitation en passant l'ID du voyage sélectionné
     router.push('/ChatPage');
   };
+  const handleAlbumClick = () => {
+
+    router.push('/AlbumPage');
+  };
+  const handleAddPicturesClick = () => {
+
+    router.push('/AddPictures');
+  };
     // Rendu des détails du voyage sélectionné
     console.log("Membres du voyage avec username:", tripDetails.members);
   
@@ -155,7 +169,6 @@ const DashboardPage = () => {
 <>
 <Header />
  <div className={styles.containerFull}>
-
    <div className={styles.title}>
    <img src="../images/stickers/crisier.png" alt='stickers de cerisier japonnais' className={styles.stickers2}></img>
       <h1 className={styles.name}>{tripDetails.name}</h1>
@@ -163,7 +176,7 @@ const DashboardPage = () => {
   <div className={styles.tripContainer}>
     <div className={styles.firstContainer}>
        <div className={styles.planning}>
-          <h2  className={styles.titlePlanning}>Planning</h2>
+          <h2  className={styles.subtitle}>Planning</h2>
 
           <button onClick={handlePlanningSelectClick}className={styles.buttonP}>Planning</button>
           {       
@@ -173,7 +186,7 @@ const DashboardPage = () => {
           }
        </div>
        <div className={styles.budget}>
-          <h2  className={styles.titleBudget}>Infos Pratiques</h2>
+          <h2  className={styles.subtitle}>Infos Pratiques</h2>
           <span className={styles.totalBudget} >Budget total du voyage: {tripDetails.budget} €</span>
           <h3 className={styles.during}>Dates du séjour</h3>
           <div className={styles.date}>
@@ -182,22 +195,25 @@ const DashboardPage = () => {
        </div>
        </div>
        <div className={styles.accommodations}>
-          <h2 className={styles.accommodationsTitle}>Hébergements</h2>
+          <h2 className={styles.subtitle}>Hébergements</h2>
                  {tripDetails.accomodations.map((accomodation, index) => (
               <div key={index}>
                <p>{accomodation.location}</p>
                <p className={styles.votes}>votes :  {
                 accomodation.vote.filter(vote => vote.status).length
-        }</p>   
+            }</p>   
               </div>
               ))} 
              <button onClick={handleAddAccomodationClick}className={styles.buttonH}>+</button> 
              <button onClick={handleAccomodationClick}className={styles.buttonA}>voter</button>              
        </div>
+       <div className={styles.imagedeco}>
+        <img src="../images/palmier.jpg" alt='photo de palmiers' className={styles.stickersM}></img>
+        </div>
      </div>
      <div className={styles.secondContainer}>
        <div className={styles.activities}>
-          <h2 className={styles.activitiesTitle}>Activités</h2>
+          <h2 className={styles.subtitle}>Activités</h2>
           {tripDetails.activities.map((activity) => (
           <div key={activity._id}>
             <p className={styles.names}>{activity.name}</p>
@@ -206,7 +222,7 @@ const DashboardPage = () => {
         }</p>
           </div>
           ))}
-           <button onClick={handleAddActivityClick} className={styles.buttonAc}>+</button>
+           <button onClick={handleAddActivityClick} className={styles.buttonH}>+</button>
            <button onClick={ handleActivityClick } className={styles.buttonL}>voter</button>
         </div>
         <div className={styles.map}>
@@ -215,30 +231,37 @@ const DashboardPage = () => {
             <Map location={tripDetails.location} />
           </div>
         )}
+       </div>
+       <div className={styles.album}>
+         <h2 className={styles.subtitle}>Album</h2>
+         <button onClick={handleAddPicturesClick} className={styles.buttonH}>+</button>
+         <button onClick={handleAlbumClick}className={styles.buttonAlbum}>Album photo</button> 
+      </div>
+      <div className={styles.van}>
+          <img src="../images/stickers/vanbagages.png" alt='stickers de van' className={styles.stickersVan}></img>
       </div>
      </div>
      <div className={styles.thirdContainer}>
        <div className={styles.groupMembers}>
-          <h2 className={styles.groupTitle}>Membres du groupe</h2>
+          <h2 className={styles.subtitle}>Membres du groupe</h2>
           {tripDetails.members && tripDetails.members.length > 0 ? (
-      tripDetails.members.map((member, index) => (
-        <div key={index}>
-          <p>{member.username}</p>
-        </div>
-      ))
-    ) : (
-      <p>Pas de membres à afficher</p>
-    )}
+           tripDetails.members.map((member, index) => (
+            <div key={index}>
+            
+              <p>{member.username}</p>
+           </div>
+            ))
+         ) : (
+         <p>Pas de membres à afficher</p>
+         )}
           <button onClick={handleInviteFriendClick} className={styles.buttonM}>Inviter</button>
        </div>
-       <div className={styles.chat}>
-         <h2 className={styles.chatTitle}>Chat</h2>
-         <div className={styles.chatMessage}>
+       <div className={styles.chatContainer}>
+         <h2 className={styles.subtitle}>Chat</h2>
          <Chat />
-         </div>
-       <button onClick={handleChatClick } className={styles.buttonM}>Chat</button>
+         <button onClick={handleChatClick } className={styles.buttonChat}>Chat</button>
        </div>
-     </div>
+    </div>
   </div>
   <Footer/>
 </div>

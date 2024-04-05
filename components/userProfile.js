@@ -149,21 +149,24 @@ const UserProfile = ({ username }) => {
     router.push('/addTrip');
   };
   return (
-    <div>
+   
       <div className={styles.container}>
         {isLoggedIn && (
-          <>
+          <div className={styles.profileTitle}>
             <img src={profilePicture} alt={`${username}'s profile`} className={styles.picture} />
             <button className={styles.change} onClick={() => setShowModal(true)}>Changer la photo</button>
             {showModal && (
               <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-                <form onSubmit={handleSubmit}>
-                  <input type="file" onChange={handleFileChange} />
-                  <button type="submit">Soumettre</button>
+                <form onSubmit={handleSubmit} className={styles.file}>
+                  <input id="file" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
+                  <label htmlFor="file" className={styles.fileInputLabel}>
+                      Choisir le fichier
+                     </label>
+                  <button className={styles.submitBtn} type="submit">Soumettre</button>
                 </form>
               </Modal>
             )}
-          </>
+          </div>
           )}
         <h2 className={styles.mytravel}>Mes voyages</h2>
         <div className={styles.tripsContainer}>
@@ -171,24 +174,27 @@ const UserProfile = ({ username }) => {
           trips.map((trip, index) => (
             <div key={index} className={styles.tripInfo}>
               <span>{trip.name}</span>
-              <div className={styles.button}>
                 <button
                    className={styles.delete} 
                    onClick={() => handleDeleteTrip(trip.id)}
                 >
                   Supprimer
                 </button>
-                <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
+               
+               <div className={styles.goContainer}>
+                 <button className={styles.go} onClick={() => handleGoToDashboard(trip.id)}>Go</button>
               </div>
             </div>
           ))
         ) : (
           <p>Aucun voyage trouvé.</p>
+
         )}
+         
            <button onClick={handleNewTripClick} className={styles.trip}>Nouveau voyage</button>
         </div>   
       </div>
-   </div>
+  
    
   );
 };

@@ -1,28 +1,42 @@
-
+.log{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
 .btnIn {
     background-color: #DE917D;
-    padding: 10px 15px;
-    border-radius: 20px;
+    padding: 13px 30px;
+    border-radius: 42px;
     font-weight: 500;
     color: rgb(42, 38, 38);
     border: none;
-    margin-top: 1%;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    margin-bottom: 2%;
-    margin-left: 1.5%; 
+    margin-left: 20%;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-items: center;
 }
 .btnUp{
     background-color: #EED271;
-    padding: 10px 15px;
-    border-radius: 20px;
+    padding: 13px 30px;
+    border-radius: 42px;
     font-weight: 500;
     color: rgb(42, 38, 38);
-    margin-top: 1%;
     border: none;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    margin-bottom: 2%;
-    margin-right: 1.5%;
+    font-size: 1.3rem;
+}
+@media (max-width: 768px){
+    .btnIn{
+        padding: 8px 20px; 
+    }
+    .btnUp{
+        padding: 8px 20px; 
+    }
+    
 }
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
@@ -11,6 +11,7 @@ const ChatPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { selectedTripId, token, tripDetails } = useSelector((state) => state.user.value);
+  const [members, setMembers] = useState([]);
 
   useEffect(() => {
     if (!selectedTripId) {
@@ -26,21 +27,61 @@ const ChatPage = () => {
       dispatch(setTrips(selectedTripId, token));
     }
   }, [selectedTripId, tripDetails, token, dispatch, router]);
+  
+  useEffect(() => {
+    const fetchMemberProfiles = async () => {
+    
+      try {
+        const response = await fetch(`http://localhost:3000/trips/members/${selectedTripId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch member profiles');
+        }
+        const data = await response.json();
+        setMembers(data);
+      } catch (err) {
+        setError(err.message);
+      } 
+    };
+
+    if (selectedTripId) {
+      fetchMemberProfiles();
+    }
+  }, [selectedTripId]);
+
   return (
    <div>
      <Header/>
      <div className={styles.ContainerFull}>
-        <div className={styles.ChatContainer}>
+        <div className={styles.titleFirst}>
+             <img src="../images/stickers/sushis.png" alt='stickers plateau de sushi' className={styles.stickers2}></img>
+               <h1 className={styles.name}>Chat</h1>
+          </div>
+          <h2 className={styles.secondTitle}>Ici on communique avec les membres du groupe</h2>
+       <div className={styles.ChatContainer}>
            <div className={styles.members}>
             <p className={styles.title}>Membres du groupe</p>
-            </div>
-             <div className={styles.chat}>
-               <Chat /> 
-             </div>
-          </div>
-      </div> 
-      <Footer/>
-   </div>
+            {members.length > 0 ? (
+           <ul className={styles.ulMembers}>
+              {members.map((member, index) => (
+             <li key={index}className={styles.userList} >
+               {member.userPicture && <img className={styles.userPict}src={member.userPicture} alt={member.username} />}
+                <p className={styles.userName}>{member.username}</p>
+              
+            </li>
+          ))}
+        </ul>
+        ) : (
+        <p>No members found.</p>
+        )}
+    
+     </div>
+    <div className={styles.chat}>
+     <Chat /> 
+    </div>
+    </div>
+  </div> 
+  <Footer/>
+</div>
   );
 };
 

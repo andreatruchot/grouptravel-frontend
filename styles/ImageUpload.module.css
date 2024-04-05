@@ -14,15 +14,20 @@
     justify-content: center;
     margin-bottom: 10px;
   }
-  
+  .imageFirst{
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    background-color: white;
+  }
   .placeholder {
     font-size: 50px; /* La taille de l'icône de votre choix */
     color: #ccc; /* La couleur de l'icône de votre choix */
   }
   
   .previewImage {
-    width: 100%; /* Assurez-vous que l'image remplisse le conteneur */
-    height: 100%;
+    width: 200px; /* Assurez-vous que l'image remplisse le conteneur */
+    height: auto;
     object-fit: cover; /* Assurez-vous que l'image soit bien dimensionnée */
   }
   
@@ -39,6 +44,24 @@
     width: 100%; 
     height: 100%;
     cursor: pointer;
+  }
+  .imagePlaceholder {
+    width: 100%; 
+    height: 200px; 
+    background-color: #cccccc; /* Gris */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666; 
+    border: 2px dashed #999999;  
+    border-radius: 4px; 
+    font-size: 16px;
+  }
+  
+  .imagePreview {
+    width: 100%; 
+    height: auto; 
+    border-radius: 4px; 
   }
   
  

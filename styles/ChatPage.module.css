@@ -5,23 +5,78 @@
     margin: auto;
     background-color: #F4F4F0;
     padding-bottom: 10%;
-    display: flex;
-    justify-content: center;
+   
 }
-
+.name{
+    align-self: center;
+    font-weight: 700;
+    color: #444546;
+    font-size: 5rem;   
+}
+.titleFirst{
+    display: flex;
+    background-color: #BDDCD7;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+    margin-bottom: 10%;
+}
+.stickers2{
+    width: 20%;
+    position: relative;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+    align-self: flex-end; 
+}
+.secondTitle{
+  font-family: "Lemonada", sans-serif;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 5%;
+  
+}
 .ChatContainer{
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding-top: 30vh;
+    padding: 8%;
+    background-color: #EBD5C8;
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+    
+    
 }
 .members{
-    width: 40%;
-    background-color: #EBD5C8;
+    width: 30%;
+    background-color: #DADBC2;
     border-radius: 20px;
-    margin-right: 5%;
+    align-self: flex-start;
+    padding-top: 5%;
+    color: #444546;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    
+}
+.userPict{
+    border-radius: 50%; /* Rend l'image circulaire */
+    width: 50px; 
+    height: 50px;
+    object-fit: cover;
+    margin: 5%;
+    align-self: flex-start;
+}
+.userList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userName{
+    padding-right: 5%;
 }
 .chat{
-    width: 60%;
+    width: 70%;
     height: auto;
 }
 .title{
@@ -31,4 +86,32 @@
     font-family: 'Lemonada', sans-serif;
     font-weight: 700;
     margin-top: 5%;
+}
+@media (max-width: 760px){
+    .ChatContainer{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .members{
+        width: 80%;
+        align-self: center;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    .chat{
+        width: 90%;
+    }
+    .secondTitle{
+        font-size: 1.3rem;
+    }
+    .name{
+        font-size: 3rem;
+    }
+    .stickers2{
+        width: 130px;
+    }
+    
+    
 }

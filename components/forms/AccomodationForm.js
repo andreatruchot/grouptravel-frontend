@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/router'; // Assurez-vous que cela est correctement importé pour utiliser `useRouter`
+import { useRouter } from 'next/router'; 
 import styles from '../../styles/AccomodationForm.module.css';
 import { addAccomodation, setTripDetails } from '../../reducers/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

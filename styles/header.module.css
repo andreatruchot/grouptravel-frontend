@@ -1,24 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=MuseoModerno:wght@500&display=swap');
-.headerfull {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:400');
+
+.nav{
     background-color: #F4F4F0;
     width: 100%;
-    height: 15%;
-    padding-left: 5%;
-    padding-right: 5%;
+    height: 15vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: fixed; 
     z-index: 999;
+    
 }
+.logo{
+    padding-left: 1%;
+}
+.login{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 0;
+    width: 100%;
+}
+
 .link{
     text-decoration: none;
-    position: relative;
     align-self: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     letter-spacing: 1.8px;
-    font-family: 'Montserrat';
-    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     color: rgb(42, 38, 38);
     margin: 15px;
 }
@@ -32,15 +44,84 @@
 }
 .logoutButton{
     justify-content: flex-end;
-    align-self: center;
-    border-radius: 20px;
+    border-radius: 42px;
     background-color: #7D8F88;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
     border: none;
     color: #F4F4F0;
-    font-size: 14px;
+    font-size: 1.3rem;
     padding: 10px 20px;
     margin-right: 2%;
 }
+.logout{
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+.logo{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.burgerMenu {
+    display: none; /* Par défaut caché, sera affiché via media query sur mobile */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 30px; /* Ajustez selon vos besoins */
+}
 
+@media (max-width: 1005px) {
+    .logoutButton{
+        font-size: 1rem;
+    }
+    .logo{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .burgerMenu {
+        display: block; /* Montrer le bouton sur les écrans mobiles */
+    }
+    .login, .logout {
+        display: none; /* Caché par défaut sur mobile */
+    }
+    .showMenu .login, .showMenu .logout {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        
+        width: 100%;
+        margin-bottom: 5%;
+        background-color: #F4F4F0;
+    }
+    .li{
+        margin-top: 5%;
+    }
+    .logo{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    .logoutButton{
+        margin-bottom: 30%;
+        margin-top: 10%;
+    }
+    .onLine{
+        display: flex;
+        margin: auto;
+    }
+    .logout{
+        width: 30%;
+        padding-bottom: 5%;
+        align-items: center;
+    }
+
+}
 

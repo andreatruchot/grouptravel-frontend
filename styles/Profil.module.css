@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
 .pageContainer{
+    width: 100%;
     margin: 0;
+    padding: 0;
 }
 .containerFull{
     max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
+    padding: 0px;
+    background-color: #F4F4F0;
   }
 .header{
     height: 13vh;
@@ -25,7 +32,6 @@
     background-color: #EBD5C8;
     padding-top: 15vh;
     padding-bottom: 5vh;  
-
 } 
 .profile{
     width: 100%;
@@ -41,10 +47,12 @@
     font-size: 3.5rem;
 }
 .tripInfo{
-
+    width: 85%;
+    height: auto;
     background-color: #BDDCD7;
     margin-top: 5%;
 }
+
 .footer{
     width: 100%;
     height: 30VH;
@@ -55,6 +63,24 @@
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
      width: 280px;
      position: relative;
-    
-    
+      
+}
+@media (max-width: 768px){
+    .pass{
+        width: 130px;
+    }
+    .title{
+        font-size: 2rem;
+    }
+   
+
+}
+@media (max-width: 400px){
+   
+    .titleContainer{
+        width: 100%;
+        margin: auto;
+    }
+
+
 }

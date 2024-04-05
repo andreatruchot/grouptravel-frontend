@@ -73,14 +73,12 @@ function Activities() {
 
 <div>
   <Header />
-  <div className={styles.activitiesContainer}>
-    <div className={styles.activitiesTitle}>
-      <h1 className={styles.title}>Activités</h1>
-      <img src="../images/stickers/geisha.png" alt='stickers geisha' className={styles.stickers}></img>
+  <div className={styles.containerFull}>
+    <div className={styles.title}>
+      <h1 className={styles.name}>Activités</h1>
+      <img src="../images/stickers/geisha.png" alt='stickers geisha' className={styles.stickers2}></img>
     </div>
-    <div>
     <h2 className={styles.Subtitle}>Il est temps de décider de participer aux activités</h2>
-     </div>
     <div className={styles.activitiesGrid}>
           {activities.map((activity, index) => (
             <MyCard

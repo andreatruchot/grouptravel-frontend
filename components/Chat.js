@@ -100,7 +100,6 @@ const Chat = () => {
     }
   };
   
-  
   return (
   <div>
     <div>
@@ -112,8 +111,8 @@ const Chat = () => {
              const isAuthor = userId === chatItem.author._id.toString(); // Assurez-vous que cette comparaison fonctionne comme prévu
 
              return (
-              <li key={chatItem._id} style={{ backgroundColor: color, position: 'relative' }} className={styles.listStyle}>
-                 {chatItem.message} - {chatItem.author.username}
+              <li key={chatItem._id} style={{ backgroundColor: color }} className={styles.listStyle}>
+                 {chatItem.author.username}: {chatItem.message}
                  {isAuthor && (
                   <span
                      className={styles.deleteIcon}

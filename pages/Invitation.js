@@ -8,21 +8,18 @@ const InvitationPage = () =>{
 
 
     return (
-<div>
-   <div className={styles.header}>
+<>
+  
      <Header />
-   </div>
-   <main className={styles.main}>
+   <div className={styles.containerFull}>
      <div className={styles.picture}>
      </div>
      <div className={styles.form}>
        <InvitationForm />
       </div>
-   </main>
-   <div className={styles.footer}>
-    <Footer/>
-    </div>
-</div>
+      <Footer/>
+   </div>
+ </>
 
  );
 };

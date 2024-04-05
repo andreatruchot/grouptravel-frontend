@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+.containerFull{
+    max-width: 1300px;
+    margin: auto;
+    background-color: #EBD5C8;
+    padding-top: 15vh;
+ }
+.title{
+    padding-top: 5%;
+    padding-bottom: 3%;
+    background-color: white;
+    margin-bottom: 10%;
+}
+
+.stickers2{
+    width: 250px;
+    position: relative;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+    align-self: flex-end; 
+}
+.subtitle{
+    font-family: "Lemonada", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: white;
+}
+.picture{
+    background-color: #EBD5C8;
+
+}

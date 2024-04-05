@@ -8,19 +8,17 @@ import Footer from '../components/Footer';
 
 const AddTripPage = () => {
   return (
-    <div className={styles.main}>
-       <div className={styles.header}>
-       <Header />
+    <>
+      <Header />
+    <div className={styles.containerFull}>
+       <div className={styles.title}>
+           <img src="../images/stickers/sacados.png" alt='stickers sac à dos ' className={styles.stickers2}></img>
+           <h2 className={styles.name}>Mon voyage</h2>
+       </div>
+       <TripForm />
+       <Footer/>
     </div>
-    <div className={styles.banner}>
-      <h2 className={styles.title}>C’est le moment de créer un voyage</h2>
-    </div>
-    <div className={styles.photo}>
-           <img src="../images/stickers/appphot.png" alt='stickers appareil photo' className={styles.camera}></img>
-    </div>
-      <TripForm />
-      <Footer/>
-    </div>
+    </>
   );
 };
 

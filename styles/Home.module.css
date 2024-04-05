@@ -5,10 +5,13 @@
   margin: auto;
 
 }
+
 .main {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 0;
   align-items: center;
   background-color: #F4F4F0;
 }
@@ -27,8 +30,8 @@
   font-family: 'Lemonada' sans-serif;
   text-align: center;
   font-weight: 600;
-  font-size: 3rem;
-  margin-right: 10%;
+  font-size: 2rem;
+
 }
 
 .newtrip{
@@ -58,7 +61,7 @@
 }
 .trip:hover{
   transition: 1133ms;
-  padding: 30px 50px;
+  padding: 40px 60px;
   transform: translateY(-0px);
  
 }
@@ -72,8 +75,8 @@
   
   align-self: flex-end;
   position: relative;
-  top: 250px;
-  left: 10%; 
+  top: 280px;
+  left: 5%; 
   transform: translate(-50%, -50%);
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   width: 300px;
@@ -91,6 +94,65 @@
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   
 }
+
+@media (max-width: 960px){
+
+  .containerFull{
+    margin: 0;
+  }
+
+  .plane{
+  top: 180px;
+  position: relative;
+  left: 10%; 
+  transform: translate(-50%, -50%);
+  width: 190px;
+  }
+  .banner{
+  height: 60vh;
+  width: 100%; 
+  }
+  .secondtitle{
+    font-family: 'Lemonada' sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+}
+  
+  @media (max-width: 560px){
+
+    .banner{
+      height: 50vh;
+      width: 100%; 
+    }
+    .plane{
+      position: relative;
+      width: 100px;
+      top: 100px;
+      left: 12%;
+      }
+      .pass{
+        width: 130px;
+      }
+      .secondtitle{
+        font-size: 1rem;
+      }
+      .trip{
+        padding: 10px 10px;
+        font-size: 1rem;
+
+      }
+      .trip:hover{
+        transition: 1133ms;
+        padding: 15px 30px;
+      
+      } 
+      .stickercase{
+        width: 130px;
+      }  
+   
+  }
 
 
 

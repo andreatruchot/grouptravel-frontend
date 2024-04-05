@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Reddit+Mono:wght@200..900&display=swap');
 
 .containerFull{
   max-width: 1300px;
@@ -24,7 +24,7 @@
   
 .secondTitle{
   text-align: center;
-  font-family: 'Lemonada', sans-serif;
+  font-family: 'Handlee', sans-serif;
   font-size: 1.7rem;
 }
   .cardContainer {
@@ -32,7 +32,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 50px;
-    padding-top: 10%;
     padding-bottom: 5%;
     background-color: #F4F4F0;
    
@@ -44,17 +43,18 @@
     justify-content: center; 
     gap: 20px; 
     background-color: #F4F4F0;
-    padding: 5% 5%;
-
+    padding-top:  10%;
+    padding-bottom: 10%;
   }
   .dayColumn {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     align-items: center; 
     width: auto; 
     background: white; 
-    border-radius: 10px; 
+    border-radius: 20px; 
+    padding: 2%;
     margin-top: 20px;
   }
   .stickers{
@@ -64,7 +64,7 @@
   }
   
   .activitiesBlock {
-    width: 80%;
+    width: 95%;
     padding-bottom: 5%;
   }
   

@@ -8,8 +8,7 @@ import InvitationButton from '../components/invitations/InvitationButton';
 const AcceptInvitationPage = () => {
 const router = useRouter();
 
- // Extraire le token, tripId, et potentiellement email de l'URL
-  // Si email n'est pas passé par l'URL, fallback sur celui du state Redux
+ // Extrait le token, tripId, et potentiellement email de l'URL
   const { token, tripId, email: queryEmail } = router.query;
   const email = queryEmail || useSelector((state) => state.user.value.email);
   
