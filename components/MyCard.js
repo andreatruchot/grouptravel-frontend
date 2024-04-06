@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Card.module.css';
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck, faCircleXmark, faTrash } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 
 // Renommez le composant pour éviter les conflits avec l'importation de Card de reactstrap
