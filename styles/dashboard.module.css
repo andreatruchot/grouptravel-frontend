@@ -42,7 +42,7 @@
     margin-bottom: 5%;
   
 }
-.firstContainer{
+.firstContainer, .secondContainer, .thirdContainer{
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -147,12 +147,7 @@
    
 
 }
-.secondContainer{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    align-self: flex-start;
-}
+
 .activities{
     display: flex;
     flex-direction: column;
@@ -219,13 +214,7 @@
     font-weight: 700;
     color: white; 
 }
-.thirdContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    align-self: flex-start;
-}
+
 .groupMembers{
     display: flex;
     flex-direction: column;
@@ -322,6 +311,24 @@
     width: 100%;
     height: auto;
 }
+@media (max-width: 1024px){
+    .firstContainer, .secondContainer, .thirdContainer{
+
+        width: 440px;
+    }
+    .thirdContainer{
+        margin-top: 5%;
+    }
+}
+@media (max-width: 900px){
+
+    .firstContainer, .secondContainer, .thirdContainer{
+
+        width: 390px;
+    }
+
+
+}
     @media (max-width: 760px){
         .tripContainer{
             display: flex;
@@ -330,7 +337,7 @@
             margin: auto;
         }
         .firstContainer, .secondContainer, .thirdContainer{
-            width: 80%; 
+            width: 90%; 
             margin-left: 0;
             margin-right: 0;
             margin: auto;
@@ -348,7 +355,7 @@
 @media (max-width: 460px){
 
     .firstContainer, .secondContainer, .thirdContainer{
-        width: 95%; 
+        width: 98%; 
         margin-left: 0;
         margin-right: 0;
         margin: auto;

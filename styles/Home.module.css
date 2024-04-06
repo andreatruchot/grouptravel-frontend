@@ -3,11 +3,12 @@
 .containerFull{
   max-width: 1300px;
   margin: auto;
+  padding-top: 15vh;
 
 }
 
 .main {
-  position: relative;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,20 +19,21 @@
 .banner{
   height: 80vh;
   width: 100%; 
-  background-image: url('/images/home/banner.jpg');
+  background-image: url('/images/home/venice.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.8;
 }
 .secondtitle{
-  font-family: 'Lemonada' sans-serif;
-  text-align: center;
+   margin-right: 10%;
   font-weight: 600;
   font-size: 2rem;
-
+  justify-self: center;
+  color: black;
 }
 
 .newtrip{
@@ -47,7 +49,7 @@
   border: none;
   background-color: #EED271;
   align-self: flex-end;
-  padding: 30px 30px;
+  padding: 25px 30px;
   font-weight: 800;
   font-size: 1.5rem;
   margin-left: 8%;
@@ -58,6 +60,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: #444546;;
 }
 .trip:hover{
   transition: 1133ms;
@@ -72,21 +75,20 @@
  
 }
 .plane{
-  
+ 
   align-self: flex-end;
   position: relative;
-  top: 280px;
-  left: 5%; 
+  top: 180px;
   transform: translate(-50%, -50%);
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-  width: 300px;
+  width: 200px;
 }
 .pass{
   align-self: flex-start;
-  width: 250px;
+  width: 180px;
   height: auto;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-  margin-bottom: 9%;
+  margin-bottom: 10%;
 }
 .stickercase{
   align-self: flex-end;
@@ -108,10 +110,7 @@
   transform: translate(-50%, -50%);
   width: 190px;
   }
-  .banner{
-  height: 60vh;
-  width: 100%; 
-  }
+  
   .secondtitle{
     font-family: 'Lemonada' sans-serif;
     text-align: center;
@@ -123,7 +122,7 @@
   @media (max-width: 560px){
 
     .banner{
-      height: 50vh;
+      height: 40vh;
       width: 100%; 
     }
     .plane{

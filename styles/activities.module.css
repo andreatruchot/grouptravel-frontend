@@ -19,14 +19,14 @@
    justify-content: center;
    padding-top: 20vh;
    padding-bottom: 5vh;
+   width: 100%;
 }
 .activitiesGrid {
     display: flex;
     flex-wrap: wrap;
-    gap: 2%;
+    padding: 5%;
     justify-content: center; 
     background-color: #F4F4F0;
-    padding-top: 7%;
     margin: 0;
   }
   .Subtitle{
@@ -34,12 +34,13 @@
     font-family: 'Lemonada', sans-serif;
     padding-top:  5%;
     padding-bottom: 2%;
-    text-align: center; 
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500; 
     margin: 0;
   }
   .stickers{
     width: 200px;
-    position: absolute;
     margin-left: 30%;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
@@ -47,4 +48,38 @@
     width: 200px;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
+  @media (max-width: 768px){
+    .stickers2{
+        width: 180px;
+    }
+    .name{
+        font-size: 3rem;
+    }
+    .Subtitle{
+      font-size: 1.3rem;
+    }
+   
+  }
+
+  @media (max-width: 400px){
+   
+    .stickers2{
+        
+       width: 100px;
+    }
+   
+    .name{
+      font-size: 2rem;
+    }
+    .Subtitle{
+      font-size: 0.7rem;
+      font-weight: 400;
+      padding: 5% 0;
+    }
+
+
+}
+  
+ 
+  
   

@@ -1,0 +1,40 @@
+.containerFull{
+    max-width: 1300px;
+    margin: auto;
+    padding-top: 15vh;
+    background-color: #F4F4F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .formContainer{
+    width: 80%;
+  }
+  @media (max-width: 900px){
+    
+    .formContainer{
+      width: 100%;
+    }
+
+}
+@media (max-width: 700px){
+    
+  .formContainer{
+    width: 100%;
+  }
+
+}
+@media (max-width: 400px){
+   
+    .titleContainer{
+        width: 100%;
+        margin: auto;
+    }
+
+
+}
+
+
+  

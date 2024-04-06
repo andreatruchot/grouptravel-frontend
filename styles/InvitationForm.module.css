@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+
+
+
+
 .form{
     width: 100%;
     height: auto;
@@ -11,7 +15,7 @@
     margin-bottom: 18%;
 }
 .title{
-   font-family: 'Lemonada' sans-serif;
+   font-family: 'Lemonada', sans-serif;
    font-size: 1.5rem;
    margin: auto;
    margin-top: 5%;
@@ -25,31 +29,29 @@
     border: none;
     margin-top: 5%;
 }
-.btnMore{
-    background-color: #EED271;
-    padding: 5px 10px; 
-    border-radius: 42px;
-    margin-bottom: 5%;
-    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    border: none;
-    font-weight: 700;
-    color: #444546; 
-}
-.btnPlus{
-    margin-bottom: 10%;
-}
+
 .btn{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    position: absolute;
-    margin-top: 25%;
-    border-radius: 30px;
+    padding: 25px 40px;
+    font-weight: 800;
+    color: #444546;
+    font-size: 1.2rem;
+    margin-bottom: 5%;
+    border-radius: 42px;
     border: white 1px solid;
     background-color: #EED271;
-    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-    
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+    transition: 1133ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+   .btn:hover{
+    transition: 1133ms;
+    padding: 30px 60px;
+    transform: translateY(-0px);
+
 }
 .stickers{
     margin-left: 70%;
@@ -57,3 +59,27 @@
     position: absolute;
     margin-top: 38%;
 }
+@media (max-width: 400px){
+   .title{
+    font-size: 1rem;
+    margin-bottom: 8%;
+    margin-top: 5%;
+   }
+   .btn{
+    padding: 15px 20px;
+    font-size: 1rem;
+   }
+   .btn:hover{
+    transition: 1133ms;
+    padding: 30px 40px;
+    transform: translateY(-0px);
+   }
+   .input{
+    width: 70%;
+   }
+
+}
+   
+
+
+

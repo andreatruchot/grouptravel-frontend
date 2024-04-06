@@ -11,7 +11,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
   const router = useRouter();
 
   const handleSignIn = () => {
-    console.log("Tentative de connexion avec", email, password);
+   
     
     fetch('http://localhost:3000/users/signin', {
       method: 'POST',
@@ -23,7 +23,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data); 
+      
       if (data.result) {
         console.log("Connexion réussie");
         dispatch(login({ username: data.username, token: data.token, email: data.email }));

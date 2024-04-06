@@ -45,7 +45,7 @@ return (
         <img src="../images/stickers/photo.png" alt='stickers appareil photo' className={styles.stickers2}></img>
          <h1 className={styles.name}>Album</h1>
      </div>
-     <h2 className={styles.subtitle}>Là on regarde les souvenirs du voyages !</h2>
+     <h2 className={styles.subtitle}>Souvenirs du voyages</h2>
      <div className={styles.wrapper}>
      <img src="../images/stickers/billets.png" alt='stickers billets avion' className={styles.stickers1}></img>
      {photos.map((photo, index) => (

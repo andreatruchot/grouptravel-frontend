@@ -21,4 +21,22 @@
     background-repeat: no-repeat;
     opacity: 0.7;
   }
+  .stickers2{
+    width: 300px;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+  }
+  @media (max-width: 768px){
+   .picture{
+    height: 50vh;
+   }
+  }
+
+  @media (max-width: 400px){
+   
+    .picture{
+        height: 40vh;
+       }
+
+
+}
   

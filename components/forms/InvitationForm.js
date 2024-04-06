@@ -44,12 +44,12 @@ const InvitationForm = () => {
   };
 
   return (
-    <div>
-     <form className={styles.form}
+<div>
+   <form className={styles.form}
           type="email"onSubmit={handleInvite}>
-      <h2 className={styles.title}>Invitez vos amis à participer</h2>
-      {errorMessage && <p className="error">{errorMessage}</p>}
-      {successMessage && <p className="success">{successMessage}</p>}
+        <h2 className={styles.title}>Invitez vos amis à participer</h2>
+         {errorMessage && <p className="error">{errorMessage}</p>}
+         {successMessage && <p className="success">{successMessage}</p>}
         <input
           className={styles.input}
           type="email"
@@ -60,9 +60,8 @@ const InvitationForm = () => {
           required
         />
         <button className={styles.btn} type="submit">Envoyer l'invitation</button>
-        <img src="../images/stickers/sacados.png" alt='stickers sac à dos ' className={styles.stickers}></img>
-      </form>
-    </div>
+   </form>
+ </div>
   );
 };
 

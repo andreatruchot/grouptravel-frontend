@@ -56,7 +56,7 @@ const DashboardPage = () => {
               console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
             });
           }
-            // Il dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
+            //  dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
             dispatch(setTrips(data.trips)); 
            
         } catch (error) {
@@ -163,6 +163,21 @@ const DashboardPage = () => {
   };
     // Rendu des détails du voyage sélectionné
     console.log("Membres du voyage avec username:", tripDetails.members);
+    // Calcul du budget total pour les activités en utilisant 'budget'
+const numberOfMembers = tripDetails.members.length;
+
+// Calcul du budget total pour les activités en utilisant 'budget' et en le multipliant par le nombre de membres
+const totalActivitiesBudget = tripDetails.activities.reduce((acc, activity) => acc + (activity.budget * numberOfMembers), 0);
+
+// Le calcul pour les hébergements reste inchangé car leur budget est généralement global et non par personne
+const totalAccomodationsBudget = tripDetails.accomodations.reduce((acc, accomodation) => acc + accomodation.budget, 0);
+
+// Calcul du budget total général
+const totalGeneralBudget = totalActivitiesBudget + totalAccomodationsBudget;
+
+// Calcul du budget par personne  prend  en compte le nombre total de membres
+const budgetPerPerson = totalGeneralBudget / numberOfMembers; // Assurez-vous que numberOfMembers est > 0 pour éviter la division par zéro
+
   
   // Rendu des détails du voyage sélectionné
   return (
@@ -187,7 +202,11 @@ const DashboardPage = () => {
        </div>
        <div className={styles.budget}>
           <h2  className={styles.subtitle}>Infos Pratiques</h2>
-          <span className={styles.totalBudget} >Budget total du voyage: {tripDetails.budget} €</span>
+          
+          <span className={styles.totalBudget}>Budget total activités: {totalActivitiesBudget} €</span>
+          <span className={styles.totalBudget}>Budget total hébergements: {totalAccomodationsBudget} €</span>
+          <span className={styles.totalBudget}>Budget total général: {totalGeneralBudget} €</span>
+          <span className={styles.totalBudget}>Coût par personne: {budgetPerPerson.toFixed(2)} €</span>
           <h3 className={styles.during}>Dates du séjour</h3>
           <div className={styles.date}>
           <div className={styles.date1}> {new Date(tripDetails.departureDate).toLocaleDateString()}</div>

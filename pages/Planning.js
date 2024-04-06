@@ -65,12 +65,11 @@ const Planning = () => {
         <>
         <Header />
         <div className={styles.containerFull}>
-            <div className={styles.planning}>
-                <div className={styles.planningTitle}>
+                <div className={styles.title}>
                 <img src="../images/stickers/carpe.png" alt='stickers de maki' className={styles.stickers}></img>
-                    <h1 className={styles.title}>Planning</h1>
+                    <h1 className={styles.name}>Planning</h1>
                 </div>
-                <h2 className={styles.secondTitle}>Activités du séjour</h2>
+                <h2 className={styles.subtitle}>Activités du séjour</h2>
                 <div className={styles.planningContainer}>
                     {Object.keys(planning).sort().map((day) => {
                         const dayDate = new Date(day);
@@ -101,7 +100,7 @@ const Planning = () => {
                         );
                     })}
                 </div>
-            </div>
+            
             <Footer />
         </div>
     </>

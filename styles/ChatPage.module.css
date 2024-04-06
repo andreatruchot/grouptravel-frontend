@@ -111,7 +111,32 @@
     }
     .stickers2{
         width: 130px;
+    }  
+}
+@media (max-width: 500px){
+    .ChatContainer{
+        width: 100%;
+        padding: 0;
     }
-    
-    
+    .members{
+        width: 100%;
+        align-self: center;
+        justify-content: center;
+        margin-top: 5%;
+    }
+    .chat{
+        width: 100%;
+        margin-top: 5%;
+    }
+    .secondTitle{
+        font-size: 1rem;
+        padding-bottom: 5%;
+    }
+    .name{
+        font-size: 2.6rem;
+    }
+    .stickers2{
+        width: 100px;
+    }  
+
 }

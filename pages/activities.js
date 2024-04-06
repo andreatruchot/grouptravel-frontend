@@ -73,13 +73,14 @@ function Activities() {
 
 <div>
   <Header />
-  <div className={styles.containerFull}>
-    <div className={styles.title}>
+<div className={styles.containerFull}>
+  <div className={styles.title}>
       <h1 className={styles.name}>Activités</h1>
       <img src="../images/stickers/geisha.png" alt='stickers geisha' className={styles.stickers2}></img>
-    </div>
-    <h2 className={styles.Subtitle}>Il est temps de décider de participer aux activités</h2>
-    <div className={styles.activitiesGrid}>
+   </div>
+   <h2 className={styles.Subtitle}>Il est temps de décider de participer aux activités</h2>
+  <div className={styles.container}>
+   <div className={styles.activitiesGrid}>
           {activities.map((activity, index) => (
             <MyCard
               key={activity._id}
@@ -94,6 +95,7 @@ function Activities() {
             />
           ))}
         </div>
+     </div>
         <img src="../images/stickers/ramen.png" alt='stickers ramen' className={styles.stickers2}></img>
   </div>
   <Footer/>

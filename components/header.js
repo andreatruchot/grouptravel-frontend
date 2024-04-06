@@ -33,7 +33,7 @@ export default function Header() {
             {isLoggedIn &&<ul className={styles.login}>
                <li className={styles.li}><Link href="/"><a className={styles.link}>Accueil</a></Link></li>  
                 <li><Link href="/Profil"><a className={styles.link}>Mon profil</a></Link></li>
-                {selectedTripId && <li><Link href="/Dashboard"><a className={styles.link}>Tableau de bord</a></Link></li>}
+                {selectedTripId && <li><Link href="/Dashboard"><a className={styles.link}>Voyage</a></Link></li>}
             <li>{user.token && <span className={styles.onLine}>Bonjour, {user.username}</span>}</li> 
             <li><button onClick={handleLogout} className={styles.logoutButton}>Déconnexion</button></li>
              </ul>}

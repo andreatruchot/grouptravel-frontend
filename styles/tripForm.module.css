@@ -106,10 +106,114 @@ background-color: #F4F4F0;
   border: none;
   background-color: #EED271;
   align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 5%;
   font-weight: 800;
   margin-left: 8%;
   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+}
+@media (max-width: 800px){
+  .datePickerButton { 
+    padding: 10px 50px;
+    font-weight: 500;
+    color: white;
+    margin-top: 2%;
+    margin-right: 20%;
+    
+  }
+  .name{
+    font-size: 1rem;
+}
+  
+}
+@media (max-width: 550px){
+
+  .datep{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.here{
+  margin: 0;
+}
+.datePickerButton{
+
+  padding: 20px 50px;
+  margin-right: 0;
+  margin-right: 0;
+  margin-bottom: 10%;
+
+}
+.datesTitle{
+  margin-bottom: 5%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  
+}
+.return, .departure {
+  margin-right: 0; 
+}
+.location{
+  font-family: 'Lemonada', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  background-color: #BDDCD7;
+  margin-bottom: 10%;
+}
+.here{
+  margin-right: 0;
+  margin-bottom: 7%;
+  font-size: 1.5rem;
+}
+.input{
+  padding: 10px;
+  width: 70%;
+}
+.choice{
+  font-size: 1rem;
+  font-family: 'Lemonada', sans-serif;
+ 
+}
+.name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formName{
+  margin: 5% 0;
+}
+.inputName{
+border-radius: 5px;
+height: 13%;
+width: 90%;
+border: 1px solid #BDDCD7;
+padding: 20px;
+font-family: 'Lemonada', sans-serif;
+margin: 5% 0;
+
+}
+.btnsubmit{
+border-radius: 20px;
+padding: 15px 40px;
+margin: 8% 0;
+font-weight: 800;
+font-size: 1rem;
+
+
+}
+.combi{
+  width: 80%;
+  margin-left: 0;
+  height: auto;
+}
+
 }
 
 

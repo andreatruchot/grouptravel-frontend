@@ -102,10 +102,10 @@ function Accomodations() {
 
 <div>
   <Header />
-  <div className={styles.accomodationsContainer}>
-    <div className={styles.accomodationsTitle}>
-    <img src="../images/stickers/eiffel.png" alt='stickers tour Eiffel' className={styles.tour}></img>
-      <h1 className={styles.title}>Hébergements</h1>
+  <div className={styles.containerFull}>
+    <div className={styles.title}>
+      <h1 className={styles.name}>Hébergements</h1>
+      <img src="../images/stickers/eiffel.png" alt='stickers tour Eiffel' className={styles.stickers2}></img>
     </div>
     <div>
     <h2 className={styles.Subtitle}>Quel Hébergement choisir ?</h2>

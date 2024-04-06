@@ -12,7 +12,7 @@
    color: black;
    border-radius: 8px;
    border: 1px solid rgb(188, 182, 182);
-   width: 50%;
+   width: 70%;
    align-self: center;
 
   
@@ -37,6 +37,7 @@
  } 
  .imgLogo{
    width: 50%;
+   height: auto;
    align-self: center;
    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
  }

@@ -149,12 +149,26 @@
 
   @media (max-width: 768px){
     .picture{
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
     }
     .change{
       margin-bottom: 5%;
+      padding: 10px;
+      font-size: 0.9rem;
     }
+    .change:hover{
+      transition: 1133ms;
+      padding: 15px 25px;
+      transform: translateY(-0px);
+    }
+  }
+  @media (max-width: 668px){
+    .picture{
+      width: 130px;
+      height: 130px;
+    }
+
   }
 
   @media (max-width: 500px){
@@ -172,6 +186,8 @@
     }
     .change{
       margin: 5%;
+      padding: 10px;
+
     }
     .tripInfo{
       display: flex;
@@ -201,8 +217,17 @@
       padding: 10px;
       font-size: 1rem;
     }
+    .profileTitle{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10%;
+    }
 
 }
+
   
   
   

@@ -20,7 +20,7 @@ const AlbumForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!photo) {
-      setError("Please select a photo to upload.");
+      setError("veuillez selectionner une image à télécharger");
       return;
     }
 
@@ -38,7 +38,7 @@ const AlbumForm = () => {
         body: formData,
       });
 
-      if (!response.ok) throw new Error("Failed to upload the picture");
+      if (!response.ok) throw new Error("erreur de téléchargement");
 
       const result = await response.json();
       alert("Photo téléchargée avec succes!");
@@ -48,7 +48,7 @@ const AlbumForm = () => {
       setError('');
        
     } catch (error) {
-      setError(error.message || "An error occurred while uploading the picture.");
+      setError(error.message || "Une erreur est arrivée pendant le téléchargement.");
     }
   };
 

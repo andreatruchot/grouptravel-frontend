@@ -12,11 +12,31 @@
    color: black;
    border-radius: 8px;
    border: 1px solid rgb(188, 182, 182);
-   width: 200px;
+   width: 80%;
    align-self: center;
 
  }
+ .inputContainer {
+  position: relative;
+}
+
+.input {
+  padding-right: 38px;
+  width: 80%; 
+}
+
+.eyeButton {
+  position: absolute;
+  right: 10px; /* Ajustez la position de l'icône pour qu'elle soit alignée à droite */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0.5px solid grey;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #EED271;
  
+}
  .btnUp {
   background-color: #BDDCD7;
    color: black;
@@ -28,6 +48,12 @@
    border: none;
    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
  }
+ .passwordInfo {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 20px;
+  text-align: center;
+}
  
  .errorMessage {
    color: rgb(243, 81, 154);

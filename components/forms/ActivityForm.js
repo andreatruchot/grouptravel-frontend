@@ -113,7 +113,7 @@ const ActivityForm = () => {
      </div>
      <div className={styles.containerRight} >
 
-        <h2 className={styles.title}>Une activité à proposer?</h2>
+        <h2 className={styles.title}>Une activité à proposer ?</h2>
         <input
           className={styles.inputName}
           type="text"
@@ -121,7 +121,6 @@ const ActivityForm = () => {
           onChange={(e) => setName(e.target.value)}
           placeholder="Le nom de l'activité"
        />
-       
         <input
           className={styles.inputPlace}
           type="text"

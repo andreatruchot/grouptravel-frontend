@@ -135,8 +135,7 @@ try {
         </div>
       </div>
       <div className={styles.containerRight} >
-
-         <h2 className={styles.title}>Un hébergement à proposer?</h2>
+         <h2 className={styles.title}>Un hébergement à proposer ?</h2>
         
          <input
            className={styles.inputPlace}

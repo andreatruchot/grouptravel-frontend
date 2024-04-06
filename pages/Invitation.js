@@ -17,6 +17,7 @@ const InvitationPage = () =>{
      <div className={styles.form}>
        <InvitationForm />
       </div>
+      <img src="../images/stickers/sacados.png" alt='stickers sac à dos ' className={styles.stickers2}></img>
       <Footer/>
    </div>
  </>

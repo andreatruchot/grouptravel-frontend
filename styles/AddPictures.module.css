@@ -28,3 +28,21 @@
     background-color: #EBD5C8;
 
 }
+@media (max-width: 400px){
+   
+    .stickers2{
+        
+       width: 100px;
+    }
+   
+    .name{
+      font-size: 2rem;
+    }
+    .Subtitle{
+      font-size: 0.7rem;
+      font-weight: 400;
+      padding: 5% 0;
+    }
+
+
+}

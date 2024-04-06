@@ -19,7 +19,7 @@
     height: auto; /* Hauteur auto pour maintenir l'aspect ratio */
   }
   .cardBody {
-    padding: 2px 16px; /* Padding à l'intérieur de la carte */
+    padding:  16px; /* Padding à l'intérieur de la carte */
     border: none;
   }
   
@@ -30,7 +30,7 @@
   /* Stylise  le titre, le sous-titre et le contenu selon vos préférences */
   .cardTitle {
     font-size: 1.25rem; /* Taille du titre */
-    font-weight: bold; /* Graisse du titre */
+    font-weight: bolder; /* Graisse du titre */
   }
   
   .cardSubtitle {
@@ -39,6 +39,7 @@
   
   .cardText {
     color: #333; /* Couleur du contenu */
+  
   }
   .voteButtonActiveY{
     background-color: #DE917D;

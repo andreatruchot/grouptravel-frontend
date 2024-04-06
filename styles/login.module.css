@@ -31,11 +31,20 @@
 }
 @media (max-width: 768px){
     .btnIn{
-        padding: 8px 20px; 
+        padding: 8px 10px;
+        font-size: 1rem; 
     }
     .btnUp{
-        padding: 8px 20px; 
+        padding: 8px 10px; 
+        font-size: 1rem;
     }
+    .log{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
     
 }
 
