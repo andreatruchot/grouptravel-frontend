@@ -15,7 +15,7 @@ function LoginInvitation({ onCloseModal }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleLogin = () => {
-    fetch('http://localhost:3000/invitations/login', {
+    fetch('https://grouptravel-backend-green.vercel.app/invitations/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, token}),

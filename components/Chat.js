@@ -31,7 +31,7 @@ const Chat = () => {
 
   const loadChat = async () => {
     if (token && tripDetails._id) {
-      const response = await fetch(`http://localhost:3000/chats/chat/${tripDetails._id}`, {
+      const response = await fetch(`https://grouptravel-backend-green.vercel.app/chats/chat/${tripDetails._id}`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
 
@@ -51,7 +51,7 @@ const Chat = () => {
   const sendMessage = async (e) => {
     e.preventDefault();
     if (token && tripDetails._id && messageText.trim()) {
-      const response = await fetch(`http://localhost:3000/chats/chat/${tripDetails._id}`, {
+      const response = await fetch(`https://grouptravel-backend-green.vercel.app/chats/chat/${tripDetails._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ const Chat = () => {
   };
   const deleteChatMessage = async (tripId, chatId) => {
     try {
-      const response = await fetch(`http://localhost:3000/chats/chat/${tripId}/${chatId}`, {
+      const response = await fetch(`https://grouptravel-backend-green.vercel.app/chats/chat/${tripId}/${chatId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

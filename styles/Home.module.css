@@ -19,14 +19,14 @@
 .banner{
   height: 80vh;
   width: 100%; 
-  background-image: url('/images/home/venice.jpg');
+  background-image: url('/images/home/veniceplage.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.8;
+  
 }
 .secondtitle{
    margin-right: 10%;

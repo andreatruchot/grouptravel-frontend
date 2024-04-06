@@ -32,7 +32,7 @@ const ChatPage = () => {
     const fetchMemberProfiles = async () => {
     
       try {
-        const response = await fetch(`http://localhost:3000/trips/members/${selectedTripId}`);
+        const response = await fetch(`https://grouptravel-backend-green.vercel.app/trips/members/${selectedTripId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch member profiles');
         }
