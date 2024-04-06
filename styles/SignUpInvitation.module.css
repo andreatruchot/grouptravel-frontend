@@ -1,46 +1,71 @@
 .signUpContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   }
-   
-   .input {
-     margin-bottom: 5%;
-     padding: 10px;
-     background-color: white;
-     color: black;
-     border-radius: 8px;
-     border: 1px solid rgb(188, 182, 182);
-     width: 70%;
-     align-self: center;
-   }
-   
-   .btnUp {
-    background-color: #BDDCD7;
-     color: black;
-     width: 50%;
-     align-self: center;
-     padding: 10px;
-     margin-bottom: 10%;
-     margin-top: 10%;
-     font-weight: 500;
-     border-radius: 20px;
-     border: none;
-     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
-   }
-   
-   .errorMessage {
-     color: rgb(243, 81, 154);
-     margin-bottom: 10px;
-   } 
-   .imgLogo{
-     width: 70%;
-     align-self: center;
-     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-   }
-   .create{
-    color: #0000;
-    text-align: center;
-   
-   }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .input {
+   margin-bottom: 3%;
+   padding: 10px;
+   background-color: white;
+   color: black;
+   border-radius: 8px;
+   border: 1px solid rgb(188, 182, 182);
+   width: 80%;
+   align-self: center;
+
+ }
+ .inputContainer {
+  position: relative;
+}
+
+.input {
+  padding-right: 38px;
+  width: 80%; 
+}
+
+.eyeButton {
+  position: absolute;
+  right: 10px; /* Ajustez la position de l'icône pour qu'elle soit alignée à droite */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0.5px solid grey;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #EED271;
+ 
+}
+ .btnUp {
+  background-color: #BDDCD7;
+   color: black;
+   padding: 15px 25px;
+   margin-bottom: 10%;
+   margin-top: 10%;
+   font-weight: 500;
+   border-radius: 20px;
+   border: none;
+   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+ }
+ .passwordInfo {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 20px;
+  text-align: center;
+}
+ 
+ .errorMessage {
+   color: rgb(243, 81, 154);
+   margin-bottom: 10px;
+ } 
+ .imgLogo{
+   width: 200px;
+   align-self: center;
+   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
+ }
+ .create{
+  color: #0000;
+  text-align: center;
+ 
+ }

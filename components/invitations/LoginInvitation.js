@@ -15,7 +15,6 @@ function LoginInvitation({ onCloseModal }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleLogin = () => {
-    console.log("Tentative de connexion avec email:", email, "et token d'invitation:", token);
     fetch('http://localhost:3000/invitations/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

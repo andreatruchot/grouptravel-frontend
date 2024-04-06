@@ -10,14 +10,30 @@ function SignUp({ onCloseModal }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const dispatch = useDispatch();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const router = useRouter();
   const { token } = router.query; // Récupére le token d'invitation de l'URL
+  const [showPassword, setShowPassword] = useState(false);
 
 
 
   const handleSignUp = () => {
+
+    if (password !== confirmPassword) {
+      alert('Les mots de passe ne correspondent pas.');
+      return;
+    }
+     // Vérification de la force du mot de passe
+     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
+     if (!passwordRegex.test(password)) {
+    // Affiche un message d'erreur à l'utilisateur et arrête l'exécution
+    console.log("Le mot de passe doit contenir au moins 10 caractères, une majuscule, un chiffre et un caractère spécial.");
+    return;
+  }
+
+
     fetch('http://localhost:3000/invitations/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -63,11 +79,26 @@ function SignUp({ onCloseModal }) {
           className={styles.input}
           placeholder="Nom d'utilisateur"
           onChange={(e) => setUsername(e.target.value)} />
+     <div className={styles.inputContainer}>
       <input
+        className={styles.input}
+        type={showPassword ? "text" : "password"}
+        placeholder="Mot de passe"
+        onChange={(e) => setPassword(e.target.value)} 
+     />
+      <button
+       className={styles.eyeButton}
+       onClick={() => setShowPassword(!showPassword)}
+      >
+       {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
+      </button>
+    </div>
+    <input
           className={styles.input}
-          type="password"
-          placeholder="Mot de passe"
-          onChange={(e) => setPassword(e.target.value)} />
+          type={showPassword ? "text" : "password"}
+          placeholder="Confirmez le mot de passe"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}/>
       <button className={styles.btnUp} onClick={handleSignUp}>
           Inscription
       </button>
