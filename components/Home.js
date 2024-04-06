@@ -29,7 +29,7 @@ function Home() {
       <main className={styles.main}>
         <div className={styles.banner}>
         <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
-           <h2 className={styles.secondtitle}>Planification de votre voyage entre amis</h2>
+           <h2 className={styles.secondtitle}>L'aventure nous unit !</h2>
         </div>
         <div className={styles.newtrip}>
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
