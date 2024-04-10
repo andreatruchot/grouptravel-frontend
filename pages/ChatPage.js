@@ -32,7 +32,7 @@ const ChatPage = () => {
     const fetchMemberProfiles = async () => {
     
       try {
-        const response = await fetch(`https://grouptravel-backend-green.vercel.app/trips/members/${selectedTripId}`);
+        const response = await fetch(`http://localhost:3000/trips/members/${selectedTripId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch member profiles');
         }
@@ -53,7 +53,7 @@ const ChatPage = () => {
      <Header/>
      <div className={styles.ContainerFull}>
         <div className={styles.titleFirst}>
-             <img src="../images/stickers/sushis.png" alt='stickers plateau de sushi' className={styles.stickers2}></img>
+             <img src="../images/stickers/sushis.png" alt='stickers plateau de sushi' className={styles.stickers2}/>
                <h1 className={styles.name}>Chat</h1>
           </div>
           <h2 className={styles.secondTitle}>Ici on communique avec les membres du groupe</h2>

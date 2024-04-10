@@ -11,7 +11,7 @@ const initialState = {
     tripDetails: {},
     isLoggedIn: false,
     imagePreviewUrl: '',
-   
+    userPicture: '',
   },
  
 };
@@ -30,6 +30,9 @@ export const userSlice = createSlice({
        const { token, username, email, userId } = action.payload;
        state.value = { ...state.value, token, username, email, userId }; // Utilisation de la déstructuration pour une mise à jour propre
        state.value.isLoggedIn = true;
+      },
+     setUserPicture: (state, action) => {
+        state.value.userPicture = action.payload;
       },
 
     setToken: (state, action) => {
@@ -85,7 +88,7 @@ export const userSlice = createSlice({
 
 // Exportation des actions du slice
 export const { login, logout, setSelectedTripId, setTrips,  setToken, updateTrips, setTripDetails, addActivity, addAccomodation, 
-  setImagePreviewUrl, setChat, addMessageToChat, setUserTrips } = userSlice.actions;
+  setImagePreviewUrl, setChat, addMessageToChat, setUserTrips,  setUserPicture } = userSlice.actions;
 
 // Exportation du reducer
 export default userSlice.reducer;

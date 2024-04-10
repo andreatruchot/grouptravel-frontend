@@ -88,6 +88,7 @@
 
 .stickers{
     width: 200px;
+    height: auto;
     align-self: flex-end;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
 }

@@ -29,8 +29,10 @@ const Chat = () => {
   const [userColorMap, setUserColorMap] = useState({});
   const { userId } = useSelector((state) => state.user.value);
 
-  const loadChat = async () => {
-    if (token && tripDetails._id) {
+  useEffect(() => {
+
+   const loadChat = async () => {
+     if (token && tripDetails._id) {
       const response = await fetch(`https://grouptravel-backend-green.vercel.app/chats/chat/${tripDetails._id}`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -44,7 +46,7 @@ const Chat = () => {
     }
   };
 
-  useEffect(() => {
+  
     loadChat();
   }, [tripDetails._id, token, dispatch]);
 
@@ -80,7 +82,7 @@ const Chat = () => {
   };
   const deleteChatMessage = async (tripId, chatId) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/chats/chat/${tripId}/${chatId}`, {
+      const response = await fetch(`http://localhost:3000/chats/chat/${tripId}/${chatId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

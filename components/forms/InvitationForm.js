@@ -20,7 +20,7 @@ const InvitationForm = () => {
     };
 
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/invitations/send-invitation`, {
+      const response = await fetch(`http://localhost:3000/invitations/send-invitation`, {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json', 
@@ -59,7 +59,7 @@ const InvitationForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button className={styles.btn} type="submit">Envoyer l'invitation</button>
+        <button className={styles.btn} type="submit">Envoyer l&rsquo;invitation</button>
    </form>
  </div>
   );

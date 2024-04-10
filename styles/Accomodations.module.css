@@ -40,10 +40,12 @@
   .tour{
     position: relative;
     width: 280px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
   .stickers2{
     width: 280px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
     align-self: flex-end;
     
@@ -51,6 +53,7 @@
   @media (max-width: 768px){
     .stickers2{
         width: 30%;
+        height: auto;
     }
     .name{
         font-size: 2.5rem;
@@ -66,6 +69,7 @@
     .stickers2{
         
        width: 35%;
+       height: auto;
     }
    
     .name{

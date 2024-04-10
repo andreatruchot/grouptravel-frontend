@@ -25,6 +25,7 @@
 }
 .stickers2{
     width: 20%;
+    height: auto;
     position: relative;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     align-self: flex-end; 
@@ -111,6 +112,7 @@
     }
     .stickers2{
         width: 130px;
+        height: auto;
     }  
 }
 @media (max-width: 500px){
@@ -137,6 +139,7 @@
     }
     .stickers2{
         width: 100px;
+        height: auto;
     }  
 
 }

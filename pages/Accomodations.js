@@ -33,11 +33,12 @@ function Accomodations() {
       }
     })
     .catch(error => console.error("Erreur lors de la récupération des activités:", error));
-  }, [selectedTripId]); 
+  },  [selectedTripId, token]);
+   
 
   const handleVote = async (accomodationId, status) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/accomodations/vote/${accomodationId}`, {
+      const response = await fetch(`http://localhost:3000/accomodations/vote/${accomodationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +74,7 @@ function Accomodations() {
   const handleDeleteAccomodation = async (accomodationId) => {
     if(window.confirm("Êtes-vous sûr de vouloir supprimer cet hébergement ?")) {
         try {
-          const response = await fetch(`https://grouptravel-backend-green.vercel.app/accomodations/${accomodationId}`, {
+          const response = await fetch(`http://localhost:3000/accomodations/${accomodationId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',

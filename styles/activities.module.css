@@ -41,16 +41,19 @@
   }
   .stickers{
     width: 200px;
+    height: auto;
     margin-left: 30%;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
   .stickers2{
     width: 200px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
   @media (max-width: 768px){
     .stickers2{
         width: 180px;
+        height: auto;
     }
     .name{
         font-size: 3rem;
@@ -66,6 +69,7 @@
     .stickers2{
         
        width: 100px;
+       height: auto;
     }
    
     .name{

@@ -14,7 +14,7 @@ const AdminActivityPage = () => {
   
     useEffect(() => {
         console.log("Selected Trip ID: ", selectedTripId);
-        fetch(`https://grouptravel-backend-green.vercel.app/activities/${selectedTripId}`, {
+        fetch(`http://localhost:3000/activities/${selectedTripId}`, {
           method: 'GET',
           headers: {
            
@@ -35,13 +35,13 @@ const AdminActivityPage = () => {
         })
         .catch(error => console.error("Erreur lors de la récupération des activités:", error));
 
-      }, [selectedTripId]); 
+      }, [selectedTripId, token]); 
       
   const handleSelectFixed = async (activityId) => {
     try {
         console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${activityId}`);
         
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/activities/select/${selectedTripId}/${activityId}`, {
+      const response = await fetch(`http://localhost:3000/activities/select/${selectedTripId}/${activityId}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`, // Utilisez votre méthode d'authentification
@@ -66,7 +66,7 @@ const AdminActivityPage = () => {
   const handleDelete = async (activityId) => {
     if(window.confirm("Êtes-vous sûr de vouloir supprimer cette activité ?")) {
         try {
-          const response = await fetch(`https://grouptravel-backend-green.vercel.app/activities/${activityId}`, {
+          const response = await fetch(`http://localhost:3000/activities/${activityId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const AdminActivityPage = () => {
   //Requête pour appeler les hébergements
   useEffect(() => {
     console.log("Selected Trip ID: ", selectedTripId);
-    fetch(`https://grouptravel-backend-green.vercel.app/accomodations/${selectedTripId}`, {
+    fetch(`http://localhost:3000/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -116,13 +116,13 @@ const AdminActivityPage = () => {
     })
     .catch(error => console.error("Erreur lors de la récupération des hébergements:", error));
 
-  }, [selectedTripId]); 
+  }, [selectedTripId, token]); 
   
 const handleSelectFixedAccomodation = async (accomodationId) => {
 try {
     console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${accomodationId}`);
     
-  const response = await fetch(`https://grouptravel-backend-green.vercel.app/accomodations/select/${selectedTripId}/${accomodationId}`, {
+  const response = await fetch(`http://localhost:3000/accomodations/select/${selectedTripId}/${accomodationId}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`, 

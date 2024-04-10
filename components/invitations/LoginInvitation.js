@@ -5,6 +5,7 @@ import styles from '../../styles/LoginInvitation.module.css';
 import { login } from '../../reducers/user';
 
 
+
 function LoginInvitation({ onCloseModal }) {
 
   const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ function LoginInvitation({ onCloseModal }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleLogin = () => {
-    fetch('https://grouptravel-backend-green.vercel.app/invitations/login', {
+    fetch('http://localhost:3000/invitations/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, token}),

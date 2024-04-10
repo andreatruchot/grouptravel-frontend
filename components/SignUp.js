@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
+
 function SignUp({ onCloseModal }) {
   const [username, setUsername] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -34,7 +35,7 @@ function SignUp({ onCloseModal }) {
     return;
   }
 
-    fetch('https://grouptravel-backend-green.vercel.app/users/signup', {
+    fetch('http://localhost:3000/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

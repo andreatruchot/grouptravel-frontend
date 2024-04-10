@@ -53,7 +53,7 @@ const UserProfile = ({ username }) => {
     const fetchTrips = async () => {
       if (token) {
         try {
-          const response = await fetch('https://grouptravel-backend-green.vercel.app/trips/myTrips', {
+          const response = await fetch('http://localhost:3000/trips/myTrips', {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${token}`,
@@ -86,7 +86,7 @@ const UserProfile = ({ username }) => {
 
   const fetchTripDetails = async (tripId) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/trips/${tripId}`,{   
+      const response = await fetch(`http://localhost:3000/trips/${tripId}`,{   
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ const UserProfile = ({ username }) => {
       console.log("Préparation de l'envoi du fichier", formData);
 
       try {
-        const response = await fetch('https://grouptravel-backend-green.vercel.app/users/profilePicture', {
+        const response = await fetch('http://localhost:3000/users/profilePicture', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,

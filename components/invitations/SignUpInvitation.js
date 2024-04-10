@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import styles from '../../styles/SignUpInvitation.module.css';
 import InvitationButton from './InvitationButton';
 import { login } from '../../reducers/user';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
 function SignUp({ onCloseModal }) {
@@ -34,7 +36,7 @@ function SignUp({ onCloseModal }) {
   }
 
 
-    fetch('https://grouptravel-backend-green.vercel.app/invitations/signup', {
+    fetch('http://localhost:3000/invitations/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

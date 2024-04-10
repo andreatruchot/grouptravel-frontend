@@ -8,6 +8,7 @@ import { addActivity, setTripDetails } from '../../reducers/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import ImageUpload from '../../components/ImageUpload';
+import Image from 'next/image'; 
 
 const ActivityForm = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const ActivityForm = () => {
     if (selectedTripId) {
       const fetchTripDetails = async () => {
         try {
-          const response = await fetch(`https://grouptravel-backend-green.vercel.app/trips/details/${selectedTripId}`, {
+          const response = await fetch(`http://localhost:3000/trips/details/${selectedTripId}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -77,7 +78,7 @@ const ActivityForm = () => {
     }
 
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/activities/addActivity/${selectedTripId}`, {
+      const response = await fetch(`http://localhost:3000/activities/addActivity/${selectedTripId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

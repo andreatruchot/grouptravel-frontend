@@ -10,7 +10,9 @@ const router = useRouter();
 
  // Extrait le token, tripId, et potentiellement email de l'URL
   const { token, tripId, email: queryEmail } = router.query;
-  const email = queryEmail || useSelector((state) => state.user.value.email);
+  const userEmail = useSelector((state) => state.user.value.email);
+  const email = queryEmail || userEmail;
+  
   
   return (
    <div className={styles.acceptContainer}>
@@ -19,7 +21,7 @@ const router = useRouter();
          <img src="../images/stickers/globe.png" alt='stickers globe terrestre' className={styles.globe}></img>
       </div>
       
-      <p className={styles.acceptText}>Pour accepter l'invitation veuillez vous inscrire ou vous connecter</p>
+      <p className={styles.acceptText}>Pour accepter l&apos;invitation veuillez vous inscrire ou vous connecter</p>
       <div className={styles.invitationBtn}>
         <InvitationButton/>
       </div>

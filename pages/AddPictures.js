@@ -13,7 +13,7 @@ return (
 <div>
   <Header/>
    <div className={styles.containerFull}>
-   <img src="../images/stickers/appphot.png" alt='stickers appareil photo' className={styles.stickers2}></img>
+   <img src="../images/stickers/appphot.png" alt='stickers appareil photo' className={styles.stickers2}/>
       <div className={styles.title}>
         <p className={styles.subtitle}>Là on ajoute les photos du voyage</p>
       </div>

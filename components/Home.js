@@ -5,7 +5,7 @@ import Footer from './Footer';
 import {useSelector } from 'react-redux';
 import Modal from './Modal';
 import { useRouter } from 'next/router';
-import Carrousel from './carrousel';
+import Carousel from './Carousel';
 
 
 
@@ -29,7 +29,7 @@ function Home() {
       <main className={styles.main}>
         <div className={styles.banner}>
         <img src="../images/stickers/Avion.png" alt='stickers avion' className={styles.plane}></img>
-           <h2 className={styles.secondtitle}>L'aventure nous unit !</h2>
+           <h2 className={styles.secondtitle}>L'aventure nous unit</h2>
         </div>
         <div className={styles.newtrip}>
            <button onClick={handleNewTripClick}className={styles.trip}>Nouveau voyage</button>
@@ -37,9 +37,9 @@ function Home() {
                   Veillez à vous connecter ou vous inscrire afin de créer un nouveau voyage</Modal>
             <img src="../images/stickers/passeport.png" alt='stickers passeport' className={styles.pass}></img>
         </div>
-          <div className={styles.carrousel}>
-          <Carrousel />
-          </div>
+         <div className={styles.carousel}>
+          <Carousel />
+        </div>
          <img className={styles.stickercase}src="../images/stickers/valise.png" alt='stickers valise'></img>
       </main>
       <Footer/>

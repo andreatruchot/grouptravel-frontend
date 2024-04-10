@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useSelector} from 'react-redux';
 
+
 const AlbumPage = () => {
 
   
@@ -17,7 +18,7 @@ const AlbumPage = () => {
      const fetchPhotos = async () => {
        if (selectedTripId) {
          try {
-           const response = await fetch(`https://grouptravel-backend-green.vercel.app/tripPictures/${selectedTripId}`,{   
+           const response = await fetch(`http://localhost:3000/tripPictures/${selectedTripId}`,{   
            method: 'GET',
            headers: {
             Authorization: `Bearer ${token}`,
@@ -36,7 +37,7 @@ const AlbumPage = () => {
      };
  
      fetchPhotos();
-   }, [selectedTripId]);
+   }, [selectedTripId, token]);
 return (
 <>
   <Header />
@@ -49,7 +50,7 @@ return (
      <div className={styles.wrapper}>
      <img src="../images/stickers/billets.png" alt='stickers billets avion' className={styles.stickers1}></img>
      {photos.map((photo, index) => (
-  <div className={styles.item}>
+  <div key={photo._id} className={styles.item}>
     <div className={styles.polaroid}>
        <img src={photo.photo} alt={photo.description} /> 
       <div className={styles.caption}>{photo.description}</div>

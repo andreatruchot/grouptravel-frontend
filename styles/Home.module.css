@@ -21,13 +21,14 @@
 .banner{
   height: 80vh;
   width: 100%; 
-  background-image: url('/images/home/veniceplage.jpg');
+  background-image: url('/images/home/venice.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+
   
 }
 .secondtitle{
@@ -73,19 +74,22 @@
  
 }
 
-.carrousel{
+.carousel{
   background-color: #BDDCD7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
  
 }
 .plane{
  
   align-self: flex-end;
-  position: relative;
-  top: 180px;
+  margin-top: 400px;
   transform: translate(-50%, -50%);
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-  width: 200px;
+  width: 230px;
+  height: auto;
 }
 .pass{
   align-self: flex-start;
@@ -97,6 +101,7 @@
 .stickercase{
   align-self: flex-end;
   width: 200px;
+  height: auto;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   
 }
@@ -109,10 +114,10 @@
 
   .plane{
   top: 180px;
-  position: relative;
   left: 10%; 
   transform: translate(-50%, -50%);
   width: 190px;
+  height: auto;
   }
   
   .secondtitle{
@@ -130,13 +135,15 @@
       width: 100%; 
     }
     .plane{
-      position: relative;
+    
       width: 100px;
+      height: auto;
       top: 100px;
       left: 12%;
       }
       .pass{
         width: 130px;
+        height: auto;
       }
       .secondtitle{
         font-size: 1rem;
@@ -153,6 +160,7 @@
       } 
       .stickercase{
         width: 130px;
+        height: auto;
       }  
    
   }

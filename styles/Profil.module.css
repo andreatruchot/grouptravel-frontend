@@ -62,12 +62,14 @@
 .pass{
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
      width: 280px;
+     height: auto;
      position: relative;
       
 }
 @media (max-width: 768px){
     .pass{
         width: 130px;
+        height: auto;
     }
     .title{
         font-size: 2rem;

@@ -63,6 +63,7 @@
   .stickers{
   
     width: 250px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
   }
   
@@ -87,6 +88,7 @@
   @media (max-width: 700px){
     .stickers{
         width: 180px;
+        height: auto;
     }
     .name{
         font-size: 3rem;
@@ -101,6 +103,7 @@
     .stickers{
         
        width: 130px;
+       height: auto;
     }
     .dayColumn{
       width: 95%;

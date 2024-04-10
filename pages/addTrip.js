@@ -12,7 +12,7 @@ const AddTripPage = () => {
       <Header />
     <div className={styles.containerFull}>
        <div className={styles.title}>
-           <img src="../images/stickers/sacados.png" alt='stickers sac à dos ' className={styles.stickers2}></img>
+           <img src="../images/stickers/sacados.png" alt='stickers sac à dos ' className={styles.stickers2}/>
            <h2 className={styles.name}>Mon voyage</h2>
        </div>
        <TripForm />

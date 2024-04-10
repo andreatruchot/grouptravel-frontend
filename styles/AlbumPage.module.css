@@ -23,6 +23,7 @@
 }
 .stickers2{
     width: 20%;
+    height: auto;
     position: relative;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     align-self: flex-end; 
@@ -37,11 +38,13 @@
 }
 .stickers3{
     width: 300px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     margin-left: 5%;
 }
 .stickers1{
     width: 200px;
+    height: auto;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     margin-right: 2%;
 

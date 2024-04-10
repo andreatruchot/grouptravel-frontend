@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import MyCard from '../components/MyCard';
 
 
+
 function Activities() {
  
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
@@ -14,7 +15,7 @@ function Activities() {
 
   useEffect(() => {
    
-    fetch(`https://grouptravel-backend-green.vercel.app/activities/${selectedTripId}`, {
+    fetch(`http://localhost:3000/activities/${selectedTripId}`, {
 
       method: 'GET',
       headers: {
@@ -31,11 +32,11 @@ function Activities() {
       }
     })
     .catch(error => console.error("Erreur lors de la récupération des activités:", error));
-  }, [selectedTripId]); 
+  }, [selectedTripId, token]); 
   
   const handleVote = async (activityId, status) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/activities/vote/${activityId}`, {
+      const response = await fetch(`http://localhost:3000/activities/vote/${activityId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

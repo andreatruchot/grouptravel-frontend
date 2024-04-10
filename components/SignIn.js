@@ -4,6 +4,7 @@ import { login } from '../reducers/user';
 import { useRouter } from 'next/router';
 import styles from '../styles/SignIn.module.css';
 
+
 function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé en prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
   const handleSignIn = () => {
    
     
-    fetch('https://grouptravel-backend-green.vercel.app/users/signin', {
+    fetch('http://localhost:3000/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

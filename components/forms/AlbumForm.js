@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import ImageUpload from '../../components/ImageUpload'; 
 import styles from '../../styles/AlbumForm.module.css'
 
+
 const AlbumForm = () => {
   const [description, setDescription] = useState('');
   const [photo, setPhoto] = useState(null);
@@ -30,7 +31,7 @@ const AlbumForm = () => {
     formData.append('tripId', tripId);
 
     try {
-      const response = await fetch('https://grouptravel-backend-green.vercel.app/tripPictures/addPicture', { 
+      const response = await fetch('http://localhost:3000/tripPictures/addPicture', { 
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
