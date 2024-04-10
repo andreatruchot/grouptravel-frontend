@@ -11,11 +11,12 @@ function Accomodations() {
   const selectedTripId = useSelector((state) => state.user.value.selectedTripId);
   const token = useSelector(state => state.user.value.token);
   const [accomodations, setAccomodations] = useState([]);
+ 
   
 
   useEffect(() => {
    
-    fetch(`https://grouptravel-backend-green.vercel.app/accomodations/${selectedTripId}`, {
+    fetch(`http://localhost:3000/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -29,10 +30,12 @@ function Accomodations() {
         console.log(data.accomodations);
         setAccomodations(data.accomodations);
       } else {
-        alert(data.message); 
+        alert(data.message);
+        
       }
     })
-    .catch(error => console.error("Erreur lors de la récupération des activités:", error));
+    .catch(error => console.error("Erreur lors de la récupération des hébergements:", error));
+   
   },  [selectedTripId, token]);
    
 
@@ -98,7 +101,7 @@ function Accomodations() {
         }
       }
     };
-
+    
   return (
 
 <div>
@@ -125,6 +128,7 @@ function Accomodations() {
               arrival={accomodation.arrivalDate}
               return={accomodation.returnDate}
               budget={accomodation.budget}
+              voteCount={accomodation.vote.filter(vote => vote.status).length} 
               onVote={(status) => handleVote(accomodation._id, status)}
               onDelete={() => handleDeleteAccomodation(accomodation._id)}
               showDeleteButton={true}

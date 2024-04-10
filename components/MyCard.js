@@ -26,7 +26,7 @@ const MyCard = (props) => {
     return (
       <div style={additionalStyles} className={styles.cardContainer}>
       <Card className={styles.card }>
-          {imageUrl && <Image src={imageUrl} alt="Card image" className={styles.cardImage} />}
+          {imageUrl && <img src={imageUrl} alt="Card image" className={styles.cardImage} />}
           <CardBody style={cardBodyStyle}>
               {title && <CardTitle tag="h5">{title}</CardTitle>}
               {subtitle && <CardSubtitle className="text-muted" tag="h6">{subtitle}</CardSubtitle>}

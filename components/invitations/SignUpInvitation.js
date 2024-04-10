@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 
-function SignUp({ onCloseModal }) {
+function SignUpInvitation({ onCloseModal }) {
+  
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,6 +44,7 @@ function SignUp({ onCloseModal }) {
         username,
         email,
         password,
+        confirmPassword,
         token,
       }),
     })
@@ -109,4 +111,4 @@ function SignUp({ onCloseModal }) {
   );
 }
 
-export default SignUp;
+export default SignUpInvitation;

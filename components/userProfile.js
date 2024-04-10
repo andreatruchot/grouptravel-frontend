@@ -27,7 +27,7 @@ const UserProfile = ({ username }) => {
     }
 
     try {
-      const response = await fetch(`https://grouptravel-backend-green.vercel.app/trips/deleteTrip/${tripId}`, {
+      const response = await fetch(`http://localhost:3000/trips/deleteTrip/${tripId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

@@ -19,7 +19,7 @@ const ImageUpload = ({ onFileSelect, buttonClassName }) => {
     <div className={styles.imageUploadContainer}>
       <div className={styles.previewContainer}>
         {previewUrl ? (
-          <Image src={previewUrl} alt="Preview" className={styles.previewImage} />
+          <img src={previewUrl} alt="Preview" className={styles.previewImage} />
         ) : (
           <div className={styles.placeholder}>
             <i className="fas fa-camera"></i>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../Button';
-import SignUp from '../invitations/SignUpInvitation';
+import SignUpInvitation from '../invitations/SignUpInvitation';
 import LoginInvitation from '../invitations/LoginInvitation';
-
 import Modal from '../Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../reducers/user';
@@ -48,7 +47,7 @@ if (isLoggedIn) return null;
       </Modal>
 
       <Modal isOpen={isSignUpModalVisible} onClose={closeModal}>
-        <SignUp onAuthSuccess={handleAuthSuccess} onCloseModal={closeModal} />
+        <SignUpInvitation onAuthSuccess={handleAuthSuccess} onCloseModal={closeModal} />
       </Modal>
     </div>
   );

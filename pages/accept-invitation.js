@@ -5,6 +5,8 @@ import styles from '../styles/Accept-invitation.module.css';
 import InvitationButton from '../components/invitations/InvitationButton';
 
 
+
+
 const AcceptInvitationPage = () => {
 const router = useRouter();
 

@@ -21,14 +21,14 @@
     background-color: white;
   }
   .placeholder {
-    font-size: 50px; /* La taille de l'icône de votre choix */
-    color: #ccc; /* La couleur de l'icône de votre choix */
+    font-size: 50px; 
+    color: #ccc; 
   }
   
   .previewImage {
-    width: 200px; /* Assurez-vous que l'image remplisse le conteneur */
+    width: 200px; 
     height: auto;
-    object-fit: cover; /* Assurez-vous que l'image soit bien dimensionnée */
+    object-fit: cover; 
   }
   
   .inputContainer {
