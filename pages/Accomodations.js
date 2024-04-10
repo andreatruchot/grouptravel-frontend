@@ -16,7 +16,7 @@ function Accomodations() {
 
   useEffect(() => {
    
-    fetch(`http://localhost:3000/accomodations/${selectedTripId}`, {
+    fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -41,7 +41,7 @@ function Accomodations() {
 
   const handleVote = async (accomodationId, status) => {
     try {
-      const response = await fetch(`http://localhost:3000/accomodations/vote/${accomodationId}`, {
+      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/vote/${accomodationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ function Accomodations() {
   const handleDeleteAccomodation = async (accomodationId) => {
     if(window.confirm("Êtes-vous sûr de vouloir supprimer cet hébergement ?")) {
         try {
-          const response = await fetch(`http://localhost:3000/accomodations/${accomodationId}`, {
+          const response = await fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/${accomodationId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',

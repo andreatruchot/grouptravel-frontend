@@ -15,7 +15,7 @@ function Activities() {
 
   useEffect(() => {
    
-    fetch(`http://localhost:3000/activities/${selectedTripId}`, {
+    fetch(`https://grouptravel-backend-rho.vercel.app/activities/${selectedTripId}`, {
 
       method: 'GET',
       headers: {
@@ -36,7 +36,7 @@ function Activities() {
   
   const handleVote = async (activityId, status) => {
     try {
-      const response = await fetch(`http://localhost:3000/activities/vote/${activityId}`, {
+      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/activities/vote/${activityId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

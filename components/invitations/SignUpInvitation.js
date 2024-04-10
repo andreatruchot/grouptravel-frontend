@@ -37,7 +37,7 @@ function SignUpInvitation({ onCloseModal }) {
   }
 
 
-    fetch('http://localhost:3000/invitations/signup', {
+    fetch('https://grouptravel-backend-rho.vercel.app/invitations/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

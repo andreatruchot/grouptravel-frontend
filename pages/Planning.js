@@ -19,7 +19,7 @@ const Planning = () => {
     useEffect(() => {
         const fetchPlanning = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/planning/planning/${selectedTripId}`, {
+                const response = await fetch(`https://grouptravel-backend-rho.vercel.app/planning/planning/${selectedTripId}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
@@ -36,7 +36,7 @@ const Planning = () => {
     const handleDelete = async (activityId) => {
         if(window.confirm("Êtes-vous sûr de vouloir supprimer cette activité ?")) {
             try {
-              const response = await fetch(`http://localhost:3000/activities/${activityId}`, {
+              const response = await fetch(`https://grouptravel-backend-rho.vercel.app/activities/${activityId}`, {
                 method: 'DELETE',
                 headers: {
                   'Content-Type': 'application/json',
