@@ -39,7 +39,7 @@ const DashboardPage = () => {
     const fetchTrips = async () => {
       if (token) {
         try {
-          const response = await fetch('https://grouptravel-backend-rho.vercel.app/trips/myTrips', {
+          const response = await fetch('https://grouptravel-backend-xi.vercel.app/trips/myTrips', {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ const DashboardPage = () => {
       // Vérifie si selectedTripId est défini et n'est pas null avant de faire la requête
       if (selectedTripId) {
         try {
-          const response = await fetch(`https://grouptravel-backend-rho.vercel.app/trips/location/${selectedTripId}`);
+          const response = await fetch(`https://grouptravel-backend-xi.vercel.app/trips/location/${selectedTripId}`);
           
           // Vérifie le statut de la réponse
           if (!response.ok) {

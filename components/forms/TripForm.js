@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
       returnDate: returnDate.toISOString(),
     };
     try {
-      const response = await fetch('https://grouptravel-backend-rho.vercel.app/trips/addTrip', {
+      const response = await fetch('https://grouptravel-backend-xi.vercel.app/trips/addTrip', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json', //envoi de données JSON

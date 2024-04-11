@@ -35,7 +35,7 @@ function SignUp({ onCloseModal }) {
     return;
   }
 
-    fetch('https://grouptravel-backend-rho.vercel.app/users/signup', {
+    fetch('https://grouptravel-backend-xi.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -20,7 +20,7 @@ const InvitationForm = () => {
     };
 
     try {
-      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/invitations/send-invitation`, {
+      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/invitations/send-invitation`, {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json', 

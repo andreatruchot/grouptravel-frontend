@@ -14,7 +14,7 @@ const AdminActivityPage = () => {
   
     useEffect(() => {
         console.log("Selected Trip ID: ", selectedTripId);
-        fetch(`https://grouptravel-backend-rho.vercel.app/activities/${selectedTripId}`, {
+        fetch(`https://grouptravel-backend-xi.vercel.app/activities/${selectedTripId}`, {
           method: 'GET',
           headers: {
            
@@ -41,7 +41,7 @@ const AdminActivityPage = () => {
     try {
         console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${activityId}`);
         
-      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/activities/select/${selectedTripId}/${activityId}`, {
+      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/activities/select/${selectedTripId}/${activityId}`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`, // Utilisez votre méthode d'authentification
@@ -66,7 +66,7 @@ const AdminActivityPage = () => {
   const handleDelete = async (activityId) => {
     if(window.confirm("Êtes-vous sûr de vouloir supprimer cette activité ?")) {
         try {
-          const response = await fetch(`https://grouptravel-backend-rho.vercel.app/activities/${activityId}`, {
+          const response = await fetch(`https://grouptravel-backend-xi.vercel.app/activities/${activityId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const AdminActivityPage = () => {
   //Requête pour appeler les hébergements
   useEffect(() => {
     console.log("Selected Trip ID: ", selectedTripId);
-    fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/${selectedTripId}`, {
+    fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -122,7 +122,7 @@ const handleSelectFixedAccomodation = async (accomodationId) => {
 try {
     console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${accomodationId}`);
     
-  const response = await fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/select/${selectedTripId}/${accomodationId}`, {
+  const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/select/${selectedTripId}/${accomodationId}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`, 

@@ -31,7 +31,7 @@ const AlbumForm = () => {
     formData.append('tripId', tripId);
 
     try {
-      const response = await fetch('https://grouptravel-backend-rho.vercel.app/tripPictures/addPicture', { 
+      const response = await fetch('https://grouptravel-backend-xi.vercel.app/tripPictures/addPicture', { 
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

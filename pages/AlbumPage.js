@@ -18,7 +18,7 @@ const AlbumPage = () => {
      const fetchPhotos = async () => {
        if (selectedTripId) {
          try {
-           const response = await fetch(`https://grouptravel-backend-rho.vercel.app/tripPictures/${selectedTripId}`,{   
+           const response = await fetch(`https://grouptravel-backend-xi.vercel.app/tripPictures/${selectedTripId}`,{   
            method: 'GET',
            headers: {
             Authorization: `Bearer ${token}`,

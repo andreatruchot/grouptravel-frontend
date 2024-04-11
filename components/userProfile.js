@@ -27,7 +27,7 @@ const UserProfile = ({ username }) => {
     }
 
     try {
-      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/trips/deleteTrip/${tripId}`, {
+      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/trips/deleteTrip/${tripId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ const UserProfile = ({ username }) => {
     const fetchTrips = async () => {
       if (token) {
         try {
-          const response = await fetch('https://grouptravel-backend-rho.vercel.app/trips/myTrips', {
+          const response = await fetch('https://grouptravel-backend-xi.vercel.app/trips/myTrips', {
             method: 'GET',
             headers: {
               Authorization: `Bearer ${token}`,
@@ -86,7 +86,7 @@ const UserProfile = ({ username }) => {
 
   const fetchTripDetails = async (tripId) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/trips/${tripId}`,{   
+      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/trips/${tripId}`,{   
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -126,7 +126,7 @@ const UserProfile = ({ username }) => {
       console.log("Préparation de l'envoi du fichier", formData);
 
       try {
-        const response = await fetch('https://grouptravel-backend-rho.vercel.app/users/profilePicture', {
+        const response = await fetch('https://grouptravel-backend-xi.vercel.app/users/profilePicture', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token}`,

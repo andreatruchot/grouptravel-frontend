@@ -34,7 +34,7 @@ const ActivityForm = () => {
     if (selectedTripId) {
       const fetchTripDetails = async () => {
         try {
-          const response = await fetch(`https://grouptravel-backend-rho.vercel.app/trips/details/${selectedTripId}`, {
+          const response = await fetch(`hhttps://grouptravel-backend-xi.vercel.app/trips/details/${selectedTripId}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -78,7 +78,7 @@ const ActivityForm = () => {
     }
 
     try {
-      const response = await fetch(`https://grouptravel-backend-rho.vercel.app/activities/addActivity/${selectedTripId}`, {
+      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/activities/addActivity/${selectedTripId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

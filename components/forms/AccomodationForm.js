@@ -96,7 +96,7 @@ if (photo) {
 }
 
 try {
-  const response = await fetch(`https://grouptravel-backend-rho.vercel.app/accomodations/addAccomodation/${selectedTripId}`, {
+  const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/addAccomodation/${selectedTripId}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
