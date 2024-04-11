@@ -121,10 +121,11 @@ function Accomodations() {
               imageUrl={accomodation.photo}
               title={accomodation.location}
                // Formatage des dates d'arrivée et de départ
-               arrivalDate={new Date(accomodation.arrivalDate).toLocaleDateString()}
-               returnDate={new Date(accomodation.returnDate).toLocaleDateString()} 
-               showDates={true}
+              arrivalDate={new Date(accomodation.arrivalDate).toLocaleDateString()}
+              returnDate={new Date(accomodation.returnDate).toLocaleDateString()} 
+              showDates={true}
               content={accomodation.description}
+              linkUrl={accomodation.url}
               arrival={accomodation.arrivalDate}
               return={accomodation.returnDate}
               budget={accomodation.budget}

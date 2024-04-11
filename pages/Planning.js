@@ -88,6 +88,7 @@ const Planning = () => {
                                                 subtitle={`Lieu: ${activity.place}`}
                                                 date={`Date: ${new Date(activity.date).toLocaleDateString('fr-FR')}`}
                                                 content={activity.description}
+                                                linkUrl={activity.url}
                                                 budget={activity.budget}
                                                 showVoteButtons={false}
                                                 cardBodyStyle={{ backgroundColor: '#EBD5C8' }}

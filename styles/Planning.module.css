@@ -83,7 +83,9 @@
     align-self: center;
     padding-top: 6%;
     color: #DE917D;
-
+  }
+  .actionLink{
+    color: #DE917D;
   }
   @media (max-width: 700px){
     .stickers{

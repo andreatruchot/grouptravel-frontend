@@ -90,6 +90,7 @@ function Activities() {
               subtitle={`Lieu: ${activity.place}`}
               date={`Date: ${new Date(activity.date).toLocaleDateString()}`}
               content={activity.description}
+              linkUrl={activity.url}
               budget={activity.budget}
               voteCount={activity.participation.filter(participant => participant.status).length} // Ajout du nombre de votes "oui"
               onVote={(status) => handleVote(activity._id, status)}

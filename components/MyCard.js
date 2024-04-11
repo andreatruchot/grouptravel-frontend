@@ -12,7 +12,7 @@ const MyCard = (props) => {
     const { imageUrl, title, subtitle, content, children, 
       budget, date, onVote,  voteCount, arrivalDate, participationCount, returnDate, 
       showVoteButtons = true, showDeleteButton = false, onDelete, 
-      additionalStyles = {}, cardBodyStyle = {}, showDates = false, showParticipationCount = false, showVoteCount = false, isAdmin } = props;
+      additionalStyles = {}, cardBodyStyle = {}, showDates = false, showParticipationCount = false, showVoteCount = false, isAdmin, linkUrl } = props;
   
     const [voted, setVoted] = useState(null); 
 
@@ -30,6 +30,11 @@ const MyCard = (props) => {
           <CardBody style={cardBodyStyle}>
               {title && <CardTitle tag="h5">{title}</CardTitle>}
               {subtitle && <CardSubtitle className="text-muted" tag="h6">{subtitle}</CardSubtitle>}
+              { linkUrl&& (
+               <a href={linkUrl} target="_blank" rel="noopener noreferrer" className={styles.actionLink}>
+                Plus d'infos
+                   </a>
+                   )}
               {content && <CardText>{content}</CardText>}
               {children &&<CardText>{date}</CardText>}
               {children &&<CardText>{date}</CardText>}

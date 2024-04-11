@@ -1,8 +1,9 @@
   .cardContainer{
     
-    background-color: #BDDCD7;
+    background-color: #EBD5C8;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
     padding: 2%;
     border-radius: 20px;
@@ -12,15 +13,23 @@
   .card{
     width: 16rem;
     border: none;
-    background-color: #BDDCD7;
+    background-color: #EBD5C8;
   }
   .cardImage {
     width: 100%; /* La carte image prend toute la largeur */
-    height: auto; /* Hauteur auto pour maintenir l'aspect ratio */
+    height: 200px;
+    object-fit: cover; /* Assure que l'image couvre l'espace disponible, peut être coupée pour maintenir son ratio */
+    object-position: top; /* Aligner l'image vers le haut */ 
+   
+    
   }
   .cardBody {
     padding:  16px; /* Padding à l'intérieur de la carte */
     border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
   
   .cardTitle, .cardSubtitle, .cardText {
@@ -52,7 +61,7 @@
     border-radius: 42px;
   }
   .voteButtonY{
-    background-color: #EBD5C8;
+    background-color: #BDDCD7;
     margin-left: 5%; 
     margin-right: 5%;
     border: none;
@@ -62,6 +71,12 @@
   }
   .voteButtonN{
     background-color: #DADBC2;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  .voteButtonActiveN{
+    background-color: #7D8F88;
+    color: white;
     border: none;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
   }
@@ -85,6 +100,9 @@
     justify-content: center;
     align-items: center;
     padding-top: 30px;
+  }
+  .actionLink{
+    color: #DE917D;
   }
   
   
