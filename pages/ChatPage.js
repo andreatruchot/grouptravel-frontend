@@ -56,7 +56,7 @@ const ChatPage = () => {
              <img src="../images/stickers/sushis.png" alt='stickers plateau de sushi' className={styles.stickers2}/>
                <h1 className={styles.name}>Chat</h1>
           </div>
-          <h2 className={styles.secondTitle}>Ici on communique avec les membres du groupe</h2>
+          <h2 className={styles.secondTitle}>Ici on discute</h2>
        <div className={styles.ChatContainer}>
            <div className={styles.members}>
             <p className={styles.title}>Membres du groupe</p>
