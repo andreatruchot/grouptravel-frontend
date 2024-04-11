@@ -145,7 +145,7 @@ const UserProfile = ({ username }) => {
     }
   };
    // Il gère le clic sur le bouton pour ajouter un nouveau voyage
-  const handleNewTripClick = () => {
+   const handleNewTripClick = () => {
     router.push('/addTrip');
   };
   return (
