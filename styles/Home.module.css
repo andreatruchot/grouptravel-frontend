@@ -21,7 +21,7 @@
 .banner{
   height: 80vh;
   width: 100%; 
-  background-image: url('/images/home/venice.jpg');
+  background-image: url('/images/home/venicebeach.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,13 +83,13 @@
  
 }
 .plane{
- 
+ position: relative;
   align-self: flex-end;
-  margin-top: 400px;
-  transform: translate(-50%, -50%);
+  top: 95px;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-  width: 230px;
+  width: 200px;
   height: auto;
+  margin-right: 20%;
 }
 .pass{
   align-self: flex-start;

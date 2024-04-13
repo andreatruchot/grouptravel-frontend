@@ -153,7 +153,7 @@ const UserProfile = ({ username }) => {
       <div className={styles.container}>
         {isLoggedIn && (
           <div className={styles.profileTitle}>
-            <img src={profilePicture} alt={`${username}'s profile`} className={styles.picture} />
+            <img src={profilePicture} alt={`${username}`} className={styles.picture} />
             <button className={styles.change} onClick={() => setShowModal(true)}>Changer la photo</button>
             {showModal && (
               <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
