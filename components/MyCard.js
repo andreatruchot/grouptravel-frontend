@@ -14,7 +14,8 @@ const MyCard = (props) => {
       showVoteButtons = true, showDeleteButton = false, onDelete, 
       additionalStyles = {}, cardBodyStyle = {}, showDates = false, showParticipationCount = false, showVoteCount = false, isAdmin, linkUrl } = props;
   
-    const [voted, setVoted] = useState(null); 
+    const [voted, setVoted] = useState(null);
+    const [isContentExpanded, setContentExpanded] = useState(false); 
 
     const handleVote = (status) => {
       // Appeler la fonction onVote avec le statut du vote
@@ -23,6 +24,16 @@ const MyCard = (props) => {
       setVoted(status ? 'yes' : 'no');
       alert("Votre participation a été enregistrée.");
   };
+  // Fonction pour tronquer le texte
+  const truncateContent = (text, length) => {
+    return text.length > length ? text.substring(0, length) + "..." : text;
+  };
+
+  // Gestion du clic pour étendre le contenu
+  const toggleContent = () => {
+    setContentExpanded(!isContentExpanded);
+  };
+
     return (
       <div style={additionalStyles} className={styles.cardContainer}>
       <Card className={styles.card }>
@@ -35,7 +46,12 @@ const MyCard = (props) => {
                 Plus d'infos
                    </a>
                    )}
-              {content && <CardText>{content}</CardText>}
+              <CardText>
+              {isContentExpanded ? content : truncateContent(content, 100)}
+              <Button className={styles.seeButtons} onClick={toggleContent} >
+                {isContentExpanded ? 'Voir moins' : 'Voir plus'}
+              </Button>
+            </CardText>
               {children &&<CardText>{date}</CardText>}
               {children &&<CardText>{date}</CardText>}
               {showDates && date && <CardText>{date}</CardText>}

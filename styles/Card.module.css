@@ -81,10 +81,18 @@
     color: white;
   }
   .deleteButtons{
-    background-color: #EED271;
+    background-color: #b22e0d;
     border: none;
     border-radius: 42px;
     box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1); 
+  }
+  .seeButtons{
+    background-color: #EED271;
+    border-radius: 42px;
+    border: none;
+    box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+    color: white; 
+
   }
   .deleteContainer{
     width: 100%;
@@ -94,7 +102,7 @@
     padding-top: 30px;
   }
   .actionLink{
-    color: #DE917D;
+    color: #b22e0d;
   }
   
   
