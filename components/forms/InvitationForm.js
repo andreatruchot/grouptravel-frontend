@@ -34,6 +34,12 @@ const InvitationForm = () => {
       }
 
       const data = await response.json();
+      // Extrait le tripId de la réponse
+      const { tripId } = data;
+
+      // Met à jour le selectedTripId dans le store Redux
+      dispatch(setSelectedTripId(tripId));
+
       setSuccessMessage('Invitation envoyée avec succès.');
       setErrorMessage('');
        dispatch(setTrips(data.trips));
