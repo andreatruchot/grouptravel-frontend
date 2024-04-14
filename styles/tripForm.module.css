@@ -30,7 +30,7 @@ background-color: #F4F4F0;
   padding-bottom: 5%;
 }
 .datePickerButton { 
-  padding: 20px 100px;
+  padding: 20px 30px;
   border-radius: 15px;
   font-weight: 500;
   color: white;
@@ -43,6 +43,7 @@ background-color: #F4F4F0;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: nowrap;
 }
 .departure:last-child,
 .return:last-child {
@@ -100,21 +101,31 @@ background-color: #F4F4F0;
   font-family: 'Lemonada', sans-serif;
   
 }
+.icon{
+  margin-bottom: 3%;
+}
 .btnsubmit{
-  border-radius: 20px;
-  height: 15%;
-  width: 40%;
+  border-radius: 42px;
   border: none;
+  padding: 30px 40px;
   background-color: #EED271;
   align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.3rem;
   margin-bottom: 5%;
-  font-weight: 800;
+  font-weight: 700;
   margin-left: 8%;
   box-shadow: 4px 15px 15px -3px rgba(0,0,0,0.1);
+  transition: 1133ms;
+  transform: translateY(0);
 }
+.btnsubmit:hover{
+    transition: 1133ms;
+    padding: 35px 60px;
+    transform: translateY(-0px);
+    }
 @media (max-width: 800px){
   .datePickerButton { 
     padding: 10px 50px;
