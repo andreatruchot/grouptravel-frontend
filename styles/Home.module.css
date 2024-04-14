@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Reddit+Mono:wght@200..900&display=swap');
 
 
 
@@ -32,13 +33,13 @@
   
 }
 .secondtitle{
-   margin-right: 37%;
-   margin-bottom: 10%;
+   margin-right: 46%;
+   margin-bottom: 16%;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 2.3rem;
   justify-self: center;
-  font-family: 'Lemonada', sans-serif;
-  color: black;
+  font-family: 'Handlee', sans-serif;
+  color: #ffe8f0;
 }
 
 .newtrip{
@@ -83,13 +84,14 @@
  
 }
 .plane{
- position: relative;
+  position: relative;
   align-self: flex-end;
-  top: 95px;
+  top: 90px;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3)); 
-  width: 200px;
+  width: 220px;
   height: auto;
-  margin-right: 20%;
+  margin-right: 6%;
+ 
 }
 .pass{
   align-self: flex-start;
