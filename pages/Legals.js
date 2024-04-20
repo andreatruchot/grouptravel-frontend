@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../styles/Legals.module.css'
+import styles from '../styles/legals.module.css'
 
 class Legals extends Component {
   render() {
@@ -34,7 +34,7 @@ class Legals extends Component {
 
       <div className={styles.legalsSection}>
         <h2 className={styles.legalsHeader}>5. Propriété intellectuelle</h2>
-        <p>Le contenu de ce site, incluant mais non limité aux textes, images, design graphique et code source, est protégé par le droit d'auteur et appartient exclusivement à [ton nom]. Toute reproduction, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'accord préalable écrit de l'éditeur.</p>
+        <p>Le contenu de ce site, incluant mais non limité aux textes, images, design graphique et code source, est protégé par le droit d'auteur et appartient exclusivement à Andréa Truchot. Toute reproduction, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'accord préalable écrit de l'éditeur.</p>
       </div>
     </div>
   );
