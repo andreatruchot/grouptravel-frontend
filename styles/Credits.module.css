@@ -1,0 +1,53 @@
+/* Credits.module.css */
+
+.creditsContainer {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: auto;
+    max-width: 800px;
+}
+
+.header {
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #DE917D;
+    font-weight: bold;
+}
+
+.name {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .creditsContainer {
+        padding: 10px;
+    }
+
+    .header {
+        font-size: 1.4rem; /* Adjusting header font size for smaller screens */
+    }
+
+    .section {
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 1.2rem; /* Smaller title font size on mobile devices */
+    }
+
+    .name {
+        font-size: 1.1rem; /* Adjusting name font size for readability on small screens */
+    }
+}
