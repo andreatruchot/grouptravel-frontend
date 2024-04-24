@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark} from '@fortawesome/free-regular-svg-icons';
 
 
-// Renommez le composant pour éviter les conflits avec l'importation de Card de reactstrap
+
 const MyCard = (props) => {
 
   
@@ -18,9 +18,9 @@ const MyCard = (props) => {
     const [isContentExpanded, setContentExpanded] = useState(false); 
 
     const handleVote = (status) => {
-      // Appeler la fonction onVote avec le statut du vote
+      // Appele la fonction onVote avec le statut du vote
       onVote(status);
-      // Mettre à jour l'état ici pour refléter le changement
+      // Met à jour l'état ici pour refléter le changement
       setVoted(status ? 'yes' : 'no');
       alert("Votre participation a été enregistrée.");
   };

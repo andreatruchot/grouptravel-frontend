@@ -45,7 +45,8 @@ function App({ Component, pageProps }) {
               <title>FellowVoyagers</title>
               <meta name="description" content="Site d'organisation de voyages entre amis." />
               <meta property="og:url" content="https://www.fellowvoyagers.fr" />
-              <meta property="og:image" content="https://www.portfolio-andrea-truchot.com/og-image.png" />
+              <meta property="og:image" content="https://www.portfolio-andrea-truchot.com/globe.png" />
+              <link rel="icon" href="/favicon.png" />
              
             </Head>
             <Component {...pageProps} />

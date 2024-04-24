@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Credits.module.css'; // Assure-toi que le chemin d'accès est correct
+import styles from '../styles/Credits.module.css'; 
 
 function Credits() {
   return (

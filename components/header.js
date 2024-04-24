@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Login from './Login';
-import { logout, setToken } from '../reducers/user'; // Assurez-vous que ces actions sont correctement exportées depuis votre fichier user reducer
-import styles from '../styles/Header.module.css';
+import { logout, setToken } from '../reducers/user'; 
 
 export default function Header() {
     const { isLoggedIn, selectedTripId, username, token } = useSelector(state => state.user.value);

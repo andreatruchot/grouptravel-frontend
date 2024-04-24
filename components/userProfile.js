@@ -8,11 +8,11 @@ import { setSelectedTripId, setTrips, setTripDetails } from '../reducers/user';
 
 
 const UserProfile = ({ username }) => {
-   // Il initialise plusieurs états locaux pour gérer l'affichage de la photo de profil, la liste des voyages, et la visibilité d'une modal
+   //  initialise plusieurs états locaux pour gérer l'affichage de la photo de profil, la liste des voyages, et la visibilité d'une modal
   const [profilePicture, setProfilePicture] = useState('');
   //const [trips, setTrips] = useState([]);
   const [showModal, setShowModal] = useState(false);
-   // Il utilise useSelector pour accéder à des parties de l'état Redux, telles que le statut de connexion et le token utilisateur
+   //  utilise useSelector pour accéder à des parties de l'état Redux, telles que le statut de connexion et le token utilisateur
   const isLoggedIn = useSelector((state) => state.user.value.isLoggedIn);
   const token = useSelector((state) => state.user.value.token);
   const router = useRouter();
@@ -48,7 +48,7 @@ const UserProfile = ({ username }) => {
   };
 
   
- // On utilise useEffect pour charger les voyages de l'utilisateur dès que le composant est monté ou que le token change
+ // useEffect pour charger les voyages de l'utilisateur dès que le composant est monté ou que le token change
   useEffect(() => {
     const fetchTrips = async () => {
       if (token) {
@@ -65,7 +65,7 @@ const UserProfile = ({ username }) => {
           const data = await response.json();
           console.log("Données récupérées :", data); 
 
-          // Pour afficher spécifiquement l'ID et le contenu de chaque voyage
+          // pour afficher spécifiquement l'ID et le contenu de chaque voyage
           if (data.trips && data.trips.length > 0) {
             data.trips.forEach(trip => {
               console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
@@ -108,7 +108,7 @@ const UserProfile = ({ username }) => {
     fetchTripDetails(tripId);
   };
 
-  // Il gère le changement du fichier sélectionné pour la photo de profil
+  //  gère le changement du fichier sélectionné pour la photo de profil
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -117,7 +117,7 @@ const UserProfile = ({ username }) => {
       setSelectedFile(file);
     }
   };
-   // Il gère la soumission du formulaire pour mettre à jour la photo de profil
+   // gère la soumission du formulaire pour mettre à jour la photo de profil
   const handleSubmit = async (event) => {
     event.preventDefault(); // Empêche le comportement par défaut du formulaire
     if (selectedFile) {

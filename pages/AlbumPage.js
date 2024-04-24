@@ -27,7 +27,6 @@ const AlbumPage = () => {
            if (!response.ok) throw new Error('Failed to fetch photos');
  
            const data = await response.json();
-           console.log(data); // Vérifiez la structure de la réponse
            setPhotos(data);
       
          } catch (error) {

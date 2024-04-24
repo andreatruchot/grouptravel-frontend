@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import styles from '../styles/SignIn.module.css';
 
 
-function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé en prop
+function SignIn({ onCloseModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
       if (data.result) {
         console.log("Connexion réussie");
         dispatch(login({ username: data.username, token: data.token, email: data.email }));
-        if(onCloseModal) onCloseModal(); // Utilisez onCloseModal pour fermer la modal
+        if(onCloseModal) onCloseModal(); 
         router.push('/'); // Redirection vers la page d'accueil
       } else {
         alert('Email ou mot de passe invalide');
@@ -49,7 +49,7 @@ function SignIn({ onCloseModal }) { // Assurez-vous que onCloseModal est passé 
       <input
         className={styles.input}
         placeholder="Adresse email"
-        type="email" // Spécifier le type pour activer la validation d'email native du navigateur
+        type="email" 
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />

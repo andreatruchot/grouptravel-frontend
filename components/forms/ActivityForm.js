@@ -52,7 +52,7 @@ const ActivityForm = () => {
   }, [selectedTripId, token, dispatch]);
 
   useEffect(() => {
-    // Utiliser departureDate pour initialiser `date`
+    // Utilise departureDate pour initialiser `date`
     if (departureDate) {
       setDate(new Date(departureDate));
     }

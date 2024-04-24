@@ -96,7 +96,7 @@ const Chat = () => {
   
       const data = await response.json();
       console.log(data.message); // "Message supprimé avec succès."
-      // Mettre à jour l'état du chat ici si nécessaire, par exemple avec une action Redux ou un useState
+      
     } catch (error) {
       console.error("Erreur lors de la suppression du message:", error);
     }
@@ -110,7 +110,7 @@ const Chat = () => {
         <ul className={styles.ulstyle}>
            {tripDetails.chat && tripDetails.chat.map((chatItem) => {
             const color = getColorForUsername(chatItem.author.username);
-             const isAuthor = userId === chatItem.author._id.toString(); // Assurez-vous que cette comparaison fonctionne comme prévu
+             const isAuthor = userId === chatItem.author._id.toString(); 
 
              return (
               <li key={chatItem._id} style={{ backgroundColor: color }} className={styles.listStyle}>

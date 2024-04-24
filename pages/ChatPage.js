@@ -15,15 +15,15 @@ const ChatPage = () => {
 
   useEffect(() => {
     if (!selectedTripId) {
-      // Si aucun voyage n'est sélectionné, redirigez l'utilisateur.
-      console.log('Redirection vers la sélection de voyage');
+      // Si aucun voyage n'est sélectionné, redirige l'utilisateur.
+     
       router.push('/dashboad'); 
       return;
     }
 
     if (!tripDetails || tripDetails._id !== selectedTripId) {
       // Dispatch ici l'action pour charger les détails du voyage sélectionné. 
-      // À ajuster selon votre implémentation réelle.
+    
       dispatch(setTrips(selectedTripId, token));
     }
   }, [selectedTripId, tripDetails, token, dispatch, router]);
