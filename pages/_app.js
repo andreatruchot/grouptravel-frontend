@@ -42,7 +42,11 @@ function App({ Component, pageProps }) {
           {/* Ajout de la condition `loading` pour gérer l'état de chargement lors de la réhydratation */}
           <PersistGate loading={null} persistor={persistor}>
             <Head>
-              <title>Next.js App</title>
+              <title>FellowVoyagers</title>
+              <meta name="description" content="Site d'organisation de voyages entre amis." />
+              <meta property="og:url" content="https://www.fellowvoyagers.fr" />
+              <meta property="og:image" content="https://www.portfolio-andrea-truchot.com/og-image.png" />
+             
             </Head>
             <Component {...pageProps} />
           </PersistGate>
