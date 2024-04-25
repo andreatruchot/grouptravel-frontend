@@ -53,7 +53,7 @@ const handleSubmit = async (e) => {
           body: JSON.stringify(tripData), // Convertit l'objet JavaScript en chaîne JSON
       });
       const responseData = await response.json();
-      console.log(responseData);
+    
 
       if (response.ok) {
 

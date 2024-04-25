@@ -27,11 +27,11 @@ const DashboardPage = () => {
 
   // Destructuration pour un accès direct aux propriétés nécessaires
   const { selectedTripId, trips, token } = useSelector((state) => state.user.value);
-  console.log("Selected Trip ID from state:", selectedTripId);
+ 
 
   // Tentative de trouver les détails du voyage
   const tripDetails = trips.find(trip => trip.id === selectedTripId);
-  console.log('Found Trip Details:', tripDetails);
+  
   const isAdmin = tripDetails && tripDetails.admin === userId;
 
   // Effet pour charger les voyages de l'utilisateur après le rendu initial
@@ -49,7 +49,7 @@ const DashboardPage = () => {
             throw new Error('Failed to fetch trips');
           }
           const data = await response.json();
-          console.log("Données récupérées :", data); 
+         
 
           // Pour afficher spécifiquement l'ID et le contenu de chaque voyage
           if (data.trips && data.trips.length > 0) {
