@@ -35,7 +35,7 @@ const ActivityForm = () => {
     if (selectedTripId) {
       const fetchTripDetails = async () => {
         try {
-          const response = await fetch(`hhttps://grouptravel-backend-xi.vercel.app/trips/details/${selectedTripId}`, {
+          const response = await fetch(`https://grouptravel-backend-xi.vercel.app/trips/details/${selectedTripId}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
