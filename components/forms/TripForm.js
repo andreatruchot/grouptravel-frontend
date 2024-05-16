@@ -4,7 +4,7 @@ import fr from 'date-fns/locale/fr'; // importe le locale français
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router'; // utilise `useRouter`
-import styles from '../../styles/tripForm.module.css';
+import styles from '../../styles/TripForm.module.css';
 import React, { useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
