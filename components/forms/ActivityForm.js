@@ -26,6 +26,7 @@ const ActivityForm = () => {
   const [photo, setPhoto] = useState(null);
   const [budget, setBudget] = useState('');
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
     // Ici, on charge les détails du voyage en fonction de selectedTripId
@@ -61,10 +62,27 @@ const ActivityForm = () => {
   const onFileSelect = (file) => {
     setPhoto(file);
   };
+  const validateFields = () => {
+    const errors = {};
+    if (!photo) errors.photo = 'L\ajout d\'une photo est obligatoire pour valider l\activité '
+    if (!name) errors.name = 'Le nom de l\'activité est obligatoire.';
+    if (!place) errors.place = 'Le lieu de l\'activité est obligatoire.';
+    if (!url) errors.url = 'L\'URL de l\'activité est obligatoire.';
+    if (!description) errors.description = 'La description de l\'activité est obligatoire.';
+    if (!budget) errors.budget = 'Le budget de l\'activité est obligatoire.';
+    if (!date) errors.date = 'la date de l\'activité est obligatoire.';
+    return errors;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    const errors = validateFields();
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
 
     const formData = new FormData();
     formData.append('name', name);
@@ -108,6 +126,7 @@ const ActivityForm = () => {
                    onFileSelect={(file) => onFileSelect(file, 0)}
                    buttonClassName={styles.customButtonStyle}
      />
+     {fieldErrors.name && <div className={styles.error}>{fieldErrors.photo}</div>}
    </div>
       <img src="../images/stickers/coliseee.png" alt='stickers du colisée' 
                className={styles.colisee}></img>
@@ -122,6 +141,7 @@ const ActivityForm = () => {
           onChange={(e) => setName(e.target.value)}
           placeholder="Le nom de l'activité"
        />
+       {fieldErrors.name && <div className={styles.error}>{fieldErrors.name}</div>}
         <input
           className={styles.inputPlace}
           type="text"
@@ -129,6 +149,7 @@ const ActivityForm = () => {
           onChange={(e) => setPlace(e.target.value)}
           placeholder="Lieu de l'activité"
        />
+       {fieldErrors.name && <div className={styles.error}>{fieldErrors.place}</div>}
         <input
           className={styles.inputUrl}
           type="url"
@@ -138,6 +159,7 @@ const ActivityForm = () => {
           pattern="https?://.+"
           title="Please enter a valid URL."
         />
+        {fieldErrors.name && <div className={styles.error}>{fieldErrors.url}</div>}
         <div  className={styles.inpuDate}>
         
         <DatePicker
@@ -151,7 +173,7 @@ const ActivityForm = () => {
            </button>
           }
         />
-         
+         {fieldErrors.name && <div className={styles.error}>{fieldErrors.date}</div>}
        </div>
        <span className={styles.budget}>
          <label className={styles.budgettitle}>budget</label>
@@ -162,6 +184,7 @@ const ActivityForm = () => {
           onChange={(e) => setBudget(e.target.value)}
           placeholder="Budget"
         />
+        {fieldErrors.name && <div className={styles.error}>{fieldErrors.budget}</div>}
        </span>
     
         <textarea
@@ -171,6 +194,7 @@ const ActivityForm = () => {
            onChange={(e) => setDescription(e.target.value)}
            placeholder="Description de l'activité"
         />
+        {fieldErrors.name && <div className={styles.error}>{fieldErrors.description}</div>}
         <button
          className={styles.btnsubmit} 
          type="submit">Soumettre</button>
