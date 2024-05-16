@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import styles from '../../styles/ActivityForm.module.css';
+import styles from '../../styles/activityForm.module.css';
 import { addActivity, setTripDetails } from '../../reducers/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';

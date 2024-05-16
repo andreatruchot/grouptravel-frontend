@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
-import styles from '../styles/UserProfile.module.css';
+import styles from '../styles/userProfile.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 // Renommage nécessaire pour éviter un conflit de nom avec le hook useState
