@@ -64,7 +64,7 @@ const ActivityForm = () => {
   };
   const validateFields = () => {
     const errors = {};
-    if (!photo) errors.photo = 'L\ajout d\'une photo est obligatoire pour valider l\activité '
+    if (!photo) errors.photo = 'L\ajout d\'une photo est obligatoire'
     if (!name) errors.name = 'Le nom de l\'activité est obligatoire.';
     if (!place) errors.place = 'Le lieu de l\'activité est obligatoire.';
     if (!url) errors.url = 'L\'URL de l\'activité est obligatoire.';
