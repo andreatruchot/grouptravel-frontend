@@ -45,7 +45,7 @@ function App({ Component, pageProps }) {
               <title>FellowVoyagers</title>
               <meta name="description" content="Site d'organisation de voyages entre amis." />
               <meta property="og:url" content="https://www.fellowvoyagers.fr" />
-              <meta property="og:image" content="https://www.portfolio-andrea-truchot.com/globe.png" />
+              <meta property="og:image" content="https://www.fellowvoyagers.fr/globe.png" />
               <link rel="icon" href="/boussole.ico" />
              
             </Head>
