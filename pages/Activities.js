@@ -48,7 +48,7 @@ function Activities() {
         const data = await response.json();
         if (data.status !== undefined) {
           updateActivityStatus(activityId, data.status); 
-          console.log("Vote enregistré avec succès.");
+          alert("Vote enregistré avec succès.");
         } else {
           console.error("Réponse du serveur incomplète.");
         }

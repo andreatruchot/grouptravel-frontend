@@ -13,7 +13,7 @@ const AdminActivityPage = () => {
     const token = useSelector(state => state.user.value.token);
   
     useEffect(() => {
-        console.log("Selected Trip ID: ", selectedTripId);
+        //console.log("Selected Trip ID: ", selectedTripId);
         fetch(`https://grouptravel-backend-xi.vercel.app/activities/${selectedTripId}`, {
           method: 'GET',
           headers: {
@@ -39,19 +39,19 @@ const AdminActivityPage = () => {
       
   const handleSelectFixed = async (activityId) => {
     try {
-        console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${activityId}`);
+        //console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${activityId}`);
         
       const response = await fetch(`https://grouptravel-backend-xi.vercel.app/activities/select/${selectedTripId}/${activityId}`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${token}`, // Utilisez votre méthode d'authentification
+          Authorization: `Bearer ${token}`, // Utilise la méthode d'authentification
           'Content-Type': 'application/json',
         },
       });
       if (response.ok) {
         alert("Activité fixée avec succès.");
 
-         // Mettre à jour la liste des activités pour enlever l'activité fixée
+         // Met à jour la liste des activités pour enlever l'activité fixée
          const updatedActivities = activities.filter(activity => activity._id !== activityId);
          setActivities(updatedActivities);
         
@@ -120,7 +120,7 @@ const AdminActivityPage = () => {
   
 const handleSelectFixedAccomodation = async (accomodationId) => {
 try {
-    console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${accomodationId}`);
+    //console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${accomodationId}`);
     
   const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/select/${selectedTripId}/${accomodationId}`, {
     method: 'POST',

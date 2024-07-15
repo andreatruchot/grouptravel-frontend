@@ -63,12 +63,12 @@ const UserProfile = ({ username }) => {
             throw new Error('Failed to fetch trips');
           }
           const data = await response.json();
-          console.log("Données récupérées :", data); 
+          //console.log("Données récupérées :", data); 
 
           // pour afficher spécifiquement l'ID et le contenu de chaque voyage
           if (data.trips && data.trips.length > 0) {
             data.trips.forEach(trip => {
-              console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
+             // console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
             });
           }
 
@@ -112,7 +112,7 @@ const UserProfile = ({ username }) => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      console.log("Tentative de soumission du formulaire");
+      //console.log("Tentative de soumission du formulaire");
 
       setSelectedFile(file);
     }
@@ -123,7 +123,7 @@ const UserProfile = ({ username }) => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append('userPicture', selectedFile);
-      console.log("Préparation de l'envoi du fichier", formData);
+      //console.log("Préparation de l'envoi du fichier", formData);
 
       try {
         const response = await fetch('https://grouptravel-backend-xi.vercel.app/users/profilePicture', {
@@ -135,7 +135,7 @@ const UserProfile = ({ username }) => {
         });
         if (!response.ok) throw new Error('Failed to update profile picture');
         const data = await response.json();
-        console.log("Réponse du serveur :", data);
+        //console.log("Réponse du serveur :", data);
         setProfilePicture(data.userPicture);
         setShowModal(false);
       } catch (error) {

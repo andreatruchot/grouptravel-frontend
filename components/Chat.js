@@ -95,7 +95,7 @@ const Chat = () => {
       }
   
       const data = await response.json();
-      console.log(data.message); 
+      //console.log(data.message); 
       
     } catch (error) {
       console.error("Erreur lors de la suppression du message:", error);

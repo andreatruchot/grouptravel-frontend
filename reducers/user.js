@@ -49,7 +49,7 @@ export const userSlice = createSlice({
     },
     
     setTrips: (state, action) => {
-      console.log("action.payload", action.payload)
+      //console.log("action.payload", action.payload)
       state.value.trips = action.payload; // Mettre à jour les voyages dans l'état
     },
     updateTrips: (state, action) => {

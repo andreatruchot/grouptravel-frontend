@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Supposons que votre état initial contienne un tableau d'invitations
 const initialState = {
   invitations: [],
 };

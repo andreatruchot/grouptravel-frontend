@@ -54,7 +54,7 @@ const DashboardPage = () => {
           // Pour afficher spécifiquement l'ID et le contenu de chaque voyage
           if (data.trips && data.trips.length > 0) {
             data.trips.forEach(trip => {
-              console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
+              //console.log(`ID du voyage: ${trip.id}, Nom: ${trip.name}, Lieu: ${trip.location}`);
             });
           }
             //  dispatche l'action setTrips avec les données récupérées pour mettre à jour l'état global
@@ -98,7 +98,7 @@ const DashboardPage = () => {
          
         }
       } else {
-        console.log('selectedTripId est indéfini ou null, aucune requête envoyée.');
+        //console.log('selectedTripId est indéfini ou null, aucune requête envoyée.');
       }
     };
   
@@ -141,7 +141,7 @@ const DashboardPage = () => {
   const handleAddAccomodationClick = () => {
     router.push('/AddAccomodation');
   };
-  // Fonction pour naviguer vers AddActivity
+  // Fonction pour naviguer vers AddAccomodations
   const handleAccomodationClick = () => {
     router.push('/Accomodations');
   };
@@ -163,7 +163,7 @@ const DashboardPage = () => {
     router.push('/AddPictures');
   };
     // Rendu des détails du voyage sélectionné
-    console.log("Membres du voyage avec username:", tripDetails.members);
+    //console.log("Membres du voyage avec username:", tripDetails.members);
     // Calcul du budget total pour les activités en utilisant 'budget'
 const numberOfMembers = tripDetails.members.length;
 
@@ -177,7 +177,7 @@ const totalAccomodationsBudget = tripDetails.accomodations.reduce((acc, accomoda
 const totalGeneralBudget = totalActivitiesBudget + totalAccomodationsBudget;
 
 // Calcul du budget par personne  prend  en compte le nombre total de membres
-const budgetPerPerson = totalGeneralBudget / numberOfMembers; // Assurez-vous que numberOfMembers est > 0 pour éviter la division par zéro
+const budgetPerPerson = totalGeneralBudget / numberOfMembers; 
 
   
   // Rendu des détails du voyage sélectionné

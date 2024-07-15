@@ -26,7 +26,7 @@ function SignIn({ onCloseModal }) {
     .then((data) => {
       
       if (data.result) {
-        console.log("Connexion réussie");
+        //console.log("Connexion réussie");
         dispatch(login({ username: data.username, token: data.token, email: data.email }));
         if(onCloseModal) onCloseModal(); 
         router.push('/'); // Redirection vers la page d'accueil
