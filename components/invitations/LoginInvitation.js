@@ -16,7 +16,7 @@ function LoginInvitation({ onCloseModal }) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleLogin = () => {
-    fetch('https://grouptravel-backend-xi.vercel.app/invitations/login', {
+    fetch('https://grouptravel-backend.onrender.com/invitations/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, token}),

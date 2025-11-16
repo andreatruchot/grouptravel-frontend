@@ -94,7 +94,7 @@ const AdminActivityPage = () => {
   //Requête pour appeler les hébergements
   useEffect(() => {
     console.log("Selected Trip ID: ", selectedTripId);
-    fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/${selectedTripId}`, {
+    fetch(`https://grouptravel-backend.onrender.com/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -122,7 +122,7 @@ const handleSelectFixedAccomodation = async (accomodationId) => {
 try {
     //console.log(`Tentative de fixation pour le voyage ${selectedTripId} et l'activité ${accomodationId}`);
     
-  const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/select/${selectedTripId}/${accomodationId}`, {
+  const response = await fetch(`https://grouptravel-backend.onrender.com/accomodations/select/${selectedTripId}/${accomodationId}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`, 

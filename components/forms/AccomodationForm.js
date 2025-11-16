@@ -39,7 +39,7 @@ const AccommodationForm = () => {
     if (selectedTripId) {
       const fetchTripDetails = async () => {
         try {
-          const response = await fetch(`https://grouptravel-backend-xi.vercel.app/trips/details/${selectedTripId}`, {
+          const response = await fetch(`https://grouptravel-backend.onrender.com/trips/details/${selectedTripId}`, {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -75,7 +75,7 @@ const AccommodationForm = () => {
   
 
   const onFileSelect = (file) => {
-    console.log(file);
+    //console.log(file);
     setPhoto(file);
   };
 
@@ -96,7 +96,7 @@ if (photo) {
 }
 
 try {
-  const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/addAccomodation/${selectedTripId}`, {
+  const response = await fetch(`https://grouptravel-backend.onrender.com/accomodations/addAccomodation/${selectedTripId}`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -107,7 +107,7 @@ try {
 
   if (response.ok) {
     const responseData = await response.json();
-    console.log('hébergement ajoutée avec succès:', responseData);
+    alert('hébergement ajoutée avec succès:');
     //dispatch de refreshTripDetails pour ajouter l'activité directement avant le retour sur le dashboard
     dispatch(addAccomodation(responseData));
     router.push('/Dashboard');

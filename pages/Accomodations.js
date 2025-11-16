@@ -16,7 +16,7 @@ function Accomodations() {
 
   useEffect(() => {
    
-    fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/${selectedTripId}`, {
+    fetch(`https://grouptravel-backend.onrender.com/accomodations/${selectedTripId}`, {
       method: 'GET',
       headers: {
        
@@ -27,7 +27,7 @@ function Accomodations() {
     .then(response => response.json())
     .then(data => {
       if (data.result) {
-        console.log(data.accomodations);
+        //console.log(data.accomodations);
         setAccomodations(data.accomodations);
       } else {
         alert(data.message);
@@ -41,7 +41,7 @@ function Accomodations() {
 
   const handleVote = async (accomodationId, status) => {
     try {
-      const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/vote/${accomodationId}`, {
+      const response = await fetch(`https://grouptravel-backend.onrender.com/accomodations/vote/${accomodationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ function Accomodations() {
   const handleDeleteAccomodation = async (accomodationId) => {
     if(window.confirm("Êtes-vous sûr de vouloir supprimer cet hébergement ?")) {
         try {
-          const response = await fetch(`https://grouptravel-backend-xi.vercel.app/accomodations/${accomodationId}`, {
+          const response = await fetch(`https://grouptravel-backend.onrender.com/accomodations/${accomodationId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json',

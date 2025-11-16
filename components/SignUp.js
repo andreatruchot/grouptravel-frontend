@@ -38,7 +38,7 @@ function SignUp({ onCloseModal }) {
     return;
   }
      // Envoi de la requête d'inscription au backend
-    fetch('https://grouptravel-backend-xi.vercel.app/users/signup', {
+    fetch('https://grouptravel-backend.onrender.com/users/signup', {
       method: 'POST',
       // Spécifie les en-têtes de la requête, ici on définit que le contenu de la requête est en format JSON
       headers: { 'Content-Type': 'application/json' },
